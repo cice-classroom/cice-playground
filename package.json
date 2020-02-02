@@ -10,6 +10,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "husky": "4.2.1",
+    "lint-staged": "10.0.7",
     "prettier": "1.19.1"
+  },
+  "lint-staged": {
+    "modules/**/*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
