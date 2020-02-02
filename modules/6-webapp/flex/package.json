@@ -1,5 +1,5 @@
 {
-  "name": "flex",
+  "name": "cice-6-webapp-flex",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,8 @@
     "start": "serve"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "César Alberca",
+  "license": "MIT",
   "devDependencies": {
     "serve": "11.3.0"
   }

@@ -9,12 +9,13 @@ body {
 }
 
 .wrapper {
+  padding: 2rem;
   width: 100%;
   height: 100vh;
-  background-color: darksalmon;
 }
 
 .box {
   padding: 2rem;
-  background-color: antiquewhite;
+  margin: 1rem;
+  border: 5px solid darkgray;
 }
