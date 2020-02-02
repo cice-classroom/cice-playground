@@ -1,0 +1,15 @@
+{
+  "name": "cice-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"modules/**/*.{js,jsx,ts,tsx,json,css,md}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "1.19.1"
+  }
+}
