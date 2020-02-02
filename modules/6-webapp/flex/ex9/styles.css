@@ -1,0 +1,28 @@
+.row {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-box {
+  border: none;
+}
+
+.span-column-2 {
+  flex: 2;
+}
+
+.span-column-3 {
+  flex: 3;
+}
+
+.span-row-2 {
+  flex: 2;
+}
+
+.span-row-3 {
+  flex: 3;
+}
