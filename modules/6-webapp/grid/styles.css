@@ -24,16 +24,18 @@ body {
 .grid {
   height: 100%;
   display: grid;
-  grid-template-columns: 20rem 1fr;
+  grid-template-columns: repeat(6, 1fr 20px);
   grid-template-rows:
     200px
     1fr
     100px;
   font-size: 16px;
   padding: 1rem;
+  grid-template-areas: 'caja caja caja';
 }
 
 .box {
+  grid-area: caja;
   font-size: 20px;
   padding: var(--x);
   border-color: var(--red);
