@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"modules/**/*.{js,jsx,ts,tsx,json,css,md}\""
+    "format": "prettier --write \"modules/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "7.8.4",
+    "@babel/preset-env": "7.8.4",
+    "@types/jest": "25.1.1",
+    "babel-jest": "25.1.0",
     "husky": "4.2.1",
+    "jest": "25.1.0",
     "lint-staged": "10.0.7",
     "prettier": "1.19.1"
   },
