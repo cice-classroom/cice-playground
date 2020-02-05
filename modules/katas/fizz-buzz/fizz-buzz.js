@@ -1,6 +1,6 @@
 export function fizzBuzz(number) {
-  const results = []
-  for (let i = 1; i < number + 1; i++) {
+  let results = []
+  for (var i = 1; i < number + 1; i++) {
     if (i % 3 === 0) {
       results.push('fizz')
     } else if (i % 5 === 0) {
