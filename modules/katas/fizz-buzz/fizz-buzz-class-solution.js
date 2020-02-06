@@ -3,16 +3,15 @@
  * @returns {(number|string)[]}
  */
 export function fizzBuzz(number) {
-  const result = []
-  for (let i = 1; i <= number; i++) {
-    if (i % 3 === 0) {
-      result.push('fizz')
-    } else if (i % 5 === 0) {
-      result.push('buzz')
-    } else {
-      result.push(i)
+  const range = Array.from({ length: number }, (v, k) => k + 1)
+  return range.map(number => {
+    // early return
+    if (number % 3 === 0) {
+      return 'fizz'
+    } else if (number % 5 === 0) {
+      return 'buzz'
     }
-  }
 
-  return result
+    return number
+  })
 }
