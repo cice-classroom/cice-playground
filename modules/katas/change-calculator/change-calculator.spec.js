@@ -16,4 +16,19 @@ describe('bank', () => {
 
     expect(actual).toEqual([50, 20])
   })
+
+  it('should return several bills of the same amount when it can', () => {
+    const given = 100
+    const changeCalculator = new ChangeCalculator()
+    changeCalculator.configureAmounts(
+      new Map([
+        [100, 0],
+        [50, 2]
+      ])
+    )
+
+    const actual = changeCalculator.calculate(given)
+
+    expect(actual).toEqual([50, 50])
+  })
 })
