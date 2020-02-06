@@ -5,17 +5,18 @@ export class Calculator {
    * @returns {*}
    */
   calculate(string) {
-    if (string.includes('+')) {
-      const numbers = string.split('+').map(Number)
-      return numbers.reduce((sum, number) => sum + number, 0)
-    } else {
-      const numbers = string.split('-').map(Number)
-      return numbers.reduce((result, number, index) => {
-        if (index === 0) {
+    const hasSum = string.includes('+')
+    const numbers = string.split(hasSum ? '+' : '-').map(Number)
+    return numbers.reduce((result, number, index) => {
+      if (hasSum) {
+        return result + number
+      } else {
+        const shouldNotSubstract = index === 0
+        if (shouldNotSubstract) {
           return number
         }
         return result - number
-      })
-    }
+      }
+    })
   }
 }
