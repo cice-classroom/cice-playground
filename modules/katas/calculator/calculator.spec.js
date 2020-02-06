@@ -18,4 +18,13 @@ describe('Calculator', () => {
 
     expect(actual).toBe(3)
   })
+
+  it('should calculate a sum with more than 2 numbers of any particular number', () => {
+    const given = '3 + 1 + 11 + 20'
+    const calculator = new Calculator()
+
+    const actual = calculator.calculate(given)
+
+    expect(actual).toBe(35)
+  })
 })
