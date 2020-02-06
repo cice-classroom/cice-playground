@@ -1,1 +1,0 @@
-export function fizzBuzz(number) {}

@@ -10,6 +10,7 @@ Crear una clase que gestione operaciones de sumas y restas. Esta calculadora rec
 
 Gestionar divisiones y multiplicaciones, teniendo en cuenta el orden de la operación.
 
--   "3 \_ 3" → 9
--   "1 + 3 \_ 3" → 10
+-   "3 \* 3" → 9
+-   "1 + 3 \* 3" → 10
+-   "3 \ 3" → 1
 -   "1 + 3 / 3" → 2
