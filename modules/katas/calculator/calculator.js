@@ -5,18 +5,30 @@ export class Calculator {
    * @returns {*}
    */
   calculate(string) {
-    const hasSum = string.includes('+')
-    const numbers = string.split(hasSum ? '+' : '-').map(Number)
-    return numbers.reduce((result, number, index) => {
-      if (hasSum) {
-        return result + number
-      } else {
-        const shouldNotSubstract = index === 0
-        if (shouldNotSubstract) {
-          return number
+    const cleanString = string
+      .split('')
+      .filter(x => x !== ' ')
+      .join('')
+
+    let tempStringifiedNumber = ''
+    const numbers = []
+
+    for (let i = 0; i < cleanString.length; i++) {
+      if (cleanString[i] === '+' || cleanString[i] === '-') {
+        if (tempStringifiedNumber === '') {
+          tempStringifiedNumber += cleanString[i]
+        } else {
+          numbers.push(tempStringifiedNumber)
+          tempStringifiedNumber = ''
+          tempStringifiedNumber += cleanString[i]
         }
-        return result - number
+      } else {
+        tempStringifiedNumber += cleanString[i]
       }
-    })
+    }
+
+    numbers.push(tempStringifiedNumber)
+
+    return numbers.map(Number).reduce((result, value) => result + value, 0)
   }
 }
