@@ -11,7 +11,7 @@ export class Calculator {
     const sequence = []
 
     for (let character of cleanString) {
-      const isFoundSign = character === '+' || character === '-'
+      const isFoundSign = ['+', '-'].includes(character)
       if (isFoundSign) {
         characters = this.#isSignedFoundExceptFirsSign(sequence, characters, cleanString, character)
       } else {
