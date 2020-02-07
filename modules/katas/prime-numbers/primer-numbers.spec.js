@@ -36,4 +36,13 @@ describe('DecomposePrimeNumbers', () => {
 
     expect(actual).toEqual([2, 2, 3])
   })
+
+  it('should factor a complex number into prime numbers', () => {
+    const given = 9327186
+    const primeNumbersFactorer = new PrimeNumbersFactorer()
+
+    const actual = primeNumbersFactorer.factor(given)
+
+    expect(actual).toEqual([2, 3, 3, 11, 17, 17, 163])
+  })
 })
