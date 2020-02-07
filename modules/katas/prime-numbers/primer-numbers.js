@@ -9,7 +9,7 @@ export class PrimeNumbersFactorer {
     let result = number
 
     while (primes.reduce((a, b) => a * b, 1) !== number) {
-      if (this.#isPrimeNumber(currentNumber) && result % currentNumber === 0) {
+      if (result % currentNumber === 0) {
         primes.push(currentNumber)
         result /= currentNumber
       } else {
@@ -18,13 +18,5 @@ export class PrimeNumbersFactorer {
     }
 
     return primes
-  }
-
-  /**
-   * @param number
-   * @returns {boolean}
-   */
-  #isPrimeNumber(number) {
-    return true
   }
 }
