@@ -18,4 +18,13 @@ describe('DecomposePrimeNumbers', () => {
 
     expect(actual).toEqual([2, 5])
   })
+
+  it('should factor a number into prime numbers with more than 2 primes', () => {
+    const given = 70
+    const primeNumbersFactorer = new PrimeNumbersFactorer()
+
+    const actual = primeNumbersFactorer.factor(given)
+
+    expect(actual).toEqual([2, 5, 7])
+  })
 })

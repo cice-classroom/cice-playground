@@ -5,11 +5,15 @@ export class PrimeNumbersFactorer {
    */
   factor(number) {
     const primes = []
-    for (let i = 2; i < number; i++) {
-      if (this.#isPrimeNumber(i) && number % i === 0) {
-        primes.push(i)
+    let currentNumber = 2
+
+    while (primes.reduce((a, b) => a * b, 1) !== number) {
+      if (this.#isPrimeNumber(currentNumber) && number % currentNumber === 0) {
+        primes.push(currentNumber)
       }
+      currentNumber++
     }
+
     return primes
   }
 
