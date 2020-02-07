@@ -11,8 +11,8 @@ export class Calculator {
     const sequence = []
 
     for (let character of cleanString) {
-      const isFoundSign = ['+', '-'].includes(character)
-      if (isFoundSign) {
+      const isSignFound = ['+', '-'].includes(character)
+      if (isSignFound) {
         sequence.push(characters)
         characters = ''
       }
