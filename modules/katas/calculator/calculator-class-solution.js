@@ -7,26 +7,21 @@ export class Calculator {
   calculate(string) {
     const cleanString = string.replace(/ /g, '')
 
-    let tempStringifiedNumber = ''
-    const numbers = []
+    let characters = ''
+    const sequence = []
 
     for (let character of cleanString) {
       const isFoundSign = character === '+' || character === '-'
       if (isFoundSign) {
-        tempStringifiedNumber = this.#isSignedFoundExceptFirsSign(
-          numbers,
-          tempStringifiedNumber,
-          cleanString,
-          character
-        )
+        characters = this.#isSignedFoundExceptFirsSign(sequence, characters, cleanString, character)
       } else {
-        tempStringifiedNumber += character
+        characters += character
       }
     }
 
-    numbers.push(tempStringifiedNumber)
+    sequence.push(characters)
 
-    return numbers.map(Number).reduce((result, value) => result + value, 0)
+    return sequence.map(Number).reduce((result, value) => result + value, 0)
   }
 
   #isSignedFoundExceptFirsSign(numbers, tempStringifiedNumber, cleanString, character) {
