@@ -6,21 +6,30 @@ export class Calculator {
    */
   calculate(string) {
     const cleanString = string.replace(/ /g, '')
+    const sequence = this.#getSequence(cleanString)
+    const numbers = sequence.map(Number)
+    return numbers.reduce((result, value) => result + value, 0)
+  }
 
-    let characters = ''
+  /**
+   *
+   * @param {string} string
+   * @returns {[]}
+   */
+  #getSequence(string) {
+    let signedStringifiedNumber = ''
     const sequence = []
 
-    for (let character of cleanString) {
-      const isSignFound = ['+', '-'].includes(character)
+    for (let char of string) {
+      const isSignFound = ['+', '-'].includes(char)
       if (isSignFound) {
-        sequence.push(characters)
-        characters = ''
+        sequence.push(signedStringifiedNumber)
+        signedStringifiedNumber = ''
       }
-      characters += character
+      signedStringifiedNumber += char
     }
 
-    sequence.push(characters)
-
-    return sequence.map(Number).reduce((result, value) => result + value, 0)
+    sequence.push(signedStringifiedNumber)
+    return sequence
   }
 }
