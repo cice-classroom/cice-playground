@@ -2,7 +2,7 @@ export class Calculator {
   /**
    *
    * @param {string} string
-   * @returns {*}
+   * @returns {number}
    */
   calculate(string) {
     const cleanString = string.replace(/ /g, '')
@@ -14,7 +14,7 @@ export class Calculator {
   /**
    *
    * @param {string} string
-   * @returns {[]}
+   * @returns {string[]}
    */
   #getSequence(string) {
     let signedStringifiedNumber = ''
