@@ -46,7 +46,7 @@ describe('Calculator', () => {
     expect(actual).toBe(5)
   })
 
-  it('should perform multiple combined operations (adding and subtracting) when it starts in negative', () => {
+  it('should perform multiple combined operations (adding and subtracting) when it starts with a negative number', () => {
     const given = '-2 - 2 + 5'
     const calculator = new Calculator()
 

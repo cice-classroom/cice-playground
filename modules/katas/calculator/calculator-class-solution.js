@@ -13,17 +13,12 @@ export class Calculator {
     for (let i = 0; i < cleanString.length; i++) {
       const isFoundSign = cleanString[i] === '+' || cleanString[i] === '-'
       if (isFoundSign) {
-        const isFirstSignNegative = tempStringifiedNumber === ''
-        if (isFirstSignNegative) {
-          tempStringifiedNumber += cleanString[i]
-        } else {
-          tempStringifiedNumber = this.#isSignedFoundExceptFirsSign(
-            numbers,
-            tempStringifiedNumber,
-            cleanString,
-            i
-          )
-        }
+        tempStringifiedNumber = this.#isSignedFoundExceptFirsSign(
+          numbers,
+          tempStringifiedNumber,
+          cleanString,
+          i
+        )
       } else {
         tempStringifiedNumber += cleanString[i]
       }
