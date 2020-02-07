@@ -6,12 +6,15 @@ export class PrimeNumbersFactorer {
   factor(number) {
     const primes = []
     let currentNumber = 2
+    let result = number
 
     while (primes.reduce((a, b) => a * b, 1) !== number) {
-      if (this.#isPrimeNumber(currentNumber) && number % currentNumber === 0) {
+      if (this.#isPrimeNumber(currentNumber) && result % currentNumber === 0) {
         primes.push(currentNumber)
+        result /= currentNumber
+      } else {
+        currentNumber++
       }
-      currentNumber++
     }
 
     return primes

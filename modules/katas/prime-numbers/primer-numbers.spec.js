@@ -27,4 +27,13 @@ describe('DecomposePrimeNumbers', () => {
 
     expect(actual).toEqual([2, 5, 7])
   })
+
+  it('should factor a number into prime numbers with sequential prime numbers', () => {
+    const given = 12
+    const primeNumbersFactorer = new PrimeNumbersFactorer()
+
+    const actual = primeNumbersFactorer.factor(given)
+
+    expect(actual).toEqual([2, 2, 3])
+  })
 })
