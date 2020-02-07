@@ -15,10 +15,8 @@ export class Calculator {
       if (isFoundSign) {
         sequence.push(characters)
         characters = ''
-        characters += character
-      } else {
-        characters += character
       }
+      characters += character
     }
 
     sequence.push(characters)
