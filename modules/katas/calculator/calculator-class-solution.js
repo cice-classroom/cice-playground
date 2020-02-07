@@ -10,17 +10,17 @@ export class Calculator {
     let tempStringifiedNumber = ''
     const numbers = []
 
-    for (let i = 0; i < cleanString.length; i++) {
-      const isFoundSign = cleanString[i] === '+' || cleanString[i] === '-'
+    for (let character of cleanString) {
+      const isFoundSign = character === '+' || character === '-'
       if (isFoundSign) {
         tempStringifiedNumber = this.#isSignedFoundExceptFirsSign(
           numbers,
           tempStringifiedNumber,
           cleanString,
-          i
+          character
         )
       } else {
-        tempStringifiedNumber += cleanString[i]
+        tempStringifiedNumber += character
       }
     }
 
@@ -29,10 +29,10 @@ export class Calculator {
     return numbers.map(Number).reduce((result, value) => result + value, 0)
   }
 
-  #isSignedFoundExceptFirsSign(numbers, tempStringifiedNumber, cleanString, i) {
+  #isSignedFoundExceptFirsSign(numbers, tempStringifiedNumber, cleanString, character) {
     numbers.push(tempStringifiedNumber)
     tempStringifiedNumber = ''
-    tempStringifiedNumber += cleanString[i]
+    tempStringifiedNumber += character
     return tempStringifiedNumber
   }
 }
