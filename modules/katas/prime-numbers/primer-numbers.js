@@ -5,15 +5,15 @@ export class PrimeNumbersFactorer {
    */
   factor(number) {
     const primes = []
-    let currentNumber = 2
-    let result = number
+    const FIRST_PRIME_NUMBER = 2
+    let divisor = FIRST_PRIME_NUMBER
 
-    while (primes.reduce((a, b) => a * b, 1) !== number) {
-      if (result % currentNumber === 0) {
-        primes.push(currentNumber)
-        result /= currentNumber
+    while (number > FIRST_PRIME_NUMBER) {
+      if (number % divisor === 0) {
+        primes.push(divisor)
+        number /= divisor
       } else {
-        currentNumber++
+        divisor++
       }
     }
 
