@@ -13,7 +13,9 @@ export class Calculator {
     for (let character of cleanString) {
       const isFoundSign = ['+', '-'].includes(character)
       if (isFoundSign) {
-        characters = this.#isSignedFoundExceptFirsSign(sequence, characters, cleanString, character)
+        sequence.push(characters)
+        characters = ''
+        characters += character
       } else {
         characters += character
       }
@@ -22,12 +24,5 @@ export class Calculator {
     sequence.push(characters)
 
     return sequence.map(Number).reduce((result, value) => result + value, 0)
-  }
-
-  #isSignedFoundExceptFirsSign(numbers, tempStringifiedNumber, cleanString, character) {
-    numbers.push(tempStringifiedNumber)
-    tempStringifiedNumber = ''
-    tempStringifiedNumber += character
-    return tempStringifiedNumber
   }
 }
