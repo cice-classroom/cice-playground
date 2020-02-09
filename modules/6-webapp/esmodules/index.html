@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CICE - ESModules</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="module" src="foo.js"></script>
+  <script type="module">
+    import { sayHi } from './index.js'
+    import * as exports from './index.js'
+
+
+    console.log(exports.sayHi())
+
+    alert(sayHi())
+  </script>
+  <script type="module">
+    import './dynamic-import.js'
+  </script>
+</html>
