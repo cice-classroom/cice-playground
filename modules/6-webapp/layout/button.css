@@ -1,0 +1,23 @@
+.button {
+  outline: none;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  padding: var(--s) var(--m);
+  font-size: inherit;
+}
+
+.button i {
+  line-height: 0;
+}
+
+.button__primary {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+.button__secondary {
+  background-color: var(--on-primary-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}

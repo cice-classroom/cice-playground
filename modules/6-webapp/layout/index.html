@@ -3,16 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>CICE - Parcel</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <span class="header__logo"></span>
-      <input type="text" class="header__browse" />
+    <header class="header">
+      <span class="header__logo"><i class="material-icons">school</i></span>
+
+      <div class="header__search">
+        <i class="material-icons header__search__icon">search</i>
+        <input type="text" placeholder="Buscar en todas las categorías" class="header__search__browse" />
+      </div>
+
+      <a href="#messages">Mensajes</a>
+
+      <button class="button button__secondary">Regístrate o inicia sesión</button>
+      <button class="button button__primary"><i class="material-icons">add</i>Subir producto</button>
     </header>
     <main>
       <section class="categories">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolor dolorem eaque eos facilis fugit libero molestiae mollitia nostrum obcaecati quas quisquam reiciendis repudiandae soluta tempora totam vitae voluptatem, voluptatum?</p>
-
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolor dolorem eaque eos
+          facilis fugit libero molestiae mollitia nostrum obcaecati quas quisquam reiciendis
+          repudiandae soluta tempora totam vitae voluptatem, voluptatum?
+        </p>
       </section>
     </main>
     <script src="./index.js"></script>
