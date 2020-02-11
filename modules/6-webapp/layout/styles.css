@@ -2,6 +2,7 @@
 @import './theme.css';
 @import './header.css';
 @import './button.css';
+@import './categories.css';
 
 body {
   font-family: var(--body-font);
@@ -17,4 +18,9 @@ h5,
 h6 {
   font-family: var(--title-font);
   font-size: var(--title-size);
+}
+
+.wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
