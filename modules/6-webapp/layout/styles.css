@@ -1,0 +1,14 @@
+@import 'reset.css';
+@import 'theme.css';
+
+body {
+  font-family: sans-serif;
+  background-color: var(--surface-color);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

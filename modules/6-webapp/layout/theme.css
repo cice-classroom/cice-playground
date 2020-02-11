@@ -1,0 +1,12 @@
+:root {
+  --s: 0.5rem;
+  --m: 1rem;
+  --l: 2rem;
+  --xl: 4rem;
+
+  --primary-color: #20c1ac;
+  --on-primary-color: white;
+
+  --surface-color: white;
+  --on-surface-color: #253238;
+}
