@@ -16,5 +16,5 @@ export class HybridCar {
 }
 
 export class ElectricCar {
-  refuel() {}
+  charge() {}
 }
