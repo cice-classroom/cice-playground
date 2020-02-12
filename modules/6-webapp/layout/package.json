@@ -1,5 +1,5 @@
 {
-  "name": "parcel",
+  "name": "cice-6-webapp-layout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "César Alberca",
   "license": "MIT",
   "devDependencies": {
     "parcel-bundler": "1.12.4"
