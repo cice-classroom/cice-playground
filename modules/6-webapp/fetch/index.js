@@ -9,10 +9,4 @@ async function getComicUrl() {
   return comic.img
 }
 
-async function init() {
-  const url = await getComicUrl()
-  document.querySelectorAll('.slide').forEach(slide => slide.setAttribute('src', url))
-  new Carousel().init()
-}
-
-init()
+new Carousel().init().onNext(() => getComicUrl())
