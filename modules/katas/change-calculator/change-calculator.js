@@ -16,8 +16,9 @@ export class ChangeCalculator {
 
     if (moneyAmount === undefined || moneyAmount === 0) {
       const amounts = Array.from(this.#moneyAmounts)
-      const nextBelowMoneyAmount = amounts.findIndex(([amount, quantity]) => amount <= money && quantity > 0)
-      const [immediateBelowMoneyAmount, immediateBelowMoneyQuantity] = amounts[nextBelowMoneyAmount]
+      const [immediateBelowMoneyAmount, immediateBelowMoneyQuantity] = amounts.find(
+        ([amount, quantity]) => amount <= money && quantity > 0
+      )
       result.push(immediateBelowMoneyAmount)
       this.#moneyAmounts.set(immediateBelowMoneyAmount, immediateBelowMoneyQuantity - 1)
 

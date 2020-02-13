@@ -9,3 +9,7 @@ Si le pido cambio de 17 me daría un billete de 10, un billete de 5 y una moneda
 ## Extra
 
 Si el cambio que se devuelve no es equivalente al dinero inicial, devolver una lista vacía.
+
+## Muy Extra
+
+Que funcione con decimales.
