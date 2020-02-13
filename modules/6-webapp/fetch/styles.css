@@ -15,17 +15,6 @@ main {
   height: 100vh;
 }
 
-#root {
-  color: white;
-  font-size: 10vw;
-}
-
-:host {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -36,16 +25,22 @@ main {
   height: 0;
 }
 
+.carousel-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .carousel {
   margin: 0;
   display: flex;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-  height: 100%;
   white-space: nowrap;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 .carousel > * {
@@ -53,20 +48,12 @@ main {
   flex-direction: column;
   scroll-snap-align: start;
   margin: 0;
-  object-fit: cover;
+  height: auto;
+  min-width: 100%;
 }
 
 .indicator {
-  --indicator-size: 10px;
   outline: none;
   padding: 0;
-  width: var(--indicator-size);
-  height: var(--indicator-size);
-  background-color: var(--carousel-indicator-color);
-  border-radius: 100%;
   margin: var(--carousel-indicator-margin, 0 20px);
-}
-
-.is-active {
-  background-color: var(--carousel-indicator-active-color, gray);
 }
