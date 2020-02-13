@@ -13,21 +13,19 @@ export class ChangeCalculator {
 
   calculate(money, result = []) {
     const moneyAmount = this.#moneyAmounts.get(money)
+    const amounts = Array.from(this.#moneyAmounts)
+    const [immediateBelowMoneyAmount, immediateBelowMoneyQuantity] = amounts.find(
+      ([amount, quantity]) => amount <= money && quantity > 0
+    )
 
-    if (moneyAmount === undefined || moneyAmount === 0) {
-      const amounts = Array.from(this.#moneyAmounts)
-      const [immediateBelowMoneyAmount, immediateBelowMoneyQuantity] = amounts.find(
-        ([amount, quantity]) => amount <= money && quantity > 0
-      )
-      result.push(immediateBelowMoneyAmount)
-      this.#moneyAmounts.set(immediateBelowMoneyAmount, immediateBelowMoneyQuantity - 1)
+    result.push(immediateBelowMoneyAmount)
+    this.#moneyAmounts.set(immediateBelowMoneyAmount, immediateBelowMoneyQuantity - 1)
 
-      return this.calculate(money - immediateBelowMoneyAmount, result)
+    if (moneyAmount !== undefined && moneyAmount !== 0) {
+      return result
     }
 
-    result.push(money)
-    this.#moneyAmounts.set(money, moneyAmount - 1)
-    return result
+    return this.calculate(money - immediateBelowMoneyAmount, result)
   }
 
   configureAmounts(newAmounts) {
