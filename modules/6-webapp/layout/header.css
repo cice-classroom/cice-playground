@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  padding: var(--s) var(--m);
+  align-items: center;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.header > :not(*:last-child) {
+  margin-right: var(--m);
+}
+
+.header__logo {
+  margin-right: var(--m);
+}
+
+.header__search {
+  flex: 1;
+  display: flex;
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  align-items: center;
+  border-radius: 9999px;
+  padding: var(--s);
+}
+
+.header__search__icon {
+  margin-right: var(--s);
+}
+
+.header__search__browse {
+  width: 100%;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+}

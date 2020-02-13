@@ -1,0 +1,26 @@
+@import './reset.css';
+@import './theme.css';
+@import './header.css';
+@import './button.css';
+@import './categories.css';
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  background-color: var(--surface-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+  font-size: var(--title-size);
+}
+
+.wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}

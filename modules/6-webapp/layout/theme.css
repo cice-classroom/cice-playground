@@ -1,0 +1,24 @@
+:root {
+  --xs: 0.25rem;
+  --s: 0.5rem;
+  --m: 1rem;
+  --l: 2rem;
+  --xl: 4rem;
+
+  --body-size: 16px;
+  --title-size: 22px;
+
+  --body-font: sans-serif;
+  --title-font: sans-serif;
+
+  --primary-color: #20c1ac;
+  --on-primary-color: white;
+
+  --secondary-color: #eceff1;
+  --on-secondary-color: #253238;
+
+  --surface-color: white;
+  --on-surface-color: #253238;
+
+  --content-width: 60rem;
+}

@@ -1,0 +1,59 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.carousel-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel {
+  margin: 0;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.carousel > * {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  margin: 0;
+  height: auto;
+  min-width: 100%;
+}
+
+.indicator {
+  outline: none;
+  padding: 0;
+  margin: var(--carousel-indicator-margin, 0 20px);
+}
