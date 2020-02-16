@@ -4,46 +4,59 @@ export class Carousel {
   #nextSlidesSelector = '#next-slides'
   #previousSlidesSelector = '#previous-slides'
 
-  #currentIndex = 0
-  #numberOfSlides = 0
   #carousel = document.querySelector(this.#carouselSelector)
   #slides = document.querySelectorAll(this.#slidesSelector)
   #nextSlides = document.querySelector(this.#nextSlidesSelector)
   #previousSlides = document.querySelector(this.#previousSlidesSelector)
+
+  #currentIndex = 0
+  #lastFetchImage = 0
   #callback = () => {}
 
   init() {
-    this.#numberOfSlides = this.#slides.length
-    this.#setSlideEvents()
     this.#setSlideIndicatorsEvent()
     return this
   }
 
   onNext(callback) {
     this.#callback = callback.bind(this)
-    this.#nextSlide()
+    this.#createNextSlide(0)
     return this
+  }
+
+  #setSlideIndicatorsEvent() {
+    this.#nextSlides.addEventListener('click', async () => {
+      if (this.#currentIndex === this.#lastFetchImage) {
+        await this.#createNextSlide(this.#currentIndex + 1)
+      }
+      this.#nextSlide()
+    })
+
+    this.#previousSlides.addEventListener('click', () => {
+      this.#previousSlide()
+    })
+  }
+
+  #nextSlide() {
+    this.#slides[this.#currentIndex + 1].scrollIntoView()
   }
 
   #previousSlide() {
     this.#slides[this.#currentIndex - 1].scrollIntoView()
   }
 
-  async #nextSlide() {
-    const url = await this.#callback()
+  async #createNextSlide(id) {
+    const url = await this.#callback(id)
     const image = document.createElement('img')
     image.setAttribute('src', url)
-    image.dataset.id = this.#currentIndex
+    image.dataset.id = id.toString()
     this.#carousel.appendChild(image)
-    const nextSlide = this.#currentIndex + 1
     this.#slides = document.querySelectorAll(this.#slidesSelector)
-    this.#slides[nextSlide].scrollIntoView()
+    this.#lastFetchImage = id
     this.#setSlideEvents()
   }
 
   #setSlideEvents() {
-    this.#slides.forEach((element, i) => (element.dataset.id = i.toString()))
-
     const observer = new IntersectionObserver(
       entries => {
         const currentVisibleSlide = entries.reduce((max, entry) =>
@@ -55,23 +68,9 @@ export class Carousel {
       },
       {
         root: this.#carousel,
-        threshold: 0.5
+        threshold: 0.6
       }
     )
     this.#slides.forEach(element => observer.observe(element))
-  }
-
-  #range(upto) {
-    return Array.from({ length: upto }, (v, k) => k)
-  }
-
-  #setSlideIndicatorsEvent() {
-    this.#nextSlides.addEventListener('click', () => {
-      this.#nextSlide()
-    })
-
-    this.#previousSlides.addEventListener('click', () => {
-      this.#previousSlide()
-    })
   }
 }
