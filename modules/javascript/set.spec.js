@@ -1,5 +1,5 @@
-describe('map', () => {
-  it('should set a value with key foo and value bar', () => {})
+describe('set', () => {
+  it('should set a value', () => {})
 
   it('should set some value and get it', () => {})
 
