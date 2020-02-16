@@ -50,6 +50,7 @@ main {
   margin: 0;
   height: auto;
   min-width: 100%;
+  object-fit: scale-down;
 }
 
 .indicator {
