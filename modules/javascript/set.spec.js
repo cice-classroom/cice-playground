@@ -82,13 +82,22 @@ describe('set', () => {
     expect(actual).toEqual(['foo', 'bar'])
   })
 
+  it('should not have duplicates', () => {
+    const given = [1, 1, 2, 2, 3]
+    const set = new Set(given)
+
+    const actual = Array.from(set)
+
+    expect(actual).toEqual([1, 2, 3])
+  })
+
   it('should be iterated with a for loop', () => {
     const set = new Set()
     const actual = []
     set.add('foo')
     set.add('bar')
 
-    for (let value of set) {
+    for (const value of set) {
       actual.push(value)
     }
 
