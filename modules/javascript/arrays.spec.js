@@ -116,4 +116,35 @@ describe('arrays', () => {
 
     expect(actual).toBe(7)
   })
+
+  it('should remove all the keys of an object whose keys start with a', () => {
+    const given = {
+      a: 1,
+      ba: 2,
+      aa: 3,
+      ab: 4
+    }
+
+    expect(actual).toEqual({ ba: 2 })
+  })
+
+  it('should copy an object with a key of the object added dynamically when a random number is greater than 0.5 without mutating the object', () => {
+    const given = {
+      foo: 1,
+      dynamicProp: 2
+    }
+    const randomNumber = 0.5
+
+    expect(actual).toEqual({ foo: 1 })
+  })
+
+  it('should copy an object with a key of the object added dynamically when a random number is greater than 0.5 without mutating the object part 2', () => {
+    const given = {
+      foo: 1,
+      dynamicProp: 2
+    }
+    const randomNumber = 0.3
+
+    expect(actual).toEqual({ foo: 1, dynamicProp: 0.3 })
+  })
 })
