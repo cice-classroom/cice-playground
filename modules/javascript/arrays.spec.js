@@ -66,6 +66,15 @@ describe('arrays', () => {
   it('should return a count of all repeated elements', () => {
     const given = ['🍋', '🍉', '🍒', '🍋', '🍋', '🍎', '🍎', '🍐']
 
+    const actual = given.reduce((acc, currentValue) => {
+      if (acc[currentValue] === undefined) {
+        acc[currentValue] = 1
+      } else {
+        acc[currentValue]++
+      }
+      return acc
+    }, {})
+
     expect(actual).toEqual({
       '🍋': 3,
       '🍉': 1,
@@ -161,5 +170,37 @@ describe('arrays', () => {
     const randomNumber = 0.3
 
     expect(actual).toEqual({ foo: 1, dynamicProp: 0.3 })
+  })
+
+  it('should map properties that start with message into an object', () => {
+    const given = [
+      {
+        status: 409,
+        messageName: 'El nombre de usuario ya existe',
+        ok: false
+      },
+      {
+        status: 409,
+        messageEmail: 'El email no es correcto',
+        ok: false
+      },
+      {
+        status: 409,
+        messagePassword: 'Las contraseñas no coinciden',
+        ok: false
+      }
+    ]
+
+    const actual = Object.fromEntries(
+      given.flatMap(x => {
+        return Object.entries(x).filter(([key]) => key.startsWith('message'))
+      })
+    )
+
+    expect(actual).toEqual({
+      messageName: 'El nombre de usuario ya existe',
+      messageEmail: 'El email no es correcto',
+      messagePassword: 'Las contraseñas no coinciden'
+    })
   })
 })
