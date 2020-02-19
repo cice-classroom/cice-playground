@@ -5,5 +5,6 @@ module.exports = {
   resetMocks: false,
   resetModules: false,
   restoreMocks: false,
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  roots: ['modules']
 }
