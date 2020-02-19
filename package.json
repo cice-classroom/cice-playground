@@ -1,9 +1,10 @@
 {
   "name": "cice-playground",
   "version": "1.0.0",
-  "description": "",
+  "description": "CICE Master playground",
   "main": "index.js",
   "scripts": {
+    "compile": "tsc",
     "format": "prettier --write \"modules/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "test": "jest --coverage"
   },
@@ -21,7 +22,8 @@
     "jest": "25.1.0",
     "lint-staged": "10.0.7",
     "prettier": "1.19.1",
-    "ts-mockito": "2.5.0"
+    "ts-mockito": "2.5.0",
+    "typescript": "3.8.0-beta"
   },
   "lint-staged": {
     "modules/**/*.{ts,tsx,js,jsx,json,css,md}": [

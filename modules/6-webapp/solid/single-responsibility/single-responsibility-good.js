@@ -22,10 +22,10 @@ export class Brakes {
 }
 
 export class Car {
-  private readonly brakes = new Brakes()
-  private readonly engine = new Engine()
-  private readonly tires: Tire[] = [new Tire(), new Tire(), new Tire(), new Tire()]
-  private readonly fuelTank = new FuelTank()
+  brakes = new Brakes()
+  engine = new Engine()
+  tires = [new Tire(), new Tire(), new Tire(), new Tire()]
+  fuelTank = new FuelTank()
 
   move() {
     this.engine.accelerate()
