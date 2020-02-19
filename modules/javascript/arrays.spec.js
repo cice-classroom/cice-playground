@@ -157,9 +157,19 @@ describe('arrays', () => {
       foo: 1,
       dynamicProp: 2
     }
-    const randomNumber = 0.5
+
+    const randomNumber = 0.7
+
+    const actual = {
+      ...given
+    }
+
+    if (randomNumber > 0.5) {
+      delete actual.dynamicProp
+    }
 
     expect(actual).toEqual({ foo: 1 })
+    expect(given.dynamicProp).toBe(2)
   })
 
   it('should copy an object with a key of the object added dynamically when a random number is greater than 0.5 without mutating the object part 2', () => {
@@ -169,7 +179,7 @@ describe('arrays', () => {
     }
     const randomNumber = 0.3
 
-    expect(actual).toEqual({ foo: 1, dynamicProp: 0.3 })
+    expect(actual).toEqual({ foo: 1, dynamicProp: 2 })
   })
 
   it('should map properties that start with message into an object', () => {
