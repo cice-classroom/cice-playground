@@ -1,11 +1,12 @@
 export class WordWrapSolution {
   wrap(text: string, maxColumnLength: number): string {
-    return text
-      .split('')
-      .map((x, i) => {
-        const ending = (i + 1) % maxColumnLength === 0 && i !== 0 ? '\n' : ''
-        return x + ending
-      })
-      .join('')
+    if (text.length <= maxColumnLength) {
+      return text
+    }
+
+    const wrappedText = text.substring(0, maxColumnLength) + '\n'
+    const remainingText = text.substring(maxColumnLength)
+
+    return wrappedText + this.wrap(remainingText, maxColumnLength)
   }
 }
