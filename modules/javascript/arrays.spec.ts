@@ -66,7 +66,7 @@ describe('arrays', () => {
   it('should return a count of all repeated elements', () => {
     const given = ['🍋', '🍉', '🍒', '🍋', '🍋', '🍎', '🍎', '🍐']
 
-    const actual = given.reduce((acc, currentValue) => {
+    const actual = given.reduce((acc: Record<string, number>, currentValue) => {
       if (acc[currentValue] === undefined) {
         acc[currentValue] = 1
       } else {
@@ -85,11 +85,27 @@ describe('arrays', () => {
   })
 
   it('should group all objects by a property', () => {
-    const given = [
+    interface Person {
+      name: string
+      age: number
+    }
+
+    const given: Person[] = [
       { name: 'Alice', age: 21 },
       { name: 'Max', age: 20 },
       { name: 'Jane', age: 20 }
     ]
+
+    const actual = given.reduce((acc: Record<number, Person[]>, x) => {
+      const age = acc[x.age]
+      if (age === undefined) {
+        acc[x.age] = [x]
+      } else {
+        age.push(x)
+      }
+
+      return acc
+    }, {})
 
     expect(actual).toEqual({
       20: [
@@ -101,7 +117,12 @@ describe('arrays', () => {
   })
 
   it('should group all books in a single array without duplicates', () => {
-    const given = [
+    interface Person {
+      name: string
+      books: string[]
+      age: number
+    }
+    const given: Person[] = [
       {
         name: 'Anna',
         books: ['Dune', 'Harry Potter'],
@@ -119,6 +140,10 @@ describe('arrays', () => {
       }
     ]
 
+    const actual = Array.from(
+      new Set(given.reduce((acc: string[], person) => [...acc, ...person.books], []))
+    )
+
     expect(actual).toEqual([
       'Dune',
       'Harry Potter',
@@ -132,11 +157,15 @@ describe('arrays', () => {
   it('should make sure every element of the array is positive', () => {
     const given = [1, -2, -5, 9]
 
+    const actual = given.every(x => x > 0)
+
     expect(actual).toBe(false)
   })
 
   it('should add the length of all sub arrays', () => {
     const given = [1, [2, 3], [4, 5], [6, 7]]
+
+    const actual = given.flat().length
 
     expect(actual).toBe(7)
   })
@@ -148,6 +177,8 @@ describe('arrays', () => {
       aa: 3,
       ab: 4
     }
+
+    const actual = Object.fromEntries(Object.entries(given).filter(([key]) => !key.startsWith('a')))
 
     expect(actual).toEqual({ ba: 2 })
   })
@@ -161,14 +192,11 @@ describe('arrays', () => {
     const randomNumber = 0.7
 
     const actual = {
-      ...given
+      ...given,
+      ...(randomNumber > 0.5 && { dynamicProp: given.dynamicProp })
     }
 
-    if (randomNumber > 0.5) {
-      delete actual.dynamicProp
-    }
-
-    expect(actual).toEqual({ foo: 1 })
+    expect(actual).toEqual({ foo: 1, dynamicProp: 2 })
     expect(given.dynamicProp).toBe(2)
   })
 
@@ -179,7 +207,12 @@ describe('arrays', () => {
     }
     const randomNumber = 0.3
 
-    expect(actual).toEqual({ foo: 1, dynamicProp: 2 })
+    const actual = {
+      foo: given.foo,
+      ...(randomNumber > 0.5 && { dynamicProp: given.dynamicProp })
+    }
+
+    expect(actual).toEqual({ foo: 1 })
   })
 
   it('should map properties that start with message into an object', () => {
