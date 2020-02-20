@@ -84,4 +84,20 @@ describe('map', () => {
       ['bar', 'baz']
     ])
   })
+
+  it('should be iterated with a for loop', () => {
+    const map = new Map()
+    map.set('foo', 'bar')
+    map.set('bar', 'baz')
+    const actual = []
+
+    for (let item of map) {
+      actual.push(item)
+    }
+
+    expect(actual).toEqual([
+      ['foo', 'bar'],
+      ['bar', 'baz']
+    ])
+  })
 })
