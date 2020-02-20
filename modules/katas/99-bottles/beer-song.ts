@@ -14,14 +14,10 @@ Take one down and pass it around, ${number - 1} bottles of beer on the wall.\n`
   }
 
   sing(starting: number, ending = 0) {
-    return this.range(starting, ending)
-      .map(number => this.verse(number))
-      .join('\n')
-  }
-
-  private range(starting: number, ending: number) {
-    return Array.from({ length: starting - ending + 1 }, (_v, k) => ending + k)
-      .slice()
-      .reverse()
+    const song = []
+    for (let i = starting; i >= ending; i--) {
+      song.push(this.verse(i))
+    }
+    return song.join('\n')
   }
 }
