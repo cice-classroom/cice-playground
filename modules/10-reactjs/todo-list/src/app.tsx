@@ -53,7 +53,10 @@ export function App() {
           event.preventDefault()
         }}
       >
-        <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+        <label>
+          Todo
+          <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+        </label>
         <button onClick={() => setTodoText('')}>Clear todo</button>
         <button type="submit" onClick={createTodo}>
           Create todo
