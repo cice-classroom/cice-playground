@@ -1,23 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export function CreateTodo({
-  onChange,
-  onClick,
-  onSubmit,
-  value
-}: {
-  onSubmit: (event: React.FormEvent) => void
-  value: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onClick: () => void
-}) {
+export function CreateTodo({ onSubmit }: { onSubmit: (todoText: string) => void }) {
+  const [todoText, setTodoText] = useState('')
+
   return (
-    <form onSubmit={onSubmit}>
+    <form
+      onSubmit={event => {
+        event.preventDefault()
+        onSubmit(todoText)
+        setTodoText('')
+      }}
+    >
       <label>
         Todo
-        <input value={value} onChange={onChange} />
+        <input value={todoText} onChange={event => setTodoText(event.target.value)} />
       </label>
-      <button onClick={onClick}>Clear todo</button>
+      <button onClick={() => setTodoText('')}>Clear todo</button>
       <button type="submit">Create todo</button>
     </form>
   )

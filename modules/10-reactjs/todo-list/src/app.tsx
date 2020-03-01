@@ -5,12 +5,10 @@ import { Todo } from './todo'
 
 export function App() {
   const [todos, setTodos] = useState<Todo[]>([])
-  const [todoText, setTodoText] = useState('')
 
-  function createTodo() {
+  function createTodo(todoText: string) {
     const newTodo = { id: Math.random() * 1000, text: todoText, completed: false }
     setTodos([...todos, newTodo])
-    setTodoText('')
   }
 
   function completeTodo(id: number) {
@@ -32,13 +30,9 @@ export function App() {
     <>
       <TodoList todos={todos} completeTodo={completeTodo} />
       <CreateTodo
-        onSubmit={event => {
-          event.preventDefault()
-          createTodo()
+        onSubmit={todoText => {
+          createTodo(todoText)
         }}
-        value={todoText}
-        onChange={event => setTodoText(event.target.value)}
-        onClick={() => setTodoText('')}
       />
     </>
   )
