@@ -51,6 +51,7 @@ export function App() {
       <form
         onSubmit={event => {
           event.preventDefault()
+          createTodo()
         }}
       >
         <label>
@@ -58,9 +59,7 @@ export function App() {
           <input value={todoText} onChange={event => setTodoText(event.target.value)} />
         </label>
         <button onClick={() => setTodoText('')}>Clear todo</button>
-        <button type="submit" onClick={createTodo}>
-          Create todo
-        </button>
+        <button type="submit">Create todo</button>
       </form>
     </>
   )

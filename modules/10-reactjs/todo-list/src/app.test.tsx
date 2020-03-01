@@ -1,15 +1,18 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, fireEvent, within } from '@testing-library/react'
 import { App } from './app'
 
 describe('app', () => {
   it('should create a todo', () => {
-    const { getByText, getByLabelText, debug} = render(<App />)
+    const { getByLabelText, getByRole } = render(<App />)
+    const list = getByRole('list')
     const label = getByLabelText('Todo')
-    debug(label)
+    const form = getByRole('form')
 
-    const createTodo = getByText('Create todo')
+    fireEvent.change(label, { target: { value: 'New todo' } })
+    fireEvent.submit(form)
 
-    expect(createTodo).toBeInTheDocument()
+    const newTodo = within(list).getByText('New todo')
+    expect(newTodo).toBeInTheDocument()
   })
 })
