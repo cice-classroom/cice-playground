@@ -11,10 +11,7 @@ interface Todo {
 }
 
 export function App() {
-  const [todos, setTodos] = useState<Todo[]>([
-    { id: 1, text: 'Hacer la compra', completed: false },
-    { id: 2, text: 'Ir al gimnasio', completed: false }
-  ])
+  const [todos, setTodos] = useState<Todo[]>([])
   const [todoText, setTodoText] = useState('')
 
   function createTodo() {
