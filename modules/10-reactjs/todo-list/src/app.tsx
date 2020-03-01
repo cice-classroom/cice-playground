@@ -30,7 +30,7 @@ export function App() {
     <>
       <TodoList todos={todos} completeTodo={completeTodo} />
       <CreateTodo
-        onSubmit={todoText => {
+        onCreate={todoText => {
           createTodo(todoText)
         }}
       />

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-export function CreateTodo({ onSubmit }: { onSubmit: (todoText: string) => void }) {
+export function CreateTodo({ onCreate }: { onCreate: (todoText: string) => void }) {
   const [todoText, setTodoText] = useState('')
 
   return (
     <form
       onSubmit={event => {
         event.preventDefault()
-        onSubmit(todoText)
+        onCreate(todoText)
         setTodoText('')
       }}
     >
