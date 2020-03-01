@@ -1,14 +1,7 @@
 import React, { useState } from 'react'
-import styles from './app.module.css'
-import { bind } from './utils/bind'
-
-const cx = bind(styles)
-
-interface Todo {
-  id: number
-  text: string
-  completed: boolean
-}
+import { CreateTodo } from './create-todo/create-todo'
+import { TodoList } from './todo-list/todo-list'
+import { Todo } from './todo'
 
 export function App() {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -37,27 +30,16 @@ export function App() {
 
   return (
     <>
-      <ul>
-        {todos.map(todo => (
-          <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-            <span></span>
-            <li className={cx({ completed: todo.completed })}>{todo.text}</li>
-          </div>
-        ))}
-      </ul>
-      <form
+      <TodoList todos={todos} completeTodo={completeTodo} />
+      <CreateTodo
         onSubmit={event => {
           event.preventDefault()
           createTodo()
         }}
-      >
-        <label>
-          Todo
-          <input value={todoText} onChange={event => setTodoText(event.target.value)} />
-        </label>
-        <button onClick={() => setTodoText('')}>Clear todo</button>
-        <button type="submit">Create todo</button>
-      </form>
+        value={todoText}
+        onChange={event => setTodoText(event.target.value)}
+        onClick={() => setTodoText('')}
+      />
     </>
   )
 }
