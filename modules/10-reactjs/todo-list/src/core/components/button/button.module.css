@@ -1,0 +1,16 @@
+.button {
+  appearance: none;
+  border: none;
+  background-color: var(--button-background);
+  color: var(--button-text);
+}
+
+.primary {
+  --button-background: var(--primary-color);
+  --button-text: var(--on-primary-color);
+}
+
+.secondary {
+  --button-background: var(--secondary-color);
+  --button-text: var(--on-secondary-color);
+}

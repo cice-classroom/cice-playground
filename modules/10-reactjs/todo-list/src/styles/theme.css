@@ -1,5 +1,9 @@
 :root {
   --primary-color: peachpuff;
+  --on-primary-color: indianred;
+
+  --secondary-color: rebeccapurple;
+  --on-secondary-color: white;
 
   --body-font: 'Open sans';
   --title-font: 'Open sans';
