@@ -17,6 +17,7 @@
   --l: calc(var(--base) * 8);
 
   /* Misc */
+  --content-width: 40rem;
   --shadow: 0px 3px 15px 0px hsla(0, 0%, 0%, 0.3);
   --radius: 5px;
 }
