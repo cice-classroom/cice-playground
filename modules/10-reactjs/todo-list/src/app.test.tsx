@@ -1,43 +1,57 @@
 import React from 'react'
-import { render, fireEvent, within } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { App } from './app'
 
 describe('app', () => {
   it('should create a todo', () => {
-    const { getByLabelText, getByRole } = render(<App />)
-    const list = getByRole('list')
-    const input = getByLabelText('Todo')
-    const form = getByRole('form')
+    const { getByText, createTodo } = setup()
 
-    fireEvent.change(input, { target: { value: 'New todo' } })
-    fireEvent.submit(form)
+    createTodo('New todo')
 
-    const newTodo = within(list).getByText('New todo')
+    const newTodo = getByText('New todo')
     expect(newTodo).toBeInTheDocument()
   })
 
-  it('should complete a todo', () => {
-    const { getByLabelText, getByRole } = render(<App />)
-    const list = getByRole('list')
-    const input = getByLabelText('Todo')
-    const form = getByRole('form')
-    fireEvent.change(input, { target: { value: 'New todo' } })
-    fireEvent.submit(form)
+  it('should clear the todo input when creating todo', () => {
+    const { createTodo, getInput } = setup()
 
-    const newTodo = within(list).getByText('New todo')
+    createTodo('New todo')
+
+    expect(getInput()).toHaveValue('')
+  })
+
+  it('should complete a todo', () => {
+    const { createTodo, getInput, getByText } = setup()
+    createTodo('Old todo')
+    createTodo('New todo')
+
+    const newTodo = getByText('New todo')
+    const oldTodo = getByText('Old todo')
     fireEvent.click(newTodo)
 
     expect(newTodo).toHaveClass('completed')
-  })
-
-  it('should clear the input when creating a todo', () => {
-    const { getByLabelText, getByRole, debug } = render(<App />)
-    const input = getByLabelText('Todo')
-    const form = getByRole('form')
-
-    fireEvent.change(input, { target: { value: 'New todo' } })
-    fireEvent.submit(form)
-
-    expect(input).toHaveValue('')
+    expect(oldTodo).not.toHaveClass('completed')
   })
 })
+
+function setup() {
+  const rendered = render(<App />)
+
+  function createTodo(text: string) {
+    const input = getInput()
+    const form = rendered.getByRole('form')
+
+    fireEvent.change(input, { target: { value: text } })
+    fireEvent.submit(form)
+  }
+
+  function getInput() {
+    return rendered.getByLabelText('Todo')
+  }
+
+  return {
+    ...rendered,
+    createTodo,
+    getInput
+  }
+}

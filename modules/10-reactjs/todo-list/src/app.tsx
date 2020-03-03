@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { CreateTodo } from './create-todo/create-todo'
-import { TodoList } from './todo-list/todo-list'
-import { Todo } from './todo'
+import { TodoList } from './features/todo/ui/todo-list/todo-list'
+import { Todo } from './features/todo/domain/todo'
+import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
 
 export function App() {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -28,12 +28,8 @@ export function App() {
 
   return (
     <>
-      <TodoList todos={todos} completeTodo={completeTodo} />
-      <CreateTodo
-        onCreate={todoText => {
-          createTodo(todoText)
-        }}
-      />
+      <TodoList todos={todos} onCompleteTodo={completeTodo}></TodoList>
+      <TodoCreate onCreate={createTodo} />
     </>
   )
 }
