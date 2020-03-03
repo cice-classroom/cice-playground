@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from '../../../../core/components/button/button'
 
 interface Props {
   onCreate(todoText: string): void
@@ -21,8 +22,8 @@ export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate }) => {
         Todo
         <input value={todoText} onChange={event => setTodoText(event.target.value)} />
       </label>
-      <button onClick={clearTodo}>Clear todo</button>
-      <button type="submit">Create todo</button>
+      <Button onClick={clearTodo}>Clear todo</Button>
+      <Button submit>Create todo</Button>
     </form>
   )
 }

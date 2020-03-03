@@ -4,25 +4,24 @@ import styles from './button.module.css'
 
 const cx = bind(styles)
 
-interface Props {
-  className?: string
-  onClick?(): void
+interface Props extends React.HTMLProps<HTMLButtonElement> {
   theme?: 'primary' | 'secondary'
   submit?: boolean
 }
 
 export const Button: React.FunctionComponent<Props> = ({
   children,
-  onClick,
-  theme,
   className,
-  submit = false
+  theme,
+  submit,
+  type: unusedType,
+  ...rest
 }) => {
   return (
     <button
-      type={submit ? 'submit' : 'button'}
-      onClick={onClick}
       className={cx('button', theme, className)}
+      type={submit ? 'submit' : 'button'}
+      {...rest}
     >
       {children}
     </button>
