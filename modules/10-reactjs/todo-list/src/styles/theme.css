@@ -1,16 +1,19 @@
 :root {
   /* Palette */
-  --primary-color: peachpuff;
+  --primary-color: hsl(226, 100%, 50%);
   --on-primary-color: indianred;
 
   --secondary-color: rebeccapurple;
   --on-secondary-color: white;
 
-  --gray-color: gray;
+  --gray-color: hsl(0, 0%, 80%);
+  --gray-color-900: hsl(0, 0%, 20%);
 
   /* Typography */
   --body-font: 'Open sans';
   --title-font: 'Open sans';
+  --body-size: 16px;
+  --subtitle-size: 14px;
 
   /* Spacing */
   --base: 0.25rem;

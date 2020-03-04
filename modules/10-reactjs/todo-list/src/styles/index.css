@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: var(--body-font);
+  font-size: var(--body-size);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

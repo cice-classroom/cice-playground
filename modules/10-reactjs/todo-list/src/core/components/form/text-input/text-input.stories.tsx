@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { TextInput } from './text-input'
 
 export default {
@@ -6,6 +6,14 @@ export default {
   component: TextInput
 }
 
-export const base = () => (
-  <TextInput value={'Hola'} label="My input" onChange={() => {}}></TextInput>
-)
+const WithState: React.FC = () => {
+  const [value, setValue] = useState('')
+  return (
+    <>
+      <TextInput value={value} label="My input" onChange={setValue}></TextInput>
+      {value}
+    </>
+  )
+}
+
+export const base = WithState
