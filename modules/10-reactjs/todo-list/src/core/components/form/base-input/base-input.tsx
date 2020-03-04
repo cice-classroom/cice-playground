@@ -15,11 +15,13 @@ export const BaseInput: React.FunctionComponent<Props> = ({
   value,
   onChange,
   type,
+  required,
   endSlot
 }) => {
   return (
     <label className={cx('label')}>
       {label}
+      {required ? '*' : ''}
       <input
         className={cx('input')}
         onChange={event => onChange(event.target.value)}

@@ -10,13 +10,15 @@ const cx = bind(styles)
 export const PasswordInput: React.FunctionComponent<Input<string>> = ({
   label,
   value,
-  onChange
+  onChange,
+  required
 }) => {
   const [isShowing, setIsShowing] = useState(false)
   return (
     <BaseInput
       label={label}
       value={value}
+      required={required}
       onChange={onChange}
       type={isShowing ? 'text' : 'password'}
       endSlot={
