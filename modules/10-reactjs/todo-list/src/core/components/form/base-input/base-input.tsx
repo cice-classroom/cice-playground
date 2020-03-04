@@ -1,17 +1,22 @@
 import React from 'react'
 import styles from './base-input.module.css'
 import { bind } from '../../../../utils/bind'
+import { Input } from '../input'
 
 const cx = bind(styles)
 
-interface Props {
-  label: string
-  value: string
-  onChange(value: string): void
+interface Props extends Input<string | number> {
   type: 'password' | 'text'
+  endSlot?: React.ReactNode
 }
 
-export const BaseInput: React.FunctionComponent<Props> = ({ label, value, onChange, type }) => {
+export const BaseInput: React.FunctionComponent<Props> = ({
+  label,
+  value,
+  onChange,
+  type,
+  endSlot
+}) => {
   return (
     <label className={cx('label')}>
       {label}
@@ -21,6 +26,7 @@ export const BaseInput: React.FunctionComponent<Props> = ({ label, value, onChan
         type={type}
         value={value}
       />
+      {endSlot}
     </label>
   )
 }

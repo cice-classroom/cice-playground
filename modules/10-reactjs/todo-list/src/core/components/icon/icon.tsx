@@ -5,18 +5,25 @@ import { Size } from '../size'
 
 const cx = bind(styles)
 
-type IconName = 'check' | 'cross'
+type IconName = 'check' | 'cross' | 'openEye' | 'closedEye'
 
 interface Props {
   name: IconName
+  onClick?(): void
   size?: Size
 }
 
 const icons: Record<IconName, string> = {
   check: '✅',
-  cross: '❌'
+  cross: '❌',
+  openEye: '◎',
+  closedEye: '◉'
 }
 
-export const Icon: React.FunctionComponent<Props> = ({ name, size = 'm' }) => {
-  return <i className={cx('icon', `icon-size-${size}`)}>{icons[name]}</i>
+export const Icon: React.FunctionComponent<Props> = ({ name, size = 'm', onClick }) => {
+  return (
+    <i onClick={onClick} className={cx('icon', `icon-size-${size}`)}>
+      {icons[name]}
+    </i>
+  )
 }
