@@ -2,24 +2,16 @@ import React, { useState } from 'react'
 import styles from './password-input.module.css'
 import { bind } from '../../../../utils/bind'
 import { BaseInput } from '../base-input/base-input'
-import { Input } from '../input'
 import { Icon } from '../../icon/icon'
+import { Input } from '../input'
 
 const cx = bind(styles)
 
-export const PasswordInput: React.FunctionComponent<Input<string>> = ({
-  label,
-  value,
-  onChange,
-  required
-}) => {
+export const PasswordInput: React.FunctionComponent<Input<string>> = props => {
   const [isShowing, setIsShowing] = useState(false)
   return (
     <BaseInput
-      label={label}
-      value={value}
-      required={required}
-      onChange={onChange}
+      {...props}
       type={isShowing ? 'text' : 'password'}
       endSlot={
         <Icon

@@ -6,13 +6,6 @@ import { Input } from '../input'
 
 const cx = bind(styles)
 
-export const TextInput: React.FunctionComponent<Input<string>> = ({
-  label,
-  value,
-  onChange,
-  required
-}) => {
-  return (
-    <BaseInput required={required} label={label} value={value} onChange={onChange} type={'text'} />
-  )
+export const TextInput: React.FunctionComponent<Input<string>> = props => {
+  return <BaseInput {...props} type={'text'} />
 }

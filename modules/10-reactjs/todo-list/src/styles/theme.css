@@ -6,8 +6,8 @@
   --secondary-color: rebeccapurple;
   --on-secondary-color: white;
 
-  --gray-color: hsl(0, 0%, 80%);
-  --gray-color-900: hsl(0, 0%, 20%);
+  --gray-color: hsl(0, 0%, 90%);
+  --gray-color-900: hsl(0, 0%, 50%);
 
   /* Typography */
   --body-font: 'Open sans';

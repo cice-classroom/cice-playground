@@ -6,14 +6,20 @@ export default {
   component: PasswordInput
 }
 
-const WithState: React.FC = () => {
+const WithState: React.FC<{ isRequired: boolean }> = ({ isRequired }) => {
   const [value, setValue] = useState('')
   return (
     <>
-      <PasswordInput value={value} label="My input" onChange={setValue}></PasswordInput>
-      {value}
+      <PasswordInput
+        required={isRequired}
+        value={value}
+        label="My input"
+        onChange={setValue}
+      ></PasswordInput>
+      State:{value}
     </>
   )
 }
 
-export const base = WithState
+export const base = () => <WithState isRequired={false} />
+export const required = () => <WithState isRequired={true} />

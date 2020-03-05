@@ -1,34 +1,39 @@
 import React from 'react'
 import styles from './base-input.module.css'
 import { bind } from '../../../../utils/bind'
-import { Input } from '../input'
 
 const cx = bind(styles)
 
-interface Props extends Input<string | number> {
-  type: 'password' | 'text'
+interface Props {
+  label: string
+  value: string
+  required?: boolean
+  type: 'text' | 'password'
   endSlot?: React.ReactNode
+  onChange(value: string): void
 }
 
 export const BaseInput: React.FunctionComponent<Props> = ({
   label,
   value,
   onChange,
-  type,
   required,
+  type,
   endSlot
 }) => {
+  const isRequired = required && value === ''
   return (
-    <label className={cx('label')}>
+    <label>
       {label}
-      {required ? '*' : ''}
       <input
-        className={cx('input')}
+        className={cx('input', { required: isRequired })}
         onChange={event => onChange(event.target.value)}
-        type={type}
         value={value}
+        type={type}
       />
-      {endSlot}
+      {isRequired && <span>Required field</span>}
+      {/*{required && value === '' ? <span>Required field</span> : null}*/}
+      <div>{endSlot}</div>
     </label>
   )
 }

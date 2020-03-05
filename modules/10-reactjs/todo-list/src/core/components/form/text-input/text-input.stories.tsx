@@ -7,7 +7,7 @@ export default {
 }
 
 const WithState: React.FC<{ isRequired: boolean }> = ({ isRequired }) => {
-  const [value, setValue] = useState('Hola')
+  const [value, setValue] = useState('')
   return (
     <>
       <TextInput
@@ -16,7 +16,7 @@ const WithState: React.FC<{ isRequired: boolean }> = ({ isRequired }) => {
         label="My input"
         onChange={setValue}
       ></TextInput>
-      {value}
+      State:{value}
     </>
   )
 }

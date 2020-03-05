@@ -1,6 +1,6 @@
-export interface Input<T> {
+export interface Input<Type> {
   label: string
+  value: Type
   required?: boolean
-  value: T
-  onChange(value: T): void
+  onChange(value: Type): void
 }
