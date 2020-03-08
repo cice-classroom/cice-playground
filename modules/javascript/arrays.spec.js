@@ -66,7 +66,7 @@ describe('arrays', () => {
   it('should return a count of all repeated elements', () => {
     const given = ['🍋', '🍉', '🍒', '🍋', '🍋', '🍎', '🍎', '🍐']
 
-    const actual = given.reduce((acc: Record<string, number>, currentValue) => {
+    const actual = given.reduce((acc, currentValue) => {
       if (acc[currentValue] === undefined) {
         acc[currentValue] = 1
       } else {
@@ -85,18 +85,13 @@ describe('arrays', () => {
   })
 
   it('should group all objects by a property', () => {
-    interface Person {
-      name: string
-      age: number
-    }
-
-    const given: Person[] = [
+    const given = [
       { name: 'Alice', age: 21 },
       { name: 'Max', age: 20 },
       { name: 'Jane', age: 20 }
     ]
 
-    const actual = given.reduce((acc: Record<number, Person[]>, x) => {
+    const actual = given.reduce((acc, x) => {
       const age = acc[x.age]
       if (age === undefined) {
         acc[x.age] = [x]
@@ -117,12 +112,7 @@ describe('arrays', () => {
   })
 
   it('should group all books in a single array without duplicates', () => {
-    interface Person {
-      name: string
-      books: string[]
-      age: number
-    }
-    const given: Person[] = [
+    const given = [
       {
         name: 'Anna',
         books: ['Dune', 'Harry Potter'],
@@ -140,9 +130,7 @@ describe('arrays', () => {
       }
     ]
 
-    const actual = Array.from(
-      new Set(given.reduce((acc: string[], person) => [...acc, ...person.books], []))
-    )
+    const actual = Array.from(new Set(given.reduce((acc, person) => [...acc, ...person.books], [])))
 
     expect(actual).toEqual([
       'Dune',
