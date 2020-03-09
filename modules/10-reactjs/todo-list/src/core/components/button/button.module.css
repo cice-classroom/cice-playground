@@ -3,6 +3,16 @@
   border: none;
   background-color: var(--button-background);
   color: var(--button-text);
+  padding: var(--m);
+  border-radius: var(--radius);
+  font-size: inherit;
+  border: 1px solid var(--gray-color-900);
+  transition: 0.5s ease transform;
+}
+
+.button:hover {
+  filter: brightness(120%);
+  transform: translateY(-3px);
 }
 
 .primary {

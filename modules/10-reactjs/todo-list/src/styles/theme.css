@@ -1,7 +1,7 @@
 :root {
   /* Palette */
   --primary-color: hsl(226, 100%, 50%);
-  --on-primary-color: indianred;
+  --on-primary-color: white;
 
   --secondary-color: rebeccapurple;
   --on-secondary-color: white;
@@ -12,7 +12,7 @@
   /* Typography */
   --body-font: 'Open sans';
   --title-font: 'Open sans';
-  --body-size: 16px;
+  --body-size: 18px;
   --subtitle-size: 14px;
 
   /* Spacing */

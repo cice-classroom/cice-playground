@@ -23,7 +23,9 @@ export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate }) => {
         <input value={todoText} onChange={event => setTodoText(event.target.value)} />
       </label>
       <Button onClick={clearTodo}>Clear todo</Button>
-      <Button submit>Create todo</Button>
+      <Button theme={'primary'} submit>
+        Create todo
+      </Button>
     </form>
   )
 }
