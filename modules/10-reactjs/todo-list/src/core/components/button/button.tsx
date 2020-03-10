@@ -7,6 +7,7 @@ const cx = bind(styles)
 interface Props extends React.HTMLProps<HTMLButtonElement> {
   theme?: 'primary' | 'secondary'
   submit?: boolean
+  isDisabled?: boolean
 }
 
 export const Button: React.FunctionComponent<Props> = ({
@@ -14,12 +15,14 @@ export const Button: React.FunctionComponent<Props> = ({
   className,
   theme,
   submit,
+  isDisabled,
   ...rest
 }) => {
   return (
     <button
       className={cx('button', theme, className)}
       {...rest}
+      disabled={isDisabled}
       type={submit ? 'submit' : 'button'}
     >
       {children}

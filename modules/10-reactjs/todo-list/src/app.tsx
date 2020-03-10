@@ -30,7 +30,7 @@ export function App() {
   return (
     <Page>
       <TodoList todos={todos} onCompleteTodo={completeTodo}></TodoList>
-      <TodoCreate onCreate={createTodo} />
+      <TodoCreate onCreate={createTodo} todos={todos} />
     </Page>
   )
 }
