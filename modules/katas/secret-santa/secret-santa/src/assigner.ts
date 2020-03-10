@@ -10,11 +10,9 @@ export class Assigner {
     const randomizedNames = this.randomizeArray(names)
 
     for (let [index, name] of randomizedNames.entries()) {
-      if (name === names[index]) {
-        return this.assign(names)
-      }
-
-      assignments[name] = names[index]
+      const nextIndex = index + 1
+      const assignee = nextIndex === randomizedNames.length ? 0 : nextIndex
+      assignments[name] = randomizedNames[assignee]
     }
 
     return assignments
