@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './app.module.css'
 import { bind } from './bind'
-import { YesNoHttpRepository } from '../infrastructure/yes-no-http-repository'
-import { YesNoDtoToYesNoMapper } from '../infrastructure/yes-no-dto-to-yes-no-mapper'
+import { YesNoRepositoryFactory } from '../infrastructure/yes-no-repository-factory'
 
 const cx = bind(styles)
 
@@ -11,8 +10,8 @@ export function App() {
   const [counter, setCounter] = useState(0)
 
   const fetchImage = async () => {
-    const yesNoHttpRepository = new YesNoHttpRepository(new YesNoDtoToYesNoMapper())
-    const yesNo = await yesNoHttpRepository.find()
+    const yesNoRepository = YesNoRepositoryFactory.get()
+    const yesNo = await yesNoRepository.find()
     setImage(yesNo.image)
   }
 
