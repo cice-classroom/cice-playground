@@ -1,20 +1,32 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import styles from './app.module.css'
+import { bind } from "./bind";
+
+// Data Transfer Object
+interface YesNoDto {
+  answer: 'yes' | 'no' | 'maybe'
+  forced: boolean
+  image: string
+}
+
+const cx = bind(styles)
 
 export function App() {
-  useEffect(() => {
-    console.log(1)
-    const response = fetch('https://yesno.wtf/api')
-      .then(response => response.json())
-      .then(data => data.image)
+  const [image, setImage] = useState('')
 
-    response.then(result => {
-      console.log(result)
-    })
-    console.log(response)
+  const fetchImage = async () => {
+    const response = await fetch('https://yesno.wtf/api')
+    const result = (await response.json()) as YesNoDto
+    setImage(result.image)
+  }
+
+  useEffect(() => {
+    fetchImage()
   }, [])
+
   return (
     <div className="App">
-      <div>hola</div>
+      <img className={cx('image')} src={image} />
     </div>
   )
 }
