@@ -1,19 +1,20 @@
-import React from 'react'
-import styles from './app.module.css'
-import { bind } from './bind'
-
-const cx = bind(styles)
-
-interface ResponseDto {
-  answer: string
-  forced: boolean
-  image: string
-}
+import React, { useEffect } from 'react'
 
 export function App() {
+  useEffect(() => {
+    console.log(1)
+    const response = fetch('https://yesno.wtf/api')
+      .then(response => response.json())
+      .then(data => data.image)
+
+    response.then(result => {
+      console.log(result)
+    })
+    console.log(response)
+  }, [])
   return (
     <div className="App">
-      <img className={cx('image')} />
+      <div>hola</div>
     </div>
   )
 }
