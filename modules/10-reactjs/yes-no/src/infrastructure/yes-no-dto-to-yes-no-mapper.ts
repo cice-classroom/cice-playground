@@ -3,9 +3,6 @@ import { YesNo } from '../domain/yes-no'
 
 export class YesNoDtoToYesNoMapper {
   map(yesNoDto: YesNoDto): YesNo {
-    return {
-      answer: yesNoDto.answer,
-      image: yesNoDto.image
-    }
+    return new YesNo(yesNoDto.image, yesNoDto.answer)
   }
 }
