@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './app.module.css'
 import { bind } from './bind'
-
-// Data Transfer Object
-interface YesNoDto {
-  answer: 'yes' | 'no' | 'maybe'
-  forced: boolean
-  image: string
-}
+import { YesNoHttpRepository } from '../infrastructure/yes-no-http-repository'
 
 const cx = bind(styles)
 
@@ -16,9 +10,9 @@ export function App() {
   const [counter, setCounter] = useState(0)
 
   const fetchImage = async () => {
-    const response = await fetch('https://yesno.wtf/api')
-    const result = (await response.json()) as YesNoDto
-    setImage(result.image)
+    const yesNoHttpRepository = new YesNoHttpRepository()
+    const yesNo = await yesNoHttpRepository.find()
+    setImage(yesNo.image)
   }
 
   useEffect(() => {
