@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Button } from '../../core/components/button/button'
 import { Todo } from '../todo'
 
 interface Props {
@@ -25,10 +24,10 @@ export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate, todos }) 
         Todo
         <input value={todoText} onChange={event => setTodoText(event.target.value)} />
       </label>
-      <Button onClick={clearTodo}>Clear todo</Button>
-      <Button theme={'primary'} submit isDisabled={isTodoDuplicated}>
+      <button onClick={clearTodo}>Clear todo</button>
+      <button type="submit" disabled={isTodoDuplicated}>
         Create todo
-      </Button>
+      </button>
     </form>
   )
 }
