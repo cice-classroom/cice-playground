@@ -12,14 +12,17 @@ export function App() {
     fetchTodos()
   }, [])
 
+  const todoRepository = TodoRepositoryFactory.build()
   async function fetchTodos() {
-    const todos = await TodoRepositoryFactory.get().findAll()
+    const todos = await todoRepository.findAll()
     setTodos(todos)
   }
 
-  function createTodo(todoText: string) {
-    const newTodo = { id: Math.random() * 1000, text: todoText, completed: false }
+  async function createTodo(todoText: string) {
+    const newTodo: Todo = { id: Math.random() * 1000, text: todoText, completed: false }
+    await todoRepository.create(newTodo)
     setTodos([...todos, newTodo])
+    fetchTodos()
   }
 
   function completeTodo(id: number) {
