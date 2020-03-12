@@ -4,7 +4,7 @@ import './styles/reset.css'
 import './styles/theme.css'
 import './styles/typography.css'
 import './styles/index.css'
-import { App } from './app'
+import { App } from './features/app'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(<App />, document.getElementById('root'))
