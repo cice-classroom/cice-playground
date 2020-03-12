@@ -1,6 +1,9 @@
 import React from 'react'
-import './app.css'
+import styles from './app.module.css'
+import { bind } from './bind'
+
+const cx = bind(styles)
 
 export function App() {
-  return <div className="App">Hello world</div>
+  return <div className={cx('app')}>Hello world</div>
 }
