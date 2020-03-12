@@ -1,7 +1,5 @@
-import { Id } from './id'
-
 export interface Todo {
-  id: Id
+  id: number
   text: string
   completed: boolean
 }
