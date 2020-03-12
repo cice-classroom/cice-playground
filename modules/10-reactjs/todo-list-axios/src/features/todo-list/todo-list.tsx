@@ -1,6 +1,6 @@
 import React from 'react'
-import { Todo as TodoModel } from '../../domain/todo'
-import { Id } from '../../domain/id'
+import { Todo as TodoModel } from '../todo'
+import { Id } from '../id'
 import { Todo } from '../todo/todo'
 
 export const TodoList: React.FunctionComponent<{

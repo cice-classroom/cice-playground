@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button } from '../../../../core/components/button/button'
-import { Todo } from '../../domain/todo'
+import { Button } from '../../core/components/button/button'
+import { Todo } from '../todo'
 
 interface Props {
   onCreate(todoText: string): void

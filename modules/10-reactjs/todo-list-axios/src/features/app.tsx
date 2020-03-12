@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { TodoList } from './features/todo/ui/todo-list/todo-list'
-import { Todo } from './features/todo/domain/todo'
-import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
-import { Page } from './core/components/page/page'
-import { TodoRepositoryFactory } from './features/todo/infrastructure/todo-repository-factory'
+import { TodoList } from './todo-list/todo-list'
+import { Todo } from './todo'
+import { TodoCreate } from './todo-create/todo-create'
+import { Page } from '../core/components/page/page'
+import { TodoRepository } from './todo-repository'
 
 export function App() {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -12,15 +12,15 @@ export function App() {
     fetchTodos()
   }, [])
 
-  const todoRepository = TodoRepositoryFactory.build()
-
   async function fetchTodos() {
+    const todoRepository = new TodoRepository()
     const todos = await todoRepository.findAll()
     setTodos(todos)
   }
 
   async function createTodo(todoText: string) {
-    const newTodo: Todo = { id: Math.random() * 1000, text: todoText, completed: false }
+    const todoRepository = new TodoRepository()
+    const newTodo: Todo = { id: Math.floor(Math.random() * 1000), text: todoText, completed: false }
     await todoRepository.create(newTodo)
     setTodos([...todos, newTodo])
     fetchTodos()

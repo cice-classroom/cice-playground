@@ -1,8 +1,8 @@
-import { bind } from '../../../../utils/bind'
+import { bind } from '../../utils/bind'
 import styles from './todo.module.css'
 import React from 'react'
-import { Todo as TodoModel } from '../../domain/todo'
-import { Card } from '../../../../core/components/card/card'
+import { Todo as TodoModel } from '../todo'
+import { Card } from '../../core/components/card/card'
 
 const cx = bind(styles)
 
