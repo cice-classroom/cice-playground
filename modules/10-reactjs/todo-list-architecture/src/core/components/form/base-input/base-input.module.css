@@ -1,0 +1,22 @@
+.label {
+  display: inline-flex;
+  flex-direction: column;
+  font-size: var(--subtitle-size);
+}
+
+.input {
+  background-color: var(--gray-color);
+  border: none;
+  padding: var(--m);
+  border-bottom: 5px solid var(--gray-color-900);
+  font-size: var(--body-size);
+  outline: none;
+}
+
+.input:focus {
+  border-bottom-color: var(--primary-color);
+}
+
+.required {
+  border-bottom-color: red;
+}
