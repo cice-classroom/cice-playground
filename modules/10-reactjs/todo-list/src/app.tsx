@@ -13,6 +13,7 @@ export function App() {
   }, [])
 
   const todoRepository = TodoRepositoryFactory.build()
+
   async function fetchTodos() {
     const todos = await todoRepository.findAll()
     setTodos(todos)
