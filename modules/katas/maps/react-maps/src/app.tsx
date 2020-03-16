@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './app.module.css'
 import { bind } from './bind'
+import { Map, TileLayer } from 'react-leaflet'
 
 const cx = bind(styles)
 
@@ -41,9 +42,10 @@ export function App() {
     }
 
     return (
-      <div>
+      <Map className={cx('map')} center={[coordinates.latitude, coordinates.longitude]} zoom={13}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"></TileLayer>
         {coordinates.longitude} - {coordinates.latitude}
-      </div>
+      </Map>
     )
   }
 
