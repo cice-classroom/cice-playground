@@ -4,7 +4,7 @@ import { bind } from './bind'
 
 const cx = bind(styles)
 
-export function App() {
+function useGeoposition() {
   const [coordinates, setCoordinates] = useState({ longitude: 0, latitude: 0 })
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -25,6 +25,12 @@ export function App() {
 
     return () => navigator.geolocation.clearWatch(id)
   }, [])
+
+  return { coordinates, isLoading, hasError }
+}
+
+export function App() {
+  const { coordinates, isLoading, hasError } = useGeoposition()
 
   return (
     <div className={cx('app')}>
