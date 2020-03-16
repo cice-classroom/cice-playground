@@ -11,8 +11,10 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "classnames": "2.2.6",
+    "leaflet": "1.6.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-leaflet": "2.6.3",
     "react-scripts": "3.4.0",
     "typescript": "~3.7.2"
   },
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "@types/classnames": "2.2.10",
+    "@types/react-leaflet": "2.5.1",
     "prettier": "1.19.1"
   }
 }
