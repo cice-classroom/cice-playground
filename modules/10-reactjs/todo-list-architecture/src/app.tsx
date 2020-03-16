@@ -42,9 +42,9 @@ export function App() {
   }
 
   return (
-    <Page>
+    <main>
       <TodoList todos={todos} onCompleteTodo={completeTodo}></TodoList>
       <TodoCreate onCreate={createTodo} todos={todos} />
-    </Page>
+    </main>
   )
 }
