@@ -6,11 +6,14 @@ const cx = bind(styles)
 
 export function App() {
   const [coordinates, setCoordinates] = useState({ longitude: 0, latitude: 0 })
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     const id = navigator.geolocation.watchPosition(({ coords }) => {
       const { longitude, latitude } = coords
       setCoordinates({ longitude, latitude })
+      setIsLoading(false)
     })
 
     return () => navigator.geolocation.clearWatch(id)
@@ -18,7 +21,12 @@ export function App() {
 
   return (
     <div className={cx('app')}>
-      {coordinates.longitude} - {coordinates.latitude}
+      {isLoading && <span>Cargando...</span>}
+      {!isLoading && (
+        <div>
+          {coordinates.longitude} - {coordinates.latitude}
+        </div>
+      )}
     </div>
   )
 }
