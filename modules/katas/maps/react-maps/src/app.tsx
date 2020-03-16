@@ -4,40 +4,39 @@ import { bind } from './bind'
 
 const cx = bind(styles)
 
+type Status = 'error' | 'loading' | 'success'
+
 function useGeoposition() {
   const [coordinates, setCoordinates] = useState({ longitude: 0, latitude: 0 })
-  const [isLoading, setIsLoading] = useState(false)
-  const [hasError, setHasError] = useState(false)
+  const [status, setStatus] = useState<Status>('loading')
 
   useEffect(() => {
-    setIsLoading(true)
     const id = navigator.geolocation.watchPosition(
       ({ coords }) => {
         const { longitude, latitude } = coords
         setCoordinates({ longitude, latitude })
-        setIsLoading(false)
-        setHasError(false)
+        setStatus('success')
       },
       () => {
-        setHasError(true)
+        setStatus('error')
       }
     )
 
     return () => navigator.geolocation.clearWatch(id)
   }, [])
 
-  return { coordinates, isLoading, hasError }
+  return { coordinates, status }
 }
 
 export function App() {
-  const { coordinates, isLoading, hasError } = useGeoposition()
+  const { coordinates, status } = useGeoposition()
 
   const getMessage = () => {
-    if (isLoading) {
+    if (status === 'loading') {
       return <span>Cargando...</span>
     }
 
-    if (hasError) {
+    if (status === 'error') {
       return <span>Error al obtener la localización</span>
     }
 
