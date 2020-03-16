@@ -32,15 +32,23 @@ function useGeoposition() {
 export function App() {
   const { coordinates, isLoading, hasError } = useGeoposition()
 
-  return (
-    <div className={cx('app')}>
-      {isLoading && !hasError && <span>Cargando...</span>}
-      {hasError && <span>Error al obtener la localización</span>}
-      {!isLoading && !hasError && (
-        <div>
-          {coordinates.longitude} - {coordinates.latitude}
-        </div>
-      )}
-    </div>
-  )
+  const getMessage = () => {
+    if (isLoading) {
+      return <span>Cargando...</span>
+    }
+
+    if (hasError) {
+      return <span>Error al obtener la localización</span>
+    }
+
+    return (
+      <div>
+        {coordinates.longitude} - {coordinates.latitude}
+      </div>
+    )
+  }
+
+  // Early return || Guard Clause
+
+  return <div className={cx('app')}>{getMessage()}</div>
 }
