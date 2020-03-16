@@ -63,8 +63,9 @@ export function App() {
 
   // Early return || Guard Clause
 
+  const height = '1024px'
   return (
-    <div className={cx('app')}>
+    <div className={cx('app')} style={{ '--map-height': height } as React.CSSProperties}>
       <main>{getMap()}</main>
       <footer>
         <button onClick={() => setCityCoordinates({ latitude: 51.507351, longitude: -0.127758 })}>

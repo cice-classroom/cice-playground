@@ -5,5 +5,5 @@
 }
 
 .map {
-  height: 600px;
+  height: var(--map-height, 800px);
 }
