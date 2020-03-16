@@ -1,9 +1,6 @@
 {
   "name": "cice-playground",
   "private": true,
-  "workspaces": [
-    "modules/*"
-  ],
   "version": "1.0.0",
   "description": "CICE Master playground",
   "main": "index.js",
