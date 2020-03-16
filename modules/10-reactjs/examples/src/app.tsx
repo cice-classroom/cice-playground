@@ -1,5 +1,5 @@
 import React from 'react'
-import { Counter } from './reducer'
+import { Counter } from './use-effect'
 
 export function App() {
   return (
