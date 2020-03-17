@@ -61,6 +61,9 @@ export const App: React.FC = () => {
         <Route path="/users/:name">
           <UserDetail />
         </Route>
+        <Route>
+          <h1>404</h1>
+        </Route>
       </Switch>
     </Router>
   )
