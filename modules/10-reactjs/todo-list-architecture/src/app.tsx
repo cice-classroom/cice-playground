@@ -5,7 +5,7 @@ import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
 import { Page } from './core/components/page/page'
 import { TodoRepositoryFactory } from './features/todo/infrastructure/todo-repository-factory'
 
-export function App() {
+export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   useEffect(() => {

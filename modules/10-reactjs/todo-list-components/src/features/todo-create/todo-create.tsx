@@ -6,7 +6,7 @@ interface Props {
   todos: Todo[]
 }
 
-export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate, todos }) => {
+export const TodoCreate: React.FC<Props> = ({ onCreate, todos }) => {
   const [todoText, setTodoText] = useState('')
   const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 

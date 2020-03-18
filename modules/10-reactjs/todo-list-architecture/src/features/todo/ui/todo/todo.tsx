@@ -11,7 +11,7 @@ interface Props {
   todo: TodoModel
 }
 
-export const Todo: React.FunctionComponent<Props> = ({ onClick, todo }) => (
+export const Todo: React.FC<Props> = ({ onClick, todo }) => (
   <Card>
     <div onClick={onClick}>
       <span></span>

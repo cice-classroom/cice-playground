@@ -3,11 +3,11 @@ import { TodoList } from './todo-list/todo-list'
 import { Todo } from './todo'
 import { TodoCreate } from './todo-create/todo-create'
 
-export function App() {
+export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
-  async function createTodo(todoText: string) {
-    const newTodo: Todo = { id: Math.random() * 1000, text: todoText, completed: false }
+  function createTodo(todoText: string) {
+    const newTodo: Todo = { id: Math.floor(Math.random() * 1000), text: todoText, completed: false }
     setTodos([...todos, newTodo])
   }
 

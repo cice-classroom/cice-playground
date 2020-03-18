@@ -2,7 +2,7 @@ import React from 'react'
 import { Todo as TodoModel } from '../todo'
 import { Todo } from '../todo/todo'
 
-export const TodoList: React.FunctionComponent<{
+export const TodoList: React.FC<{
   todos: TodoModel[]
   onCompleteTodo(id: number): void
 }> = ({ todos, onCompleteTodo }) => {

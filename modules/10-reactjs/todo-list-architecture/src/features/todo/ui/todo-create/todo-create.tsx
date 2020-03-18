@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from '../../../../core/components/button/button'
 import { Todo } from '../../domain/todo'
+import { TodoService } from '../../domain/todo-service'
 
 interface Props {
   onCreate(todoText: string): void
@@ -9,7 +10,7 @@ interface Props {
 
 export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate, todos }) => {
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
+  const isTodoDuplicated = new TodoService().isTodoDuplicated(todos, todoText)
 
   const clearTodo = () => setTodoText('')
 

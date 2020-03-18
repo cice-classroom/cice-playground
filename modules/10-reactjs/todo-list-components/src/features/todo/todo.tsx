@@ -10,7 +10,7 @@ interface Props {
   todo: TodoModel
 }
 
-export const Todo: React.FunctionComponent<Props> = ({ onClick, todo }) => (
+export const Todo: React.FC<Props> = ({ onClick, todo }) => (
   <div onClick={onClick}>
     <span></span>
     <li className={cx({ completed: todo.completed })}>{todo.text}</li>
