@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import styles from './app.module.css'
 import { bind } from './bind'
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const cx = bind(styles)
 
-type Status = 'error' | 'loading' | 'success'
 interface Coordinates {
   longitude: number
   latitude: number
@@ -40,26 +39,81 @@ function useHeight() {
   return { height, heightInPx: height + 'px' }
 }
 
+type Status = 'rejected' | 'idle' | 'resolved' | 'pending'
+type Action =
+  | { type: 'started' }
+  | { type: 'success'; coordinates: Coordinates }
+  | { type: 'error'; error: Error }
+
+interface State {
+  status: Status
+  error: Error | null
+  coordinates: Coordinates
+}
+
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case 'started':
+      return {
+        ...state,
+        status: 'pending'
+      }
+    case 'error':
+      return {
+        ...state,
+        status: 'rejected',
+        error: action.error
+      }
+    case 'success':
+      return {
+        ...state,
+        status: 'resolved',
+        coordinates: action.coordinates
+      }
+    default:
+      return state
+  }
+}
+
 function useGeoposition() {
-  const [coordinates, setCoordinates] = useState<Coordinates>({ longitude: 0, latitude: 0 })
-  const [status, setStatus] = useState<Status>('loading')
+  const initialState: State = {
+    status: 'idle',
+    error: null,
+    coordinates: {
+      longitude: 0,
+      latitude: 0
+    }
+  }
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
+    if (navigator.geolocation === undefined) {
+      dispatch({
+        type: 'error',
+        error: new Error('Geolocation is not supported')
+      })
+    }
+    dispatch({
+      type: 'started'
+    })
     const id = navigator.geolocation.watchPosition(
       ({ coords }) => {
         const { longitude, latitude } = coords
-        setCoordinates({ longitude, latitude })
-        setStatus('success')
+
+        dispatch({
+          type: 'success',
+          coordinates: { longitude, latitude }
+        })
       },
       () => {
-        setStatus('error')
+        dispatch({ type: 'error', error: new Error("Can't retrieve the location") })
       }
     )
 
     return () => navigator.geolocation.clearWatch(id)
   }, [])
 
-  return { coordinates, status }
+  return state
 }
 
 export function App() {
@@ -67,11 +121,11 @@ export function App() {
   const [cityCoordinates, setCityCoordinates] = useState<Coordinates | null>(null)
 
   const getMap = () => {
-    if (status === 'loading') {
+    if (status === 'idle') {
       return <span>Cargando...</span>
     }
 
-    if (status === 'error') {
+    if (status === 'rejected') {
       return <span>Error al obtener la localización</span>
     }
 
@@ -90,9 +144,9 @@ export function App() {
     )
   }
 
-  const { heightInPx } = useHeight()
+  const { height } = useHeight()
   return (
-    <div className={cx('app')} style={{ '--map-height': heightInPx } as React.CSSProperties}>
+    <div className={cx('app')} style={{ '--map-height': (height - 100) + 'px' } as React.CSSProperties}>
       <main>{getMap()}</main>
       <footer>
         <button onClick={() => setCityCoordinates({ latitude: 51.507351, longitude: -0.127758 })}>
