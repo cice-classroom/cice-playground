@@ -4,6 +4,7 @@ import styles from './app.module.css'
 import { bind } from '../utils/bind'
 import { TodoContext } from './todo-context'
 import { TodoCount } from './todo-count'
+import { TodoClear } from './todo-clear'
 
 const cx = bind(styles)
 
@@ -36,7 +37,7 @@ export function App() {
   }
 
   return (
-    <TodoContext.Provider value={{ todos }}>
+    <TodoContext.Provider value={{ todos, clearTodos: () => setTodos([]) }}>
       <main>
         <ul>
           {todos.map(todo => (
@@ -46,6 +47,7 @@ export function App() {
           ))}
         </ul>
         <TodoCount />
+        <TodoClear />
         <form
           onSubmit={event => {
             event.preventDefault()
