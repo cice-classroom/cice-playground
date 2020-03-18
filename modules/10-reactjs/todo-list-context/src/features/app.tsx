@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
+import { TodoContext } from './todo-context'
+import { TodoCount } from './todo-count'
 
 const cx = bind(styles)
 
@@ -34,30 +36,33 @@ export function App() {
   }
 
   return (
-    <main>
-      <ul>
-        {todos.map(todo => (
-          <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-      <form
-        onSubmit={event => {
-          event.preventDefault()
-          createTodo(todoText)
-          clearTodo()
-        }}
-      >
-        <label>
-          Todo
-          <input value={todoText} onChange={event => setTodoText(event.target.value)} />
-        </label>
-        <button onClick={clearTodo}>Clear todo</button>
-        <button type="submit" disabled={isTodoDuplicated}>
-          Create todo
-        </button>
-      </form>
-    </main>
+    <TodoContext.Provider value={{ todos }}>
+      <main>
+        <ul>
+          {todos.map(todo => (
+            <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
+              {todo.text}
+            </li>
+          ))}
+        </ul>
+        <TodoCount />
+        <form
+          onSubmit={event => {
+            event.preventDefault()
+            createTodo(todoText)
+            clearTodo()
+          }}
+        >
+          <label>
+            Todo
+            <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+          </label>
+          <button onClick={clearTodo}>Clear todo</button>
+          <button type="submit" disabled={isTodoDuplicated}>
+            Create todo
+          </button>
+        </form>
+      </main>
+    </TodoContext.Provider>
   )
 }
