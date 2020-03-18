@@ -10,16 +10,15 @@ interface Coordinates {
   latitude: number
 }
 
-const throttle = (func: any, limit: any) => {
-  let inThrottle: any
-  return function() {
-    const args = arguments
-    // @ts-ignore
-    const context = this
+const throttle = <T extends (...args: unknown[]) => unknown>(cb: T, limit: number) => {
+  let inThrottle = false
+  return function(this: T, ...args: unknown[]) {
     if (!inThrottle) {
-      func.apply(context, args)
+      cb.apply(this, args)
       inThrottle = true
-      setTimeout(() => (inThrottle = false), limit)
+      setTimeout(() => {
+        inThrottle = false
+      }, limit)
     }
   }
 }
@@ -30,10 +29,11 @@ function useHeight() {
   useEffect(() => {
     const handleResize = () => {
       setHeight(window.innerHeight)
+      console.log('hi')
     }
-    window.addEventListener('resize', throttle(handleResize, 100))
+    window.addEventListener('resize', throttle(handleResize, 1000))
 
-    return () => window.removeEventListener('resize', throttle(handleResize, 100))
+    return () => window.removeEventListener('resize', throttle(handleResize, 1000))
   }, [])
 
   return { height, heightInPx: height + 'px' }
