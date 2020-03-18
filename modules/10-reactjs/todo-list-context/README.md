@@ -1,9 +1,5 @@
-# Todo list
+# Todo list Context
 
-1. Crear tarea
-2. Completar tarea
-3. Ver tareas pendientes
-4. Ver tareas completadas
-5. Borrar tarea
-6. Borrar tareas completadas
-7. No se pueden crear tareas duplicadas
+1. Usar el API de context para guardar los todos.
+2. Crear un componente TodoCount en un fichero aparte donde consuma el contexto mediante el hook useContext y pinte el total de todos que hay.
+3. Crear un componente TodoClear donde pinchando en un botón se borren todos los todos del contexto.
