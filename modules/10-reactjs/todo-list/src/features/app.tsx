@@ -42,8 +42,7 @@ export function App() {
             <li className={cx({ completed: todo.completed })}>{todo.text}</li>
           </div>
         ))}
-      </ul>{' '}
-      onCompleteTodo={completeTodo}>
+      </ul>
       <form
         onSubmit={event => {
           event.preventDefault()
