@@ -5,7 +5,7 @@ import { bind } from '../utils/bind'
 
 const cx = bind(styles)
 
-export function App() {
+export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   function createTodo(todoText: string) {
