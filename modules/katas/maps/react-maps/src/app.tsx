@@ -25,7 +25,7 @@ const throttle = (func: any, limit: any) => {
 }
 
 function useHeight() {
-  const [height, setHeight] = useState(0)
+  const [height, setHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     const handleResize = () => {
@@ -146,7 +146,10 @@ export function App() {
 
   const { height } = useHeight()
   return (
-    <div className={cx('app')} style={{ '--map-height': (height - 100) + 'px' } as React.CSSProperties}>
+    <div
+      className={cx('app')}
+      style={{ '--map-height': height - 100 + 'px' } as React.CSSProperties}
+    >
       <main>{getMap()}</main>
       <footer>
         <button onClick={() => setCityCoordinates({ latitude: 51.507351, longitude: -0.127758 })}>
