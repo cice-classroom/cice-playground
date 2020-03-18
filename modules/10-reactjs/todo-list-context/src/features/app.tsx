@@ -59,7 +59,7 @@ export function App() {
             Todo
             <input value={todoText} onChange={event => setTodoText(event.target.value)} />
           </label>
-          <button onClick={clearTodo}>Clear todo</button>
+          <button type="button" onClick={clearTodo}>Clear todo</button>
           <button type="submit" disabled={isTodoDuplicated}>
             Create todo
           </button>
