@@ -29,7 +29,6 @@ function useHeight() {
   useEffect(() => {
     const handleResize = () => {
       setHeight(window.innerHeight)
-      console.log('hi')
     }
     window.addEventListener('resize', throttle(handleResize, 1000))
 
