@@ -37,9 +37,9 @@ export function App() {
     <main>
       <ul>
         {todos.map(todo => (
-          <div onClick={() => completeTodo(todo.id)}>
-            <li className={cx({ completed: todo.completed })}>{todo.text}</li>
-          </div>
+          <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
+            {todo.text}
+          </li>
         ))}
       </ul>
       <form

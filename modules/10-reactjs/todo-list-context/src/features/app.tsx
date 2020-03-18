@@ -8,8 +8,8 @@ const cx = bind(styles)
 export function App() {
   const [todos, setTodos] = useState<Todo[]>([])
 
-  async function createTodo(todoText: string) {
-    const newTodo: Todo = { id: Math.random() * 1000, text: todoText, completed: false }
+  function createTodo(todoText: string) {
+    const newTodo: Todo = { id: Math.floor(Math.random() * 1000), text: todoText, completed: false }
     setTodos([...todos, newTodo])
   }
 
@@ -37,10 +37,9 @@ export function App() {
     <main>
       <ul>
         {todos.map(todo => (
-          <div onClick={() => completeTodo(todo.id)}>
-            <span></span>
-            <li className={cx({ completed: todo.completed })}>{todo.text}</li>
-          </div>
+          <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
+            {todo.text}
+          </li>
         ))}
       </ul>
       <form
