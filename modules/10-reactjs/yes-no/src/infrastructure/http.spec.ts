@@ -3,7 +3,6 @@ import { Http } from './http'
 describe('Http', () => {
   it('should make a get request', async () => {
     const { fetcher, http } = setup()
-    fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
 
     await http.get('foo')
 
@@ -12,7 +11,6 @@ describe('Http', () => {
 
   it('should make a post request', async () => {
     const { fetcher, http } = setup()
-    fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
 
     await http.post('foo', { bar: 'baz' })
 
@@ -21,7 +19,6 @@ describe('Http', () => {
 
   it('should make a put request', async () => {
     const { fetcher, http } = setup()
-    fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
 
     await http.put('foo', { bar: 'baz' })
 
@@ -30,7 +27,6 @@ describe('Http', () => {
 
   it('should make a delete request', async () => {
     const { fetcher, http } = setup()
-    fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
 
     await http.delete('foo')
 
@@ -40,6 +36,7 @@ describe('Http', () => {
 
 function setup() {
   const fetcher = jest.fn()
+  fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
   return {
     fetcher,
     http: new Http(fetcher)
