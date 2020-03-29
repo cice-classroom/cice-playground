@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export const Counter: React.FC = () => {
+export const UseEffect: React.FC = () => {
   const [count, setCount] = useState(0)
   const [countTwo, setCountTwo] = useState(0)
   const [keyPressed, setKeyPressed] = useState('')

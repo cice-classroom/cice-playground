@@ -23,7 +23,7 @@ const reducer = (state: State, action: ActionType): State => {
   }
 }
 
-export const Counter: React.FC = () => {
+export const UseReducer: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (

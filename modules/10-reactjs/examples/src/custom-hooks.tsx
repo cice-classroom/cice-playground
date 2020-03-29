@@ -11,7 +11,7 @@ export function useCounter(initialValue = 0) {
   }
 }
 
-export function App() {
+export function CustomHooks() {
   return (
     <div className="App">
       <Header></Header>
