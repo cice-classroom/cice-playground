@@ -69,8 +69,6 @@ function reducer(state: State, action: Action): State {
         status: 'resolved',
         coordinates: action.coordinates
       }
-    default:
-      return state
   }
 }
 
