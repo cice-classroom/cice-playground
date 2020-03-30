@@ -6,6 +6,7 @@ import { UseEffect } from './use-effect'
 import { UseReducer } from './use-reducer'
 import { UseReducerOriginal } from './use-reducer-original'
 import { UseReducerRefactor } from './use-reducer-refactor'
+import { UseStateImmutable } from './use-state-immutable'
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
       <Link to="/use-reducer">Use Reducer</Link>
       <Link to="/use-reducer-original">Use Reducer Original</Link>
       <Link to="/use-reducer-refactor">Use Reducer Refactor</Link>
+      <Link to="/use-state-immutable">Use State Immutable</Link>
       <Route path="/context">
         <Context />
       </Route>
@@ -36,6 +38,9 @@ export function App() {
       </Route>
       <Route path="/use-reducer-refactor">
         <UseReducerRefactor />
+      </Route>
+      <Route path="/use-state-immutable">
+        <UseStateImmutable />
       </Route>
     </BrowserRouter>
   )
