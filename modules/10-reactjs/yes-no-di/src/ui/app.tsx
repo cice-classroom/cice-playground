@@ -1,6 +1,7 @@
 import React from 'react'
-import { ContainerContext, dependencyTree } from '../container-context'
+import { ContainerContext} from '../container-context'
 import { YesNoDisplayer } from './yes-no-displayer'
+import { dependencyTree } from "../dependency-tree";
 
 export function App() {
   return (
