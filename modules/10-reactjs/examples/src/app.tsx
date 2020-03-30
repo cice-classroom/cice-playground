@@ -7,6 +7,7 @@ import { UseReducer } from './use-reducer'
 import { UseReducerOriginal } from './use-reducer-original'
 import { UseReducerRefactor } from './use-reducer-refactor'
 import { UseStateImmutable } from './use-state-immutable'
+import { UseReducerWithOptions } from './use-reducer-with-options'
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Link to="/custom-hooks">Custom Hooks</Link>
       <Link to="/use-effect">Use Effect</Link>
       <Link to="/use-reducer">Use Reducer</Link>
+      <Link to="/use-reducer-with-options">Use With options</Link>
       <Link to="/use-reducer-original">Use Reducer Original</Link>
       <Link to="/use-reducer-refactor">Use Reducer Refactor</Link>
       <Link to="/use-state-immutable">Use State Immutable</Link>
@@ -32,6 +34,9 @@ export function App() {
       </Route>
       <Route path="/use-reducer">
         <UseReducer />
+      </Route>
+      <Route path="/use-reducer-with-options">
+        <UseReducerWithOptions />
       </Route>
       <Route path="/use-reducer-original">
         <UseReducerOriginal />
