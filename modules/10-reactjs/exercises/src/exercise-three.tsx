@@ -9,7 +9,7 @@ export const ExerciseThree: React.FC = () => {
     setValue(
       characters
         .split('')
-        .filter(character => !['a', 'e', 'i', 'o', 'u'].includes(character))
+        .filter(character => !['a', 'e', 'i', 'o', 'u'].includes(character.toLowerCase()))
         .join('')
     )
   }
