@@ -3,15 +3,10 @@ import React, { useState } from 'react'
 export const ExerciseThree: React.FC = () => {
   const [value, setValue] = useState('')
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const characters = event.target.value
-
-    setValue(
-      characters
-        .split('')
-        .filter(character => !['a', 'e', 'i', 'o', 'u'].includes(character.toLowerCase()))
-        .join('')
-    )
+  const handleChange = (characters: string) => {
+    if (['a', 'e', 'i', 'o', 'u'].every(vowel => !characters.toLowerCase().includes(vowel))) {
+      setValue(characters)
+    }
   }
 
   return (
@@ -19,7 +14,7 @@ export const ExerciseThree: React.FC = () => {
       {value}
       <label>
         Input
-        <input onChange={handleChange} value={value} />
+        <input type="text" onChange={event => handleChange(event.target.value)} value={value} />
       </label>
     </div>
   )
