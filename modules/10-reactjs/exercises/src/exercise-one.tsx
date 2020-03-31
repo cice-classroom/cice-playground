@@ -4,7 +4,7 @@ export const ExerciseOneFor: React.FC = () => {
   const lis: JSX.Element[] = []
 
   for (let i = 1; i <= 50; i++) {
-    lis.push(<li>{i}</li>)
+    lis.push(<li key={i}>{i}</li>)
   }
 
   return <ul>{lis}</ul>
@@ -16,7 +16,7 @@ export const ExerciseOne: React.FC = () => {
   return (
     <ul>
       {range.map(x => (
-        <li>{x + 1}</li>
+        <li key={x}>{x + 1}</li>
       ))}
     </ul>
   )
