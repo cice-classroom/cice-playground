@@ -1,0 +1,8 @@
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+}
+

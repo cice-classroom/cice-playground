@@ -11,20 +11,29 @@ import { UseReducerRefactor1 } from './use-reducer-refactor-1'
 import { UseReducerRefactor2 } from './use-reducer-refactor-2'
 import { UseReducerRefactor3 } from './reducer/use-reducer-refactor-3'
 import { NumericInput } from './numeric-input'
+import { BindStyleCustomProperty } from './bind-style-custom-property'
+import styles from './app.module.css'
 
 export function App() {
   return (
     <BrowserRouter>
-      <Link to="/numeric-input">Numeric Input</Link>
-      <Link to="/context">Context</Link>
-      <Link to="/custom-hooks">Custom Hooks</Link>
-      <Link to="/use-effect">Use Effect</Link>
-      <Link to="/use-reducer">Use Reducer</Link>
-      <Link to="/use-reducer-with-options">Use With options</Link>
-      <Link to="/use-reducer-original">Use Reducer Original</Link>
-      <Link to="/use-reducer-refactor-1">Use Reducer Refactor 1</Link>
-      <Link to="/use-reducer-refactor-2">Use Reducer Refactor 2</Link>
-      <Link to="/use-state-immutable">Use State Immutable</Link>
+      <Route path="/" exact>
+        <main className={styles.wrapper}>
+          <section>
+            <Link to="/numeric-input">Numeric Input</Link>
+            <Link to="/context">Context</Link>
+            <Link to="/custom-hooks">Custom Hooks</Link>
+            <Link to="/use-effect">Use Effect</Link>
+            <Link to="/use-reducer">Use Reducer</Link>
+            <Link to="/use-reducer-with-options">Use With options</Link>
+            <Link to="/use-reducer-original">Use Reducer Original</Link>
+            <Link to="/use-reducer-refactor-1">Use Reducer Refactor 1</Link>
+            <Link to="/use-reducer-refactor-2">Use Reducer Refactor 2</Link>
+            <Link to="/use-state-immutable">Use State Immutable</Link>
+            <Link to="/bind-style-custom-property">Bind Style Custom Property</Link>
+          </section>
+        </main>
+      </Route>
       <Route path="/numeric-input">
         <NumericInput />
       </Route>
@@ -60,6 +69,10 @@ export function App() {
       </Route>
       <Route path="/use-state-immutable">
         <UseStateImmutable />
+      </Route>
+
+      <Route path="/bind-style-custom-property">
+        <BindStyleCustomProperty />
       </Route>
     </BrowserRouter>
   )
