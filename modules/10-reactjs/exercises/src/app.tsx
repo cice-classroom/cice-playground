@@ -1,11 +1,13 @@
 import React from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
 import { ExerciseOne } from './exercise-one'
 import { ExerciseTwo } from './exercise-two'
 import { ExerciseThree } from './exercise-three'
 import { ExerciseFour } from './exercise-four'
 import { ExerciseFive } from './exercise-five'
 import { ExerciseSix } from './exercise-six'
+import { ExerciseSeven } from './exercise-seven'
+import { ExerciseEight } from './exercise-eight'
 
 export const App: React.FC = () => {
   return (
@@ -16,6 +18,8 @@ export const App: React.FC = () => {
       <Link to="/exercise-four">Exercise four</Link>
       <Link to="/exercise-five">Exercise five</Link>
       <Link to="/exercise-six">Exercise six</Link>
+      <Link to="/exercise-seven">Exercise seven</Link>
+      <Link to="/exercise-eight">Exercise eight</Link>
 
       <Route path="/exercise-one">
         <ExerciseOne />
@@ -27,13 +31,19 @@ export const App: React.FC = () => {
         <ExerciseThree />
       </Route>
       <Route path="/exercise-four">
-        <ExerciseFour/>
+        <ExerciseFour />
       </Route>
       <Route path="/exercise-five">
-        <ExerciseFive/>
+        <ExerciseFive />
       </Route>
       <Route path="/exercise-six">
-        <ExerciseSix/>
+        <ExerciseSix />
+      </Route>
+      <Route path="/exercise-seven">
+        <ExerciseSeven />
+      </Route>
+      <Route path="/exercise-eight">
+        <ExerciseEight percentage={70} />
       </Route>
     </BrowserRouter>
   )

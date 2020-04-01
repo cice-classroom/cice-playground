@@ -1,0 +1,15 @@
+.graph {
+  background: radial-gradient(white 55%, transparent 0%),
+    conic-gradient(red var(--graph-percentage), yellow var(--graph-percentage));
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.percentage {
+  position: absolute;
+}
