@@ -5,6 +5,7 @@ import { ExerciseTwo } from './exercise-two'
 import { ExerciseThree } from './exercise-three'
 import { ExerciseFour } from './exercise-four'
 import { ExerciseFive } from './exercise-five'
+import { ExerciseSix } from './exercise-six'
 
 export const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ export const App: React.FC = () => {
       <Link to="/exercise-three">Exercise three</Link>
       <Link to="/exercise-four">Exercise four</Link>
       <Link to="/exercise-five">Exercise five</Link>
+      <Link to="/exercise-six">Exercise six</Link>
 
       <Route path="/exercise-one">
         <ExerciseOne />
@@ -29,6 +31,9 @@ export const App: React.FC = () => {
       </Route>
       <Route path="/exercise-five">
         <ExerciseFive/>
+      </Route>
+      <Route path="/exercise-six">
+        <ExerciseSix/>
       </Route>
     </BrowserRouter>
   )
