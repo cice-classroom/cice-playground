@@ -11,11 +11,12 @@ export const ExerciseThree: React.FC = () => {
 
   return (
     <div>
-      {value}
-      <label>
-        Input
-        <input type="text" onChange={event => handleChange(event.target.value)} value={value} />
-      </label>
+      <input
+        aria-label="Input"
+        type="text"
+        onChange={event => handleChange(event.target.value)}
+        value={value}
+      />
     </div>
   )
 }

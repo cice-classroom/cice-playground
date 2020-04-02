@@ -1,23 +1,25 @@
-export class Http {
-  constructor(private readonly fetcher: typeof fetch) {}
+import { inject, injectable } from 'inversify'
+import { FETCHER_TYPE } from '../types'
 
+@injectable()
+export class Http {
   async get<Result>(url: string): Promise<Result> {
-    const response = await this.fetcher(url)
+    const response = await fetch(url)
     return this.getResponse(response)
   }
 
   async post<Result, Entity>(url: string, entity: Entity): Promise<Result> {
-    const response = await this.fetcher(url, { method: 'POST', body: JSON.stringify(entity) })
+    const response = await fetch(url, { method: 'POST', body: JSON.stringify(entity) })
     return this.getResponse(response)
   }
 
   async put<Result, Entity>(url: string, entity: Entity): Promise<Result> {
-    const response = await this.fetcher(url, { method: 'PUT', body: JSON.stringify(entity) })
+    const response = await fetch(url, { method: 'PUT', body: JSON.stringify(entity) })
     return this.getResponse(response)
   }
 
   async delete<Result>(url: string): Promise<Result> {
-    const response = await this.fetcher(url, { method: 'DELETE' })
+    const response = await fetch(url, { method: 'DELETE' })
     return this.getResponse(response)
   }
 

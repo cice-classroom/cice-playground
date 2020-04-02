@@ -4,8 +4,5 @@ import { YesNoDtoToYesNoMapper } from "./infrastructure/yes-no-dto-to-yes-no-map
 import { Http } from "./infrastructure/http";
 
 export const dependencyTree: Dependencies = {
-  yesNoRepository: new YesNoHttpRepository(
-    new YesNoDtoToYesNoMapper(),
-    new Http(window.fetch.bind(window))
-  )
-};
+  yesNoRepository: new YesNoHttpRepository(new YesNoDtoToYesNoMapper(), new Http())
+}
