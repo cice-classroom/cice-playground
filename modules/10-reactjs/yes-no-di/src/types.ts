@@ -1,0 +1,4 @@
+export const FETCHER_TYPE = Symbol('FETCHER_TYPE')
+export const YES_NO_DTO_TO_YES_NO_MAPPER_TYPE = Symbol('YES_NO_DTO_TO_YES_NO_MAPPER_TYPE')
+export const HTTP_TYPE = Symbol('HTTP_TYPE')
+export const YES_NO_REPOSITORY_TYPE = Symbol('YES_NO_REPOSITORY_TYPE')
