@@ -13,7 +13,7 @@ export const ExerciseSix: React.FC = () => {
 
   return (
     <>
-      <input onChange={handleChange} value={value} />
+      <input aria-label="Input" onChange={handleChange} value={value} />
     </>
   )
 }
