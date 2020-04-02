@@ -1,16 +1,16 @@
 import { ExerciseSeven } from './exercise-seven'
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import React from 'react'
 
 describe('ExerciseSeven', () => {
-  it('should make a request to the pokemon API', () => {
+  it('should make a request to the pokemon API', async () => {
     spyOn(window, 'fetch').and.returnValue(
-      Promise.resolve({ json: Promise.resolve({ results: [] }) })
+      Promise.resolve({ json: () => Promise.resolve({ results: [{ name: 'Pikachu' }] }) })
     )
-    const { getAllByRole } = render(<ExerciseSeven />)
+    const { queryByRole } = render(<ExerciseSeven />)
 
-    const listItems = getAllByRole('listitems')
+    await waitFor(() => queryByRole('listitem'))
 
-    expect(listItems).toHaveLength(10)
+    expect(queryByRole('listitem')).toHaveTextContent('Pikachu')
   })
 })
