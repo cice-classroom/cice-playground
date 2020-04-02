@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
-export const ExerciseSix: React.FC = () => {
-  const [value, setValue] = useState(localStorage.getItem('input') ?? '')
+interface Props {
+  storage: Storage
+}
+
+export const ExerciseSix: React.FC<Props> = ({ storage }) => {
+  const [value, setValue] = useState(storage.getItem('input') ?? '')
 
   useEffect(() => {
-    localStorage.setItem('input', value)
+    storage.setItem('input', value)
   }, [value])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,7 +17,7 @@ export const ExerciseSix: React.FC = () => {
 
   return (
     <>
-      <input onChange={handleChange} value={value} />
+      <input aria-label="Input" onChange={handleChange} value={value} />
     </>
   )
 }

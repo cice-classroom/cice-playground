@@ -37,7 +37,7 @@ export const App: React.FC = () => {
         <ExerciseFive />
       </Route>
       <Route path="/exercise-six">
-        <ExerciseSix />
+        <ExerciseSix storage={sessionStorage} />
       </Route>
       <Route path="/exercise-seven">
         <ExerciseSeven />
