@@ -12,4 +12,3 @@
 10. Crear un custom hook que te diga todas las teclas que se han pulsado desde que carga la página aunque no haya ningún input. En un componente pintar todas las teclas pulsadas.
 11. Crear un custom hook de temporizador. Hacer uso del custom hook en un componente temporizador, este se puede configurar con el tiempo restante. Cuando el temporizador llega a 0 cambia el color de fondo de la página y te permite resetearlo. Además vibra usando este [API del navagador](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate). También se puede detener el temporizador y continuar. Se puede cancelar el temporizador lo que volvería a su valor inicial. Hacer uso de useReducer.
 12. Crear un componente de valoración de estrellas. Permite recibir una valoración con valores decimales. Se deben mostrar estrellas enteras o medias estrellas dependiendo de si la valoración.
-
