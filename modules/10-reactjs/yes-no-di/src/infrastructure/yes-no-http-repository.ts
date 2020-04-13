@@ -4,14 +4,12 @@ import { YesNo } from '../domain/yes-no'
 import { YesNoRepository } from '../domain/yes-no-repository'
 import { Http } from './http'
 import { inject, injectable } from 'inversify'
-import { HTTP_TYPE, YES_NO_DTO_TO_YES_NO_MAPPER_TYPE } from '../types'
 
 @injectable()
 export class YesNoHttpRepository implements YesNoRepository {
   constructor(
-    @inject(YES_NO_DTO_TO_YES_NO_MAPPER_TYPE)
-    private readonly yesNoDtoToYesNoMapper: YesNoDtoToYesNoMapper,
-    @inject(HTTP_TYPE) private readonly http: Http
+    @inject('HTTP') private readonly http: Http,
+    @inject('YES_NO_DTO_TO_YES_NO_MAPPER') private readonly yesNoDtoToYesNoMapper: YesNoDtoToYesNoMapper
   ) {}
 
   async find(): Promise<YesNo> {

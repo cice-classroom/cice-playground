@@ -1,19 +1,25 @@
 import 'reflect-metadata'
 import { Container } from 'inversify'
-import { FETCHER_TYPE, YES_NO_REPOSITORY_TYPE } from './types'
+import { TYPES } from './types'
 import { YesNoHttpRepository } from './infrastructure/yes-no-http-repository'
 import { YesNoDtoToYesNoMapper } from './infrastructure/yes-no-dto-to-yes-no-mapper'
 import { Http } from './infrastructure/http'
 import { YesNoRepository } from './domain/yes-no-repository'
 
-export const container = new Container()
+const container = new Container()
 
-container.bind<typeof fetch>(FETCHER_TYPE).toConstantValue(window.fetch.bind(window))
-container.bind(Http).toSelf()
-container.bind(YesNoDtoToYesNoMapper).toSelf()
+container.bind<typeof fetch>(TYPES.FETCHER).toConstantValue(window.fetch.bind(window))
 container
-  .bind<YesNoRepository>(YES_NO_REPOSITORY_TYPE)
+  .bind(TYPES.HTTP)
+  .to(Http)
+  .inSingletonScope()
+container
+  .bind(TYPES.YES_NO_DTO_TO_YES_NO_MAPPER)
+  .to(YesNoDtoToYesNoMapper)
+  .inSingletonScope()
+container
+  .bind<YesNoRepository>(TYPES.YES_NO_REPOSITORY)
   .to(YesNoHttpRepository)
   .inSingletonScope()
 
-console.log(container.get(YES_NO_REPOSITORY_TYPE))
+export { container }

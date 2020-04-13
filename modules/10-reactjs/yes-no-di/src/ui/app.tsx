@@ -1,6 +1,6 @@
 import React from 'react'
 import { YesNoDisplayer } from './yes-no-displayer'
 
-export function App() {
+export const App = () => {
   return <YesNoDisplayer />
 }

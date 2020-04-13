@@ -1,21 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import styles from './yes-no-displayer.module.css'
-import { bind } from './bind'
-import { container } from '../container'
-import { YES_NO_REPOSITORY_TYPE } from '../types'
-import { YesNoRepository } from '../domain/yes-no-repository'
+import React, { useEffect, useState } from "react";
+import styles from "./yes-no-displayer.module.css";
+import { bind } from "./bind";
+import { YesNoRepository } from "../domain/yes-no-repository";
+import { container } from "../container";
 
 const cx = bind(styles)
 
 export const YesNoDisplayer: React.FC = () => {
   const [image, setImage] = useState('')
   const [counter, setCounter] = useState(0)
-
-  const fetchImage = async () => {}
+  const yesNoRepository = container.get<YesNoRepository>('YES_NO_REPOSITORY')
 
   useEffect(() => {
+    const fetchImage = async () => {
+      const { image } = await yesNoRepository.find()
+      setImage(image)
+    }
+
     fetchImage()
-  }, [counter])
+  }, [counter, yesNoRepository])
 
   return (
     <div className="App">
