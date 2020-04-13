@@ -1,3 +1,6 @@
-const { override, addDecoratorsLegacy, addBabelPlugin } = require('customize-cra')
+const { override, addDecoratorsLegacy, addBabelPlugins } = require('customize-cra')
 
-module.exports = override(addDecoratorsLegacy(), addBabelPlugin('babel-plugin-parameter-decorator'))
+module.exports = override(
+  addDecoratorsLegacy(),
+  addBabelPlugins('babel-plugin-parameter-decorator')
+)
