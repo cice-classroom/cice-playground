@@ -1,8 +1,9 @@
 import { inject, injectable } from 'inversify'
+import { TYPES } from '../types'
 
 @injectable()
 export class Http {
-  constructor(@inject('FETCHER') private readonly fetcher: typeof fetch) {}
+  constructor(@inject(TYPES.FETCHER) private readonly fetcher: typeof fetch) {}
 
   async get<Result>(url: string): Promise<Result> {
     const response = await this.fetcher(url)

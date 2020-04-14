@@ -1,0 +1,6 @@
+export const TYPES = {
+  HTTP: Symbol('HTTP'),
+  FETCHER: Symbol('FETCHER'),
+  YES_NO_DTO_TO_YES_NO_MAPPER: Symbol('YES_NO_DTO_TO_YES_NO_MAPPER'),
+  YES_NO_REPOSITORY: Symbol('YES_NO_REPOSITORY'),
+}

@@ -1,4 +1,4 @@
 import { createContext } from 'react'
-import { Container } from "inversify";
+import { container } from './container'
 
-export const ContainerContext = createContext<null | Container>(null)
+export const ContainerContext = createContext(container)

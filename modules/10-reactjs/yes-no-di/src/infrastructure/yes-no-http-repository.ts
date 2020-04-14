@@ -4,12 +4,13 @@ import { YesNoDtoToYesNoMapper } from './yes-no-dto-to-yes-no-mapper'
 import { YesNo } from '../domain/yes-no'
 import { YesNoRepository } from '../domain/yes-no-repository'
 import { Http } from './http'
+import { TYPES } from '../types'
 
 @injectable()
 export class YesNoHttpRepository implements YesNoRepository {
   constructor(
-    @inject('HTTP') private readonly http: Http,
-    @inject('YES_NO_DTO_TO_YES_NO_MAPPER')
+    @inject(TYPES.HTTP) readonly http: Http,
+    @inject(TYPES.YES_NO_DTO_TO_YES_NO_MAPPER)
     private readonly yesNoDtoToYesNoMapper: YesNoDtoToYesNoMapper
   ) {}
 

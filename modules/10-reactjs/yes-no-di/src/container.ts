@@ -1,24 +1,16 @@
-import "reflect-metadata";
-import { Container } from "inversify";
-import { YesNoHttpRepository } from "./infrastructure/yes-no-http-repository";
-import { YesNoDtoToYesNoMapper } from "./infrastructure/yes-no-dto-to-yes-no-mapper";
-import { Http } from "./infrastructure/http";
-import { YesNoRepository } from "./domain/yes-no-repository";
+import 'reflect-metadata'
+import { Container } from 'inversify'
+import { YesNoHttpRepository } from './infrastructure/yes-no-http-repository'
+import { YesNoDtoToYesNoMapper } from './infrastructure/yes-no-dto-to-yes-no-mapper'
+import { Http } from './infrastructure/http'
+import { YesNoRepository } from './domain/yes-no-repository'
+import { TYPES } from './types'
 
 const container = new Container()
 
-container.bind<typeof fetch>('FETCHER').toConstantValue(window.fetch.bind(window))
-container
-  .bind('HTTP')
-  .to(Http)
-  .inSingletonScope()
-container
-  .bind('YES_NO_DTO_TO_YES_NO_MAPPER')
-  .to(YesNoDtoToYesNoMapper)
-  .inSingletonScope()
-container
-  .bind<YesNoRepository>('YES_NO_REPOSITORY')
-  .to(YesNoHttpRepository)
-  .inSingletonScope()
+container.bind<typeof fetch>(TYPES.FETCHER).toConstantValue(window.fetch.bind(window))
+container.bind(TYPES.HTTP).to(Http).inSingletonScope()
+container.bind(TYPES.YES_NO_DTO_TO_YES_NO_MAPPER).to(YesNoDtoToYesNoMapper).inSingletonScope()
+container.bind<YesNoRepository>(TYPES.YES_NO_REPOSITORY).to(YesNoHttpRepository).inSingletonScope()
 
 export { container }
