@@ -23,6 +23,7 @@ const useTimer = () => {
   const [seconds, setSeconds] = useState(0)
   let initialSeconds = 60
   const [isPaused, setIsPaused] = useState(false)
+  const hasEnded = seconds === 0
 
   const start = (from: number) => {
     setIsPaused(false)
@@ -39,17 +40,23 @@ const useTimer = () => {
   }
 
   useInterval(() => {
-    if (!isPaused) {
+    if (!isPaused && !hasEnded) {
       setSeconds(seconds - 1)
     }
   })
 
-  return { seconds, start, reset, pauseOrResume, isPaused }
+  return { seconds, start, reset, pauseOrResume, isPaused, hasEnded }
 }
 
 export const ExerciseEleven: React.FC = () => {
-  const [fromSeconds, setFromSeconds] = useState(60)
-  const { seconds, start, reset, pauseOrResume, isPaused } = useTimer()
+  const [fromSeconds, setFromSeconds] = useState(5)
+  const { seconds, start, reset, pauseOrResume, isPaused, hasEnded } = useTimer()
+
+  useEffect(() => {
+    if (hasEnded) {
+      window.navigator.vibrate(5000)
+    }
+  }, [hasEnded])
 
   useEffect(() => {
     start(fromSeconds)
