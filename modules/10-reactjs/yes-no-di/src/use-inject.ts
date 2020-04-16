@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { ContainerContext } from './container-context'
 
-export const useInject = <T>(dependency: symbol): T => {
+export const useInject = <Dependency>(id: symbol): Dependency => {
   const context = useContext(ContainerContext)
-
-  return context.get(dependency)
+  return context.get(id)
 }
