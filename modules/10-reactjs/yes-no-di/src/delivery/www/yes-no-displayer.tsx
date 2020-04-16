@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import styles from './yes-no-displayer.module.css'
 import { bind } from './bind'
-import { YesNoRepository } from '../domain/yes-no-repository'
-import { TYPES } from '../types'
-import { useInject } from '../use-inject'
+import { TYPES } from '../../types'
+import { useInject } from '../../use-inject'
+import { GetImageUseCase } from '../../application/get-image-use-case'
 
 const cx = bind(styles)
 
 export const YesNoDisplayer: React.FC = () => {
   const [image, setImage] = useState('')
   const [counter, setCounter] = useState(0)
-  const yesNoRepository = useInject<YesNoRepository>(TYPES.YES_NO_REPOSITORY)
+  const getImageUseCase = useInject<GetImageUseCase>(TYPES.GET_IMAGE_USE_CASE)
 
   useEffect(() => {
     const fetchImage = async () => {
-      const { image } = await yesNoRepository.find()
+      const { image } = await getImageUseCase.execute()
       setImage(image)
     }
 
     fetchImage()
-  }, [counter, yesNoRepository])
+  }, [counter, getImageUseCase])
 
   return (
     <div className="App">
