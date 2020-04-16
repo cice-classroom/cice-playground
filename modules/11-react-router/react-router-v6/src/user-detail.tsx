@@ -9,12 +9,12 @@ export const UserDetail: React.FC = () => {
   return (
     <>
       <h1>User {name}</h1>
-      <button onClick={() => history.push(`${url}/tasks`)}>Tasks</button>
+      <button onClick={() => history.push(`/tasks`)}>Tasks</button>
       <Switch>
-        <Route path={path} exact>
+        <Route path={path}>
           <h2>User</h2>
         </Route>
-        <Route to={`${path}/tasks`} exact>
+        <Route to="/tasks">
           <UserDetailTasks />
         </Route>
       </Switch>
