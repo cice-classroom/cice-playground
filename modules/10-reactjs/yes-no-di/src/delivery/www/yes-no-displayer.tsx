@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './yes-no-displayer.module.css'
 import { bind } from './bind'
 import { TYPES } from '../../types'
-import { useInject } from '../../use-inject'
+import { useInject } from './use-inject'
 import { GetImageUseCase } from '../../application/get-image-use-case'
 
 const cx = bind(styles)
