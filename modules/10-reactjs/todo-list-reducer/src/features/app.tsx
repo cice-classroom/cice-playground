@@ -1,43 +1,15 @@
 import React, { useReducer, useState } from 'react'
-import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
+import { reducer } from './reducer'
 
 const cx = bind(styles)
 
-type Action =
-  | { type: 'CREATE_TODO'; payload: { id: number; text: string } }
-  | { type: 'COMPLETE_TODO'; payload: { id: number } }
-
-const reducer = (todos: Todo[], action: Action): Todo[] => {
-  switch (action.type) {
-    case 'CREATE_TODO':
-      const todo: Todo = {
-        completed: false,
-        id: action.payload.id,
-        text: action.payload.text
-      }
-      return [...todos, todo]
-    case 'COMPLETE_TODO':
-      return todos.map(todo => {
-        if (todo.id === action.payload.id) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          }
-        }
-
-        return todo
-      })
-  }
-}
-
 export const App: React.FC = () => {
   const [todos, dispatch] = useReducer(reducer, [])
-
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 
+  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
   const clearTodo = () => setTodoText('')
 
   return (
