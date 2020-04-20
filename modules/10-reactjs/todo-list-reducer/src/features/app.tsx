@@ -72,7 +72,7 @@ export const App: React.FC = () => {
   return (
     <main>
       <ul>
-        {todos.map(todo => (
+        {state.map(todo => (
           <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
             {todo.text}
           </li>
