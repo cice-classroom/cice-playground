@@ -1,7 +1,7 @@
 import { Todo } from './todo'
 import { Action } from './action'
 
-export const reducer = (todos: Todo[], action: Action): Todo[] => {
+export const reducer = (todos: Todo[] = [], action: Action): Todo[] => {
   switch (action.type) {
     case 'CREATE_TODO':
       const todo: Todo = {

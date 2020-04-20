@@ -5,8 +5,13 @@ import { reducer } from './reducer'
 
 const cx = bind(styles)
 
-export const App: React.FC = () => {
+export function useTodos() {
   const [todos, dispatch] = useReducer(reducer, [])
+  return { todos, dispatch }
+}
+
+export const App: React.FC = () => {
+  const { todos, dispatch } = useTodos()
   const [todoText, setTodoText] = useState('')
 
   const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
