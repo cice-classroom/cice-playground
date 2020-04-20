@@ -19,7 +19,7 @@ const reducer = (todos: Todo[], action: Action): Todo[] => {
       }
       return [...todos, todo]
     case 'COMPLETE_TODO':
-      const updatedTodos = todos.map(todo => {
+      return todos.map(todo => {
         if (todo.id === action.payload.id) {
           return {
             ...todo,
@@ -29,10 +29,7 @@ const reducer = (todos: Todo[], action: Action): Todo[] => {
 
         return todo
       })
-      return updatedTodos
   }
-
-  return todos
 }
 
 export const App: React.FC = () => {
