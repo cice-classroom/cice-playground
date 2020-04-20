@@ -1,15 +1,38 @@
-import React, { useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
 
 const cx = bind(styles)
 
+type Action =
+  | { type: 'CREATE_TODO'; payload: { id: number; text: string } }
+  | { type: 'COMPLETE_TODO'; payload: { id: number } }
+
+const reducer = (todos: Todo[], action: Action): Todo[] => {
+  switch (action.type) {
+    case 'CREATE_TODO':
+      const todo: Todo = {
+        completed: false,
+        id: action.payload.id,
+        text: action.payload.text
+      }
+      return [...todos, todo]
+  }
+
+  return todos
+}
+
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
+  const [state, dispatch] = useReducer(reducer, [])
 
   function createTodo(todoText: string) {
     const newTodo: Todo = { id: Math.floor(Math.random() * 1000), text: todoText, completed: false }
+    dispatch({
+      type: 'CREATE_TODO',
+      payload: { id: Math.floor(Math.random() * 1000), text: todoText }
+    })
     setTodos([...todos, newTodo])
   }
 
