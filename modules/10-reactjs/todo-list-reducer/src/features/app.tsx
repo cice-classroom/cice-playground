@@ -52,18 +52,6 @@ export const App: React.FC = () => {
   const clearTodo = () => setTodoText('')
 
   function completeTodo(id: number) {
-    setTodos(
-      todos.map(todo => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed
-          }
-        }
-
-        return todo
-      })
-    )
     dispatch({ type: 'COMPLETE_TODO', payload: { id } })
   }
 
