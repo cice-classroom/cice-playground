@@ -43,15 +43,14 @@ export const App: React.FC = () => {
 
   const clearTodo = () => setTodoText('')
 
-  function completeTodo(id: number) {
-    dispatch({ type: 'COMPLETE_TODO', payload: { id } })
-  }
-
   return (
     <main>
       <ul>
         {todos.map(todo => (
-          <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
+          <li
+            onClick={() => dispatch({ type: 'COMPLETE_TODO', payload: { id: todo.id } })}
+            className={cx({ completed: todo.completed })}
+          >
             {todo.text}
           </li>
         ))}
