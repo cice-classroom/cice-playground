@@ -38,13 +38,6 @@ const reducer = (todos: Todo[], action: Action): Todo[] => {
 export const App: React.FC = () => {
   const [todos, dispatch] = useReducer(reducer, [])
 
-  function createTodo(todoText: string) {
-    dispatch({
-      type: 'CREATE_TODO',
-      payload: { id: Math.floor(Math.random() * 1000), text: todoText }
-    })
-  }
-
   const [todoText, setTodoText] = useState('')
   const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 
@@ -66,7 +59,10 @@ export const App: React.FC = () => {
       <form
         onSubmit={event => {
           event.preventDefault()
-          createTodo(todoText)
+          dispatch({
+            type: 'CREATE_TODO',
+            payload: { id: Math.floor(Math.random() * 1000), text: todoText }
+          })
           clearTodo()
         }}
       >
