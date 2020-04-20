@@ -40,12 +40,10 @@ export const App: React.FC = () => {
   const [state, dispatch] = useReducer(reducer, [])
 
   function createTodo(todoText: string) {
-    const newTodo: Todo = { id: Math.floor(Math.random() * 1000), text: todoText, completed: false }
     dispatch({
       type: 'CREATE_TODO',
       payload: { id: Math.floor(Math.random() * 1000), text: todoText }
     })
-    setTodos([...todos, newTodo])
   }
 
   const [todoText, setTodoText] = useState('')
