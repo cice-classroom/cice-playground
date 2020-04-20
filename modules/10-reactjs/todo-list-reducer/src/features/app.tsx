@@ -61,6 +61,3 @@ export const App: React.FC = () => {
     </main>
   )
 }
-
-
-const ADD_TODO = 'ADD_TODO'
