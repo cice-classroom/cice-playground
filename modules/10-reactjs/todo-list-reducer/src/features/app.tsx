@@ -36,7 +36,7 @@ const reducer = (todos: Todo[], action: Action): Todo[] => {
 }
 
 export const App: React.FC = () => {
-  const [state, dispatch] = useReducer(reducer, [])
+  const [todos, dispatch] = useReducer(reducer, [])
 
   function createTodo(todoText: string) {
     dispatch({
@@ -46,7 +46,7 @@ export const App: React.FC = () => {
   }
 
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = state.map(todo => todo.text).includes(todoText)
+  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 
   const clearTodo = () => setTodoText('')
 
@@ -57,7 +57,7 @@ export const App: React.FC = () => {
   return (
     <main>
       <ul>
-        {state.map(todo => (
+        {todos.map(todo => (
           <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
             {todo.text}
           </li>
