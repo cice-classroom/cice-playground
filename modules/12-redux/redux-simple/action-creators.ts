@@ -1,8 +1,25 @@
-import {INCREMENT} from "./action-types";
-import { Action } from 'redux'
+import { INCREMENT, INCREMENT_BY } from './action-types'
 
-export function increment(): Action {
+export function increment(): Actions {
   return {
     type: INCREMENT
   }
 }
+
+export function incrementBy(number: number): Actions {
+  return {
+    type: INCREMENT_BY,
+    by: number
+  }
+}
+
+interface IncrementAction {
+  type: typeof INCREMENT
+}
+
+interface IncrementByAction {
+  type: typeof INCREMENT_BY
+  by: number
+}
+
+export type Actions = IncrementAction | IncrementByAction
