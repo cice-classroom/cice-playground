@@ -2,11 +2,8 @@ import { createStore } from 'redux'
 import { reducer } from './reducer'
 import { decrement, increment, incrementBy } from './action-creators'
 
-const store = createStore(
-  reducer,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__({ trace: true, traceLimit: 25 })
-)
+const devtools = (window as any).__REDUX_DEVTOOLS_EXTENSION__
+const store = createStore(reducer, devtools && devtools({ trace: true, traceLimit: 25 }))
 
 document.querySelector('#increment')?.addEventListener('click', () => {
   store.dispatch(increment())
