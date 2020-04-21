@@ -1,0 +1,19 @@
+{
+  "name": "redux-simple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "4.0.5"
+  },
+  "devDependencies": {
+    "parcel-bundler": "1.12.4"
+  }
+}
