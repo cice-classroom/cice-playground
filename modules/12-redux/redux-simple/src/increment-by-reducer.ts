@@ -5,5 +5,7 @@ export function incrementByReducer(state: State = initialState, action: Incremen
   switch (action.type) {
     case 'INCREMENT_BY':
       return { count: state.count + action.by }
+    default:
+      return state
   }
 }

@@ -24,6 +24,6 @@ store.subscribe(() => {
   const incrementCounter = document.querySelector('#increment-counter')
   if (incrementCounter !== null && incrementByCounter !== null) {
     incrementByCounter.innerHTML = store.getState().incrementByReducer.count.toString()
-    incrementCounter.innerHTML = store.getState().incrementByReducer.count.toString()
+    incrementCounter.innerHTML = store.getState().incrementReducer.count.toString()
   }
 })
