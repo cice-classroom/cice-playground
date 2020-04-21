@@ -1,19 +1,19 @@
 import { DECREMENT, INCREMENT, INCREMENT_BY } from './action-types'
 
-export function increment(): Actions {
+export function increment(): Action {
   return {
     type: INCREMENT
   }
 }
 
-export function incrementBy(number: number): Actions {
+export function incrementBy(number: number): Action {
   return {
     type: INCREMENT_BY,
     by: number
   }
 }
 
-export function decrement(): Actions {
+export function decrement(): Action {
   return {
     type: DECREMENT
   }
@@ -32,4 +32,4 @@ interface DecrementAction {
   type: typeof DECREMENT
 }
 
-export type Actions = IncrementAction | IncrementByAction | DecrementAction
+export type Action = IncrementAction | IncrementByAction | DecrementAction

@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import { reducer } from './reducer'
-import { decrement, increment } from './action-creators'
+import { decrement, increment, incrementBy } from './action-creators'
 
 const store = createStore(
   reducer,
@@ -14,6 +14,11 @@ document.querySelector('#increment')?.addEventListener('click', () => {
 
 document.querySelector('#decrement')?.addEventListener('click', () => {
   store.dispatch(decrement())
+})
+
+document.querySelector('#increment-by')?.addEventListener('click', () => {
+  const element = document.querySelector('#by') as HTMLInputElement
+  store.dispatch(incrementBy(Number(element.value)))
 })
 
 store.subscribe(() => {
