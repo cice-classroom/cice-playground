@@ -1,9 +1,10 @@
 import { createStore } from 'redux'
-import { reducer } from './reducer'
-import { decrement, increment, incrementBy } from './action-creators'
+import { decrement, increment } from './action-creators'
+import { incrementBy } from './increment-by-creators'
+import { rootReducer } from './root-reducer'
 
 const devtools = (window as any).__REDUX_DEVTOOLS_EXTENSION__
-const store = createStore(reducer, devtools && devtools({ trace: true, traceLimit: 25 }))
+const store = createStore(rootReducer, devtools && devtools({ trace: true, traceLimit: 25 }))
 
 document.querySelector('#increment')?.addEventListener('click', () => {
   store.dispatch(increment())
@@ -19,8 +20,10 @@ document.querySelector('#increment-by')?.addEventListener('click', () => {
 })
 
 store.subscribe(() => {
-  const counter = document.querySelector('#counter')
-  if (counter !== null) {
-    counter.innerHTML = store.getState().count.toString()
+  const incrementByCounter = document.querySelector('#increment-by-counter')
+  const incrementCounter = document.querySelector('#increment-counter')
+  if (incrementCounter !== null && incrementByCounter !== null) {
+    incrementByCounter.innerHTML = store.getState().incrementByReducer.count.toString()
+    incrementCounter.innerHTML = store.getState().incrementByReducer.count.toString()
   }
 })
