@@ -1,0 +1,22 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "1. Fizz buzz 2. Calculator 3. Primer numbers 4. Word wrap 5. Change calculator",
+  "main": "babel.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/plugin-proposal-private-methods": "7.8.3",
+    "@babel/preset-env": "7.9.5",
+    "@babel/preset-typescript": "7.9.0",
+    "@types/jest": "25.2.1",
+    "babel-jest": "25.4.0",
+    "jest": "25.4.0"
+  }
+}

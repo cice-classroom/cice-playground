@@ -1,13 +1,14 @@
 {
-  "name": "cice-6-error-handling",
+  "name": "error-handling",
   "version": "1.0.0",
-  "description": "",
+  "description": "Error handling in JavaScript",
+  "repository": "https://github.com/cesalberca/cice-playground",
   "main": "index.js",
   "scripts": {
     "start": "serve"
   },
   "keywords": [],
-  "author": "César Alberca",
+  "author": "César Alberca <cesalberca@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "serve": "11.3.0"

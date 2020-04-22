@@ -1,13 +1,14 @@
 {
-  "name": "cice-6-webapp-flex",
+  "name": "webapp-flex",
   "version": "1.0.0",
-  "description": "",
+  "description": "Flexbox",
   "main": "index.js",
   "scripts": {
     "start": "serve"
   },
+  "repository": "https://github.com/cesalberca/cice-playground",
   "keywords": [],
-  "author": "César Alberca",
+  "author": "César Alberca <cesalberca@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "serve": "11.3.0"

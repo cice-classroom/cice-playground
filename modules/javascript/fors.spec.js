@@ -36,6 +36,7 @@ describe('fors', () => {
     const actual = []
 
     for (const key in foo) {
+      // eslint-disable-next-line no-prototype-builtins
       if (foo.hasOwnProperty(key)) {
         actual.push(foo[key])
       }

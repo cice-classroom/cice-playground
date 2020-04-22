@@ -1,5 +1,5 @@
 {
-  "name": "cice-6-webapp-layout",
+  "name": "webapp-layout",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,8 @@
     "build": "parcel build index.html"
   },
   "keywords": [],
-  "author": "César Alberca",
+  "repository": "https://github.com/cesalberca/cice-playground",
+  "author": "César Alberca <cesalberca@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "7.8.4",
