@@ -1,9 +1,7 @@
-import { incrementReducer } from './increment-reducer'
-import { createStore } from 'redux';
+import { createStore } from 'redux'
+import { rootReducer } from './root-reducer'
 
-export const store = createStore(incrementReducer);
+export const store = createStore(rootReducer);
 
-
-export type RootState = ReturnType<typeof incrementReducer>
+export type RootState = ReturnType<typeof rootReducer>
 export type AppDispatch = typeof store.dispatch
-

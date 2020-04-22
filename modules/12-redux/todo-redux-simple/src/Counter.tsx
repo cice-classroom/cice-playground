@@ -4,8 +4,10 @@ import styles from './Counter.module.css'
 import { decrement, increment } from './action-creators'
 import { AppDispatch, RootState } from './store'
 
+const countSelector = (state: RootState) => state.incrementReducer.count
+
 export function Counter() {
-  const count = useSelector((state: RootState) => state.count);
+  const count = useSelector(countSelector);
   const dispatch: AppDispatch = useDispatch();
 
   return (
