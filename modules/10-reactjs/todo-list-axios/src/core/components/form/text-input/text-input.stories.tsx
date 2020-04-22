@@ -3,7 +3,7 @@ import { TextInput } from './text-input'
 
 export default {
   title: 'TextInput',
-  component: TextInput
+  component: TextInput,
 }
 
 const WithState: React.FC<{ isRequired: boolean }> = ({ isRequired }) => {

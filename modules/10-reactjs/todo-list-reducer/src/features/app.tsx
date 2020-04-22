@@ -14,13 +14,13 @@ export const App: React.FC = () => {
   const { todos, dispatch } = useTodos()
   const [todoText, setTodoText] = useState('')
 
-  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
+  const isTodoDuplicated = todos.map((todo) => todo.text).includes(todoText)
   const clearTodo = () => setTodoText('')
 
   return (
     <main>
       <ul>
-        {todos.map(todo => (
+        {todos.map((todo) => (
           <li
             onClick={() => dispatch({ type: 'COMPLETE_TODO', payload: { id: todo.id } })}
             className={cx({ completed: todo.completed })}
@@ -30,18 +30,18 @@ export const App: React.FC = () => {
         ))}
       </ul>
       <form
-        onSubmit={event => {
+        onSubmit={(event) => {
           event.preventDefault()
           dispatch({
             type: 'CREATE_TODO',
-            payload: { id: Math.floor(Math.random() * 1000), text: todoText }
+            payload: { id: Math.floor(Math.random() * 1000), text: todoText },
           })
           clearTodo()
         }}
       >
         <label>
           Todo
-          <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+          <input value={todoText} onChange={(event) => setTodoText(event.target.value)} />
         </label>
         <button onClick={clearTodo}>Clear todo</button>
         <button type="submit" disabled={isTodoDuplicated}>

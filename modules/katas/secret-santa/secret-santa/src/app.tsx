@@ -22,7 +22,7 @@ export const App: React.FC = () => {
     const randomProvider: RandomProvider = {
       provide(): number {
         return Math.random()
-      }
+      },
     }
 
     const assigner = new Assigner(randomProvider)
@@ -49,14 +49,14 @@ export const App: React.FC = () => {
       <header>
         <label>
           Nombre
-          <input type="text" value={name} onChange={event => setName(event.target.value)} />
+          <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
         </label>
         <button onClick={onAddName}>Crear</button>
         <button onClick={assign}>Asignar</button>
       </header>
       <main>
         <ul>
-          {names.map(name => (
+          {names.map((name) => (
             <li key={name}>
               <span>{name}</span>{' '}
               {hasAssigned && (

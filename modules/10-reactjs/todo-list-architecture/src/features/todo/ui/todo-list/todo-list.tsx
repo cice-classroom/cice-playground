@@ -9,7 +9,7 @@ export const TodoList: React.FunctionComponent<{
 }> = ({ todos, onCompleteTodo }) => {
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <Todo key={todo.id} onClick={() => onCompleteTodo(todo.id)} todo={todo} />
       ))}
     </ul>

@@ -3,7 +3,7 @@ import { Page } from './page'
 
 export default {
   title: 'Page',
-  component: Page
+  component: Page,
 }
 
 export const base = () => (

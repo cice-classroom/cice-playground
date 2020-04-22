@@ -4,7 +4,7 @@ describe('Assigner', () => {
   it('should assign each person', () => {
     const names = ['foo', 'bar', 'baz']
     const provider: RandomProvider = {
-      provide: () => 0.3
+      provide: () => 0.3,
     }
     const assigner = new Assigner(provider)
 

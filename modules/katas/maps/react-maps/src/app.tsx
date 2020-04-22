@@ -12,7 +12,7 @@ interface Coordinates {
 
 const throttle = <T extends (...args: unknown[]) => unknown>(cb: T, limit: number) => {
   let inThrottle = false
-  return function(this: T, ...args: unknown[]) {
+  return function (this: T, ...args: unknown[]) {
     if (!inThrottle) {
       cb.apply(this, args)
       inThrottle = true
@@ -55,19 +55,19 @@ function reducer(state: State, action: Action): State {
     case 'started':
       return {
         ...state,
-        status: 'pending'
+        status: 'pending',
       }
     case 'error':
       return {
         ...state,
         status: 'rejected',
-        error: action.error
+        error: action.error,
       }
     case 'success':
       return {
         ...state,
         status: 'resolved',
-        coordinates: action.coordinates
+        coordinates: action.coordinates,
       }
   }
 }
@@ -78,8 +78,8 @@ function useGeoposition() {
     error: null,
     coordinates: {
       longitude: 0,
-      latitude: 0
-    }
+      latitude: 0,
+    },
   }
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -87,11 +87,11 @@ function useGeoposition() {
     if (navigator.geolocation === undefined) {
       dispatch({
         type: 'error',
-        error: new Error('Geolocation is not supported')
+        error: new Error('Geolocation is not supported'),
       })
     }
     dispatch({
-      type: 'started'
+      type: 'started',
     })
     const id = navigator.geolocation.watchPosition(
       ({ coords }) => {
@@ -99,7 +99,7 @@ function useGeoposition() {
 
         dispatch({
           type: 'success',
-          coordinates: { longitude, latitude }
+          coordinates: { longitude, latitude },
         })
       },
       () => {
@@ -156,7 +156,7 @@ export function App() {
           onClick={() =>
             setCityCoordinates({
               longitude: -3.692763,
-              latitude: 40.4640717
+              latitude: 40.4640717,
             })
           }
         >

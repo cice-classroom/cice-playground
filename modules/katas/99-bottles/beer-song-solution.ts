@@ -1,8 +1,6 @@
 export class BeerSong {
   sing(from: number, to = 0) {
-    return this.range(from, to)
-      .map(this.verse)
-      .join('\n')
+    return this.range(from, to).map(this.verse).join('\n')
   }
 
   verse(number: number) {

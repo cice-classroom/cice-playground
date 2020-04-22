@@ -40,6 +40,6 @@ function setup() {
   window.fetch = fetchMock
 
   return {
-    http: new Http()
+    http: new Http(),
   }
 }

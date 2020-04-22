@@ -7,7 +7,7 @@ export class TodoToTodoDtoMapper {
       title: text,
       id: id,
       completed,
-      userId: -1
+      userId: -1,
     }
   }
 }

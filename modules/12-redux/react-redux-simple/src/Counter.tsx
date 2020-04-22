@@ -7,8 +7,8 @@ import { AppDispatch, RootState } from './store'
 const countSelector = (state: RootState) => state.incrementReducer.count
 
 export function Counter() {
-  const count = useSelector(countSelector);
-  const dispatch: AppDispatch = useDispatch();
+  const count = useSelector(countSelector)
+  const dispatch: AppDispatch = useDispatch()
 
   return (
     <div>
@@ -30,5 +30,5 @@ export function Counter() {
         </button>
       </div>
     </div>
-  );
+  )
 }

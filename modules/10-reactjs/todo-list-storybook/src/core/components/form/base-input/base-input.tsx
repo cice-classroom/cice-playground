@@ -19,7 +19,7 @@ export const BaseInput: React.FunctionComponent<Props> = ({
   onChange,
   required,
   type,
-  endSlot
+  endSlot,
 }) => {
   const isRequired = required && value === ''
   return (
@@ -27,7 +27,7 @@ export const BaseInput: React.FunctionComponent<Props> = ({
       {label}
       <input
         className={cx('input', { required: isRequired })}
-        onChange={event => onChange(event.target.value)}
+        onChange={(event) => onChange(event.target.value)}
         value={value}
         type={type}
       />

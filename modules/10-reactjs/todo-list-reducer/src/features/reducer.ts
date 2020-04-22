@@ -7,15 +7,15 @@ export const reducer = (todos: Todo[] = [], action: Action): Todo[] => {
       const todo: Todo = {
         completed: false,
         id: action.payload.id,
-        text: action.payload.text
+        text: action.payload.text,
       }
       return [...todos, todo]
     case 'COMPLETE_TODO':
-      return todos.map(todo => {
+      return todos.map((todo) => {
         if (todo.id === action.payload.id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           }
         }
 

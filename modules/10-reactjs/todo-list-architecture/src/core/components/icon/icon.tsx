@@ -17,7 +17,7 @@ const icons: Record<IconName, string> = {
   check: '✅',
   cross: '❌',
   openEye: '◎',
-  closedEye: '◉'
+  closedEye: '◉',
 }
 
 export const Icon: React.FunctionComponent<Props> = ({ name, size = 'm', onClick }) => {

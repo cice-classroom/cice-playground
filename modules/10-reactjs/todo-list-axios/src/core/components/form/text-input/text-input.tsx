@@ -6,6 +6,6 @@ import { Input } from '../input'
 
 const cx = bind(styles)
 
-export const TextInput: React.FunctionComponent<Input<string>> = props => {
+export const TextInput: React.FunctionComponent<Input<string>> = (props) => {
   return <BaseInput {...props} type={'text'} />
 }

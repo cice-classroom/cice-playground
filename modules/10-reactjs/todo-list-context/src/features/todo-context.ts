@@ -3,5 +3,5 @@ import { Todo } from './todo'
 
 export const TodoContext = createContext<{ todos: Todo[]; clearTodos: () => void }>({
   todos: [],
-  clearTodos: () => {}
+  clearTodos: () => {},
 })

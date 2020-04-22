@@ -7,7 +7,7 @@ import { Input } from '../input'
 
 const cx = bind(styles)
 
-export const PasswordInput: React.FunctionComponent<Input<string>> = props => {
+export const PasswordInput: React.FunctionComponent<Input<string>> = (props) => {
   const [isShowing, setIsShowing] = useState(false)
   return (
     <BaseInput

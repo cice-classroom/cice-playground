@@ -8,7 +8,7 @@ import { EnglishGreeter } from './english-greeter'
 export class MultilingualGreeter implements Greeter {
   constructor(
     @inject(TYPES.SPANISH_GREETER) private readonly spanishGreeter: SpanishGreeter,
-    @inject(TYPES.ENGLISH_GREETER) private readonly englishGreeter: EnglishGreeter,
+    @inject(TYPES.ENGLISH_GREETER) private readonly englishGreeter: EnglishGreeter
   ) {}
 
   hello(): string {

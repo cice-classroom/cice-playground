@@ -15,7 +15,7 @@ describe('reducer', () => {
   it('should complete a todo', () => {
     const initialState: Todo[] = [
       { id: 1, text: 'foo', completed: false },
-      { id: 2, text: 'bar', completed: false }
+      { id: 2, text: 'bar', completed: false },
     ]
     const action: Action = { type: 'COMPLETE_TODO', payload: { id: 1 } }
 
@@ -23,7 +23,7 @@ describe('reducer', () => {
 
     expect(actual).toEqual([
       { id: 1, text: 'foo', completed: true },
-      { id: 2, text: 'bar', completed: false }
+      { id: 2, text: 'bar', completed: false },
     ])
   })
 })

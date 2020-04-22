@@ -52,6 +52,6 @@ function setup() {
   return {
     ...rendered,
     createTodo,
-    getInput
+    getInput,
   }
 }

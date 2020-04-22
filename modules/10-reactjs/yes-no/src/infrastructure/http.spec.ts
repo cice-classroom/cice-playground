@@ -39,6 +39,6 @@ function setup() {
   fetcher.mockImplementation(() => Promise.resolve({ json: () => Promise.resolve() }))
   return {
     fetcher,
-    http: new Http(fetcher)
+    http: new Http(fetcher),
   }
 }

@@ -8,7 +8,7 @@ export class TodoRepository {
       return {
         id: todoDto.id,
         text: todoDto.title,
-        completed: todoDto.completed
+        completed: todoDto.completed,
       }
     })
   }
@@ -18,7 +18,7 @@ export class TodoRepository {
       id: todo.id,
       title: todo.text,
       completed: todo.completed,
-      userId: 0
+      userId: 0,
     })
   }
 }

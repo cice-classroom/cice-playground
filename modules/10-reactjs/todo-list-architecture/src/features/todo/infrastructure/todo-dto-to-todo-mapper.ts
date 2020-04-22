@@ -6,7 +6,7 @@ export class TodoDtoToTodoMapper {
     return {
       text: todoDto.title,
       id: todoDto.id,
-      completed: todoDto.completed
+      completed: todoDto.completed,
     }
   }
 }

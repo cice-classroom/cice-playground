@@ -6,14 +6,14 @@ module.exports = {
     {
       name: '@storybook/preset-create-react-app',
       options: {
-        tsDocgenLoaderOptions: {}
-      }
+        tsDocgenLoaderOptions: {},
+      },
     },
     {
       name: '@storybook/addon-docs',
       options: {
-        configureJSX: true
-      }
-    }
-  ]
+        configureJSX: true,
+      },
+    },
+  ],
 }

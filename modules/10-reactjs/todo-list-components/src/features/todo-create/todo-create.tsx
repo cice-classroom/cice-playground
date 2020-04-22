@@ -8,13 +8,13 @@ interface Props {
 
 export const TodoCreate: React.FC<Props> = ({ onCreate, todos }) => {
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
+  const isTodoDuplicated = todos.map((todo) => todo.text).includes(todoText)
 
   const clearTodo = () => setTodoText('')
 
   return (
     <form
-      onSubmit={event => {
+      onSubmit={(event) => {
         event.preventDefault()
         onCreate(todoText)
         clearTodo()
@@ -22,7 +22,7 @@ export const TodoCreate: React.FC<Props> = ({ onCreate, todos }) => {
     >
       <label>
         Todo
-        <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+        <input value={todoText} onChange={(event) => setTodoText(event.target.value)} />
       </label>
       <button onClick={clearTodo}>Clear todo</button>
       <button type="submit" disabled={isTodoDuplicated}>

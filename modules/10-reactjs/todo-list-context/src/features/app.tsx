@@ -17,17 +17,17 @@ export function App() {
   }
 
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
+  const isTodoDuplicated = todos.map((todo) => todo.text).includes(todoText)
 
   const clearTodo = () => setTodoText('')
 
   function completeTodo(id: number) {
     setTodos(
-      todos.map(todo => {
+      todos.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           }
         }
 
@@ -40,7 +40,7 @@ export function App() {
     <TodoContext.Provider value={{ todos, clearTodos: () => setTodos([]) }}>
       <main>
         <ul>
-          {todos.map(todo => (
+          {todos.map((todo) => (
             <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
               {todo.text}
             </li>
@@ -49,7 +49,7 @@ export function App() {
         <TodoCount />
         <TodoClear />
         <form
-          onSubmit={event => {
+          onSubmit={(event) => {
             event.preventDefault()
             createTodo(todoText)
             clearTodo()
@@ -57,9 +57,11 @@ export function App() {
         >
           <label>
             Todo
-            <input value={todoText} onChange={event => setTodoText(event.target.value)} />
+            <input value={todoText} onChange={(event) => setTodoText(event.target.value)} />
           </label>
-          <button type="button" onClick={clearTodo}>Clear todo</button>
+          <button type="button" onClick={clearTodo}>
+            Clear todo
+          </button>
           <button type="submit" disabled={isTodoDuplicated}>
             Create todo
           </button>

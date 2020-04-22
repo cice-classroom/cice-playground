@@ -28,11 +28,11 @@ export const App: React.FC = () => {
 
   function completeTodo(id: number) {
     setTodos(
-      todos.map(todo => {
+      todos.map((todo) => {
         if (todo.id === id) {
           return {
             ...todo,
-            completed: !todo.completed
+            completed: !todo.completed,
           }
         }
 

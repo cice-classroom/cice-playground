@@ -13,7 +13,7 @@ export class TodoHttpRepository implements TodoRepository {
 
   async findAll(): Promise<Todo[]> {
     const response = await http.get<TodoDto[]>('/todos')
-    return response.data.map(todoDto => this.todoDtoToTodoMapper.map(todoDto))
+    return response.data.map((todoDto) => this.todoDtoToTodoMapper.map(todoDto))
   }
 
   async create(todo: Todo): Promise<void> {
