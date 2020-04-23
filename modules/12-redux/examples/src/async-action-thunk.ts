@@ -20,7 +20,7 @@ export interface FetchErrorAction {
 }
 
 export const fetchStartAction = (): Action => {
-  return{
+  return {
     type: FETCH_START
   }
 }
@@ -37,7 +37,7 @@ export const fetchResolve = (): Thunk<FetchSuccessAction> => {
 }
 
 export const fetchSuccessAction = (result: number): Action => {
-  return{
+  return {
     type: FETCH_SUCCESS,
     result
   }
@@ -51,6 +51,7 @@ export const fetchErrorAction = (error: Error): Action => {
 }
 
 export type Action = FetchErrorAction | FetchStartAction | FetchSuccessAction
+
 interface State {
   isLoading: boolean
   hasError: boolean
@@ -59,7 +60,7 @@ interface State {
 }
 
 const initialState: State = {
-  result:undefined,
+  result: undefined,
   isLoading: false,
   hasError: false,
   error: undefined
@@ -92,5 +93,3 @@ export const counterReducer = (state: State = initialState, action: Action): Sta
       return state
   }
 }
-
-
