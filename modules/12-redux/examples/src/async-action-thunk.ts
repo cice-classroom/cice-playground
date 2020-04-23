@@ -1,3 +1,6 @@
+import { AppDispatch, RootState } from './store'
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+
 export const FETCH_START = 'FETCH_START'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 export const FETCH_ERROR = 'FETCH_ERROR'
@@ -22,8 +25,15 @@ export const fetchStartAction = (): Action => {
   }
 }
 
-export const fetchResolve = () : Action => {
+type Thunk<A extends Action> = ThunkAction<void, RootState, void, A>
 
+export const fetchResolve = (): Thunk<FetchSuccessAction> => {
+  return (dispatch: AppDispatch) => {
+    dispatch(fetchStartAction())
+    setTimeout(() => {
+      return dispatch(fetchSuccessAction(42))
+    }, 1_000)
+  }
 }
 
 export const fetchSuccessAction = (result: number): Action => {
@@ -41,5 +51,46 @@ export const fetchErrorAction = (error: Error): Action => {
 }
 
 export type Action = FetchErrorAction | FetchStartAction | FetchSuccessAction
+interface State {
+  isLoading: boolean
+  hasError: boolean
+  error?: Error
+  result?: number
+}
+
+const initialState: State = {
+  result:undefined,
+  isLoading: false,
+  hasError: false,
+  error: undefined
+}
+
+export const counterReducer = (state: State = initialState, action: Action): State => {
+  switch (action.type) {
+    case 'FETCH_ERROR':
+      return {
+        error: action.error,
+        isLoading: false,
+        hasError: true,
+        result: undefined
+      }
+    case 'FETCH_START':
+      return {
+        hasError: false,
+        isLoading: true,
+        error: undefined,
+        result: undefined
+      }
+    case 'FETCH_SUCCESS':
+      return {
+        error: undefined,
+        isLoading: false,
+        hasError: false,
+        result: action.result
+      }
+    default:
+      return state
+  }
+}
 
 
