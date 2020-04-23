@@ -1,5 +1,6 @@
 import { AppDispatch, RootState } from './store'
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { Action as ReduxAction } from 'redux'
+import { ThunkAction } from 'redux-thunk'
 
 export const FETCH_START = 'FETCH_START'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
@@ -25,13 +26,18 @@ export const fetchStartAction = (): Action => {
   }
 }
 
-type Thunk<A extends Action> = ThunkAction<void, RootState, void, A>
+export type Thunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  ReduxAction<string>
+>
 
-export const fetchResolve = (): Thunk<FetchSuccessAction> => {
+export const fetchResolve = (): Thunk => {
   return (dispatch: AppDispatch) => {
     dispatch(fetchStartAction())
     setTimeout(() => {
-      return dispatch(fetchSuccessAction(42))
+      dispatch(fetchSuccessAction(42))
     }, 1_000)
   }
 }
