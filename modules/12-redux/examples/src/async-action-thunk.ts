@@ -11,12 +11,7 @@ export interface FetchSuccessAction {
   result: number
 }
 
-export interface FetchErrorAction {
-  type: 'FETCH_ERROR'
-  error: Error
-}
-
-export type Action = FetchErrorAction | FetchStartAction | FetchSuccessAction
+export type Action = FetchStartAction | FetchSuccessAction
 
 export const fetchStartAction = (): Action => {
   return {
@@ -47,48 +42,26 @@ export const fetchSuccessAction = (result: number): Action => {
   }
 }
 
-export const fetchErrorAction = (error: Error): Action => {
-  return {
-    type: 'FETCH_ERROR',
-    error
-  }
-}
-
 interface State {
   isLoading: boolean
-  hasError: boolean
-  error?: Error
   result?: number
 }
 
 const initialState: State = {
   result: undefined,
-  isLoading: false,
-  hasError: false,
-  error: undefined
+  isLoading: false
 }
 
 export const counterReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
-    case 'FETCH_ERROR':
-      return {
-        error: action.error,
-        isLoading: false,
-        hasError: true,
-        result: undefined
-      }
     case 'FETCH_START':
       return {
-        hasError: false,
         isLoading: true,
-        error: undefined,
         result: undefined
       }
     case 'FETCH_SUCCESS':
       return {
-        error: undefined,
         isLoading: false,
-        hasError: false,
         result: action.result
       }
     default:
