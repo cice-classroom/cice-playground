@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AppDispatch } from '../application/store/store'
 import { useDispatch } from 'react-redux'
-import { createTodo } from '../application/todo/todo-action'
+import { saveTodo } from '../application/todo/todo-action'
 
 export const TodoForm: React.FC = () => {
   const [text, setText] = useState('')
@@ -12,9 +12,8 @@ export const TodoForm: React.FC = () => {
         Todo
         <input type="text" value={text} onChange={event => setText(event.target.value)} />
       </label>
-      <button
-        onClick={() => dispatch(createTodo({ text, id: Math.floor(Math.random() * 10_000) }))}
-      >
+      // @ts-ignore
+      <button onClick={() => dispatch(saveTodo({ text, id: Math.floor(Math.random() * 10_000) }))}>
         Create
       </button>
     </>

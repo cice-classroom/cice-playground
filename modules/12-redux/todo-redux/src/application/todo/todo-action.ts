@@ -1,4 +1,5 @@
 import { Todo } from '../../domain/todo'
+import { AppDispatch, Thunk } from '../store/store'
 
 type TodoPayload = Pick<Todo, 'id' | 'text'>
 
@@ -42,6 +43,19 @@ export const removeTodo = (payload: { id: number }): TodoAction => {
   return {
     type: 'REMOVE_TODO',
     payload
+  }
+}
+
+export const saveTodo = (payload: TodoPayload): Thunk => {
+  return (dispatch: AppDispatch) => {
+    setTimeout(() => {
+      const todo: Todo = {
+        ...payload,
+        completed: false
+      }
+      localStorage.setItem('todo', JSON.stringify(todo))
+      dispatch(createTodo(payload))
+    }, 1_000)
   }
 }
 
