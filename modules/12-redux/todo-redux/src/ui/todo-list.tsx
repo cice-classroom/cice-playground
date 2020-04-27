@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../application/store/store'
-import { editTodo } from '../application/todo/todo-action'
+import { editTodo, removeTodo } from '../application/todo/todo-action'
 
 export const TodoList: React.FC = () => {
   const todos = useSelector((state: RootState) => state.todoReducer.todos)
@@ -15,6 +15,7 @@ export const TodoList: React.FC = () => {
         <div>
           <li key={id}>{text}</li>
           <button onClick={() => setIsEditing(!isEditing)}>✏️</button>
+          <button onClick={() => dispatch(removeTodo({ id }))}>❌️</button>
           {isEditing && (
             <>
               <input type="text" onChange={event => setValue(event.target.value)} value={value} />

@@ -17,6 +17,10 @@ export function todoReducer(state: TodoState = initialState, action: TodoAction)
           todo.id === action.payload.id ? { ...todo, text: action.payload.text } : todo
         )
       }
+    case 'REMOVE_TODO':
+      return {
+        todos: state.todos.filter(todo => todo.id !== action.payload.id)
+      }
     default:
       return state
   }

@@ -12,6 +12,13 @@ interface EditTodoAction {
   payload: TodoPayload
 }
 
+interface RemoveTodoAction {
+  type: 'REMOVE_TODO'
+  payload: {
+    id: number
+  }
+}
+
 export const createTodo = (payload: TodoPayload): TodoAction => {
   return {
     type: 'CREATE_TODO',
@@ -26,4 +33,11 @@ export const editTodo = (payload: TodoPayload): TodoAction => {
   }
 }
 
-export type TodoAction = CreateTodoAction | EditTodoAction
+export const removeTodo = (payload: { id: number }): TodoAction => {
+  return {
+    type: 'REMOVE_TODO',
+    payload
+  }
+}
+
+export type TodoAction = CreateTodoAction | EditTodoAction | RemoveTodoAction
