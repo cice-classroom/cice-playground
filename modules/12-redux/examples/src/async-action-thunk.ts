@@ -31,7 +31,7 @@ export type Thunk<ReturnType = void> = ThunkAction<
   ReduxAction<string>
 >
 
-export const fetchResolve = (): Thunk => {
+export function fetchResolve(): Thunk {
   return (dispatch: AppDispatch) => {
     dispatch(fetchStartAction())
     setTimeout(() => {
