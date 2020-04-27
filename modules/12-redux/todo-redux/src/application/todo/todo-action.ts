@@ -1,5 +1,4 @@
 import { Todo } from '../../domain/todo'
-import { AppDispatch, Thunk } from '../store/store'
 
 type TodoPayload = Pick<Todo, 'id' | 'text'>
 
@@ -22,12 +21,6 @@ interface RemoveTodoAction {
   type: 'REMOVE_TODO'
   payload: {
     id: number
-  }
-}
-
-export const saveTodoAction = (): Thunk => {
-  return (dispatch: AppDispatch) => {
-    ...
   }
 }
 
