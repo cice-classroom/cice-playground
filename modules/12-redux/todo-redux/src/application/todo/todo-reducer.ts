@@ -11,6 +11,12 @@ export function todoReducer(state: TodoState = initialState, action: TodoAction)
       return {
         todos: [...state.todos, { ...action.payload, completed: false }]
       }
+    case 'EDIT_TODO':
+      return {
+        todos: state.todos.map(todo =>
+          todo.id === action.payload.id ? { ...todo, text: action.payload.text } : todo
+        )
+      }
     default:
       return state
   }
