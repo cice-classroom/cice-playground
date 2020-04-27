@@ -1,48 +1,27 @@
 import { Todo } from '../../domain/todo'
+import { createAction } from '@reduxjs/toolkit'
 
-type TodoPayload = Pick<Todo, 'id' | 'text'>
+export type TodoPayload = Pick<Todo, 'id' | 'text'>
 
-interface SaveTodoAction {
-  type: 'SAVE_TODO'
-  payload: Todo
-}
-
-interface CreateTodoAction {
+export interface CreateTodoAction {
   type: 'CREATE_TODO'
   payload: TodoPayload
 }
 
-interface EditTodoAction {
+export interface EditTodoAction {
   type: 'EDIT_TODO'
   payload: TodoPayload
 }
 
-interface RemoveTodoAction {
+export interface RemoveTodoAction {
   type: 'REMOVE_TODO'
   payload: {
     id: number
   }
 }
 
-export const createTodo = (payload: TodoPayload): TodoAction => {
-  return {
-    type: 'CREATE_TODO',
-    payload
-  }
-}
+export const createTodo = createAction<TodoPayload>('CREATE_TODO')
+export const editTodo = createAction<TodoPayload>('EDIT_TODO')
+export const removeTodo = createAction<{ id: number }>('REMOVE_TODO')
 
-export const editTodo = (payload: TodoPayload): TodoAction => {
-  return {
-    type: 'EDIT_TODO',
-    payload
-  }
-}
-
-export const removeTodo = (payload: { id: number }): TodoAction => {
-  return {
-    type: 'REMOVE_TODO',
-    payload
-  }
-}
-
-export type TodoAction = CreateTodoAction | EditTodoAction | RemoveTodoAction | SaveTodoAction
+export type TodoAction = CreateTodoAction | EditTodoAction | RemoveTodoAction

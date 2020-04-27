@@ -1,13 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import {
   setAllTodosVisible,
   setCompletedTodosVisible,
   setTodoTodosVisible
 } from '../application/todo-filters/todo-filters-action'
+import { useAppDispatch } from '../application/store/store'
 
 export const TodoFilters: React.FC = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   return (
     <div>

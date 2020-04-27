@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { AppDispatch } from '../application/store/store'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../application/store/store'
 import { createTodo } from '../application/todo/todo-action'
 
 export const TodoForm: React.FC = () => {
   const [text, setText] = useState('')
-  const dispatch: AppDispatch = useDispatch()
+  const dispatch = useAppDispatch()
   return (
     <>
       <label>

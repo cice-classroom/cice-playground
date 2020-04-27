@@ -1,3 +1,5 @@
+import { createAction } from '@reduxjs/toolkit'
+
 interface SetAllTodosVisibleAction {
   type: 'SET_ALL_TODOS_VISIBLE'
 }
@@ -15,18 +17,6 @@ export type TodoFiltersAction =
   | SetCompletedTodosVisibleAction
   | SetTodoTodosVisibleAction
 
-export const setAllTodosVisible = (): TodoFiltersAction => {
-  return {
-    type: 'SET_ALL_TODOS_VISIBLE'
-  }
-}
-export const setCompletedTodosVisible = (): TodoFiltersAction => {
-  return {
-    type: 'SET_COMPLETED_TODOS_VISIBLE'
-  }
-}
-export const setTodoTodosVisible = (): TodoFiltersAction => {
-  return {
-    type: 'SET_TODO_TODOS_VISIBLE'
-  }
-}
+export const setAllTodosVisible = createAction('SET_ALL_TODOS_VISIBLE')
+export const setCompletedTodosVisible = createAction('SET_COMPLETED_TODOS_VISIBLE')
+export const setTodoTodosVisible = createAction('SET_TODO_TODOS_VISIBLE')

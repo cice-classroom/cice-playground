@@ -1,24 +1,19 @@
-import { initialState, TodoFiltersState } from './todo-filters-state'
-import { TodoFiltersAction } from './todo-filters-action'
+import { initialState } from './todo-filters-state'
+import {
+  setAllTodosVisible,
+  setCompletedTodosVisible,
+  setTodoTodosVisible
+} from './todo-filters-action'
+import { createReducer } from '@reduxjs/toolkit'
 
-export const todoFiltersReducer = (
-  state: TodoFiltersState = initialState,
-  action: TodoFiltersAction
-): TodoFiltersState => {
-  switch (action.type) {
-    case 'SET_ALL_TODOS_VISIBLE':
-      return {
-        visibility: 'ALL'
-      }
-    case 'SET_COMPLETED_TODOS_VISIBLE':
-      return {
-        visibility: 'COMPLETED'
-      }
-    case 'SET_TODO_TODOS_VISIBLE':
-      return {
-        visibility: 'TODO'
-      }
-    default:
-      return state
+export const todoFiltersReducer = createReducer(initialState, {
+  [setAllTodosVisible.type]: state => {
+    state.visibility = 'ALL'
+  },
+  [setCompletedTodosVisible.type]: state => {
+    state.visibility = 'COMPLETED'
+  },
+  [setTodoTodosVisible.type]: state => {
+    state.visibility = 'TODO'
   }
-}
+})
