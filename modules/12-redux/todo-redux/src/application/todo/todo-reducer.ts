@@ -1,9 +1,5 @@
-import { TodoState } from './todo-state'
+import { initialState, TodoState } from './todo-state'
 import { TodoAction } from './todo-action'
-
-const initialState: TodoState = {
-  todos: [{ id: 1, completed: false, text: 'Hello world' }]
-}
 
 export function todoReducer(state: TodoState = initialState, action: TodoAction): TodoState {
   switch (action.type) {
