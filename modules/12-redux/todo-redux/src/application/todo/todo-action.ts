@@ -3,11 +3,6 @@ import { AppDispatch, Thunk } from '../store/store'
 
 type TodoPayload = Pick<Todo, 'id' | 'text'>
 
-interface SaveTodoAction {
-  type: 'SAVE_TODO'
-  payload: Todo
-}
-
 interface CreateTodoAction {
   type: 'CREATE_TODO'
   payload: TodoPayload
@@ -59,4 +54,4 @@ export const saveTodo = (payload: TodoPayload): Thunk => {
   }
 }
 
-export type TodoAction = CreateTodoAction | EditTodoAction | RemoveTodoAction | SaveTodoAction
+export type TodoAction = CreateTodoAction | EditTodoAction | RemoveTodoAction
