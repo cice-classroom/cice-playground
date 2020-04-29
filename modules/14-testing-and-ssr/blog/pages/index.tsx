@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import { Page } from '../components/page'
@@ -8,7 +9,7 @@ import { Post } from '../models/post'
 const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
-      <Head>
+      <Head>Add
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -19,11 +20,14 @@ const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
         <Link href="/about">
           <a>About</a>
         </Link>
-        {posts.map(post => (
-          <Link href={`/posts/${post.id}`} key={post.id}>
-            <a>{post.title}</a>
-          </Link>
-        ))}
+
+        <div>
+          {posts.map(post => (
+            <Link href={`/posts/${post.id}`} key={post.id}>
+              <a>{post.title}</a>
+            </Link>
+          ))}
+        </div>
       </Page>
     </>
   )
