@@ -10,12 +10,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page>
-        <p>
-          Read{' '}
-          <Link href="/posts/first-post">
-            <a>this page!</a>
-          </Link>
-        </p>
+        <Link href="/posts">
+          <a>Posts</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
       </Page>
     </>
   )
