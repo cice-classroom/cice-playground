@@ -3,13 +3,14 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { Page } from '../components/page'
 import { GetStaticProps } from 'next'
-import { getSortedPostsData } from '../lib/posts'
+import { getPosts } from '../lib/posts'
 import { Post } from '../models/post'
 
 const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
-      <Head>Add
+      <Head>
+        Add
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -34,7 +35,7 @@ const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getSortedPostsData()
+  const posts = getPosts()
   return {
     props: {
       posts

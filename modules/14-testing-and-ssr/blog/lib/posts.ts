@@ -12,9 +12,9 @@ interface Result {
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export function getSortedPostsData(): Post[] {
+export function getPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map(fileName => {
+  const posts = fileNames.map(fileName => {
     const id = fileName.replace(/\.md$/, '')
     const fullPath = path.join(postsDirectory, fileName)
 
@@ -23,17 +23,12 @@ export function getSortedPostsData(): Post[] {
 
     return {
       id,
+      contentHtml: '',
       ...result
     }
   })
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export function getAllPostIds() {
