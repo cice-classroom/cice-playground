@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { Page } from '../components/page'
+import { GetStaticProps } from 'next'
+import { getSortedPostsData } from '../lib/posts'
+import { Post } from '../models/post'
 
-export default function Home() {
+const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <Head>
@@ -16,7 +19,23 @@ export default function Home() {
         <Link href="/about">
           <a>About</a>
         </Link>
+        {posts.map(post => (
+          <Link href={`/posts/${post.id}`} key={post.id}>
+            <a>{post.title}</a>
+          </Link>
+        ))}
       </Page>
     </>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getSortedPostsData()
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+export default Home
