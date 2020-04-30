@@ -1,6 +1,6 @@
 import React from 'react'
 import { Page } from '../../components/page'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import { getAllPostIds, getPost } from '../../lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Post as PostModel } from '../../models/post'
 
@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string
-  const post = await getPostData(id)
+  const post = await getPost(id)
   return {
     props: {
       post
