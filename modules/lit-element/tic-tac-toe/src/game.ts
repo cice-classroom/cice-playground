@@ -1,12 +1,12 @@
-import { Player } from './player'
 import { range } from './range'
+import { Board } from './board'
 
 export class Game {
   static MAXIMUM_CELLS = 9
 
-  private board: (Player | null)[] = range(Game.MAXIMUM_CELLS).map(() => null)
+  private board: Board = range(Game.MAXIMUM_CELLS).map(() => null)
 
-  setBoard(board: (Player | null)[]) {
+  setBoard(board: Board) {
     this.board = board
   }
 

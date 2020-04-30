@@ -1,14 +1,13 @@
 import { css, customElement, LitElement, property } from 'lit-element'
 import { html } from 'lit-html'
 import { general } from './general'
-import { Player } from './player'
-import { range } from './range'
 import { Game } from './game'
+import { Board } from './board'
 
 @customElement('tic-tac-toe')
 export class TicTacToe extends LitElement {
   @property({ type: Array })
-  cells: Player[] = []
+  board: Board = ['X', 'O', 'X', null, null, null, null, null, null]
 
   static get styles() {
     return [
@@ -30,19 +29,33 @@ export class TicTacToe extends LitElement {
         }
 
         .cell {
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 32px;
           background-color: rebeccapurple;
         }
       `
     ]
   }
 
-  private onCellClicked(_index: number) {}
+  private readonly game = new Game()
+
+  private onCellClicked(index: number) {
+    if (this.game.canPlay(index)) {
+      this.board[index] = 'X'
+      this.game.setBoard(this.board)
+      this.requestUpdate()
+    }
+  }
 
   render() {
     return html`<main class="game">
       <section class="board">
-        ${range(Game.MAXIMUM_CELLS).map(
-          cell => html`<div @click="${() => this.onCellClicked(cell)}" class="cell"></div>`
+        ${this.board.map(
+          (cell, index) =>
+            html`<div @click="${() => this.onCellClicked(index)}" class="cell">${cell}</div>`
         )}
       </section>
     </main>`
