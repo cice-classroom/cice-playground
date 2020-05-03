@@ -6,8 +6,17 @@ import { Board } from './board'
 
 @customElement('tic-tac-toe')
 export class TicTacToe extends LitElement {
+  private readonly game = new Game()
+
   @property({ type: Array })
-  board: Board = ['X', 'O', 'X', null, null, null, null, null, null]
+  board: Board = this.game.board
+
+  connectedCallback(): void {
+    super.connectedCallback()
+    this.game.onBoardChange(board => {
+      this.board = [...board]
+    })
+  }
 
   static get styles() {
     return [
@@ -40,14 +49,8 @@ export class TicTacToe extends LitElement {
     ]
   }
 
-  private readonly game = new Game()
-
   private onCellClicked(index: number) {
-    if (this.game.canPlay(index)) {
-      this.board[index] = 'X'
-      this.game.setBoard(this.board)
-      this.requestUpdate()
-    }
+    this.game.play(index)
   }
 
   render() {

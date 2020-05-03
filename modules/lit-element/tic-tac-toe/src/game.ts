@@ -7,6 +7,7 @@ export class Game {
   static INITIAL_PLAYER: Player = 'X'
 
   private currentPlayer = Game.INITIAL_PLAYER
+  private boardChange = (_board: Board) => {}
 
   board: Board = range(Game.MAXIMUM_CELLS).map(() => null)
 
@@ -14,10 +15,15 @@ export class Game {
     this.board = board
   }
 
+  onBoardChange(callback: (board: Board) => void) {
+    this.boardChange = callback
+  }
+
   play(index: number) {
     if (this.canPlay(index)) {
       this.board[index] = this.currentPlayer
       this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
+      this.boardChange(this.board)
     }
   }
 
