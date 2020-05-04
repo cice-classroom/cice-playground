@@ -30,29 +30,28 @@ export class Game {
   }
 
   hasAnyPlayerWon() {
-    if (
-      this.board[0] !== null &&
-      this.board[0] === this.board[1] &&
-      this.board[1] === this.board[2]
-    ) {
-      this.won(this.board[0])
-    }
+    const columnStarts = [0, 3, 6]
+    columnStarts.forEach(columnStart => {
+      if (
+        this.board[columnStart] !== null &&
+        this.board[columnStart] === this.board[columnStart + 1] &&
+        this.board[columnStart + 1] === this.board[columnStart + 2]
+      ) {
+        this.won(this.board[columnStart]!)
+      }
+    })
 
-    if (
-      this.board[3] !== null &&
-      this.board[3] === this.board[4] &&
-      this.board[4] === this.board[5]
-    ) {
-      this.won(this.board[3])
-    }
-
-    if (
-      this.board[6] !== null &&
-      this.board[6] === this.board[7] &&
-      this.board[7] === this.board[8]
-    ) {
-      this.won(this.board[6])
-    }
+    const rowOffset = 3
+    const rowStarts = [0, 1, 2]
+    rowStarts.forEach(rowStart => {
+      if (
+        this.board[rowStart] !== null &&
+        this.board[rowStart] === this.board[rowStart + rowOffset] &&
+        this.board[rowStart + rowOffset] === this.board[rowStart + rowOffset * 2]
+      ) {
+        this.won(this.board[rowStart]!)
+      }
+    })
   }
 
   onWon(callback: (player: Player) => void) {
