@@ -1,9 +1,5 @@
-import { fromEvent } from 'rxjs'
-import { scan } from 'rxjs/operators'
+import { from } from 'rxjs'
+import { map } from 'rxjs/operators'
 
-fromEvent(document, 'click')
-  .pipe(scan(count => count + 1, 0))
-  .subscribe(count => {
-    const output = document.querySelector('#exercise-1')!
-    output.innerHTML = `Clicked ${count} times`
-  })
+export const double = (array: number[]) => from(array).pipe(map(x => x * 2))
+
