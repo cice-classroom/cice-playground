@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "strict": true,
     "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "experimentalDecorators": true
   }
 }
