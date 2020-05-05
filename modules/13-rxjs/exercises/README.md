@@ -8,7 +8,7 @@
 6. Obtener el triple de los elementos `[1, 2, 3, 4, 5]` y filtrar los elementos pares
 7. Crear un intervalo de 1 segundo. Cada 3 segundos debe pintar el valor
 8. Cuando el usuario haga click comenzar a observar el scroll y obtener la posición del scroll
-9. Crear un input que cuando el usuario empiece a escribir una pregunta se hagan peticiones usando el operador ajax a este endpoint: `https://yesno.wtf/api` y pintar la respuesta.
+9. Crear un input que cuando el usuario empiece a escribir una pregunta se hagan peticiones usando el operador ajax a este endpoint: `https://yesno.wtf/api` y pintar la respuesta
 10. Sobre el ejercicio anterior, esperar 500ms entre petición y petición
 11. Sobre el ejercicio anterior, cancelar peticiones anteriores si el usuario escribe un nuevo valor
 12. Crear un contador usando un subject. El contador se puede comenzar, parar y continuar
