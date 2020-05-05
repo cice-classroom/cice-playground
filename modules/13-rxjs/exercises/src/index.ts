@@ -4,6 +4,8 @@ import { even } from './exercise-2'
 import { onClickCount } from './exercise-3'
 import { onClick } from './exercise-4'
 import { onScroll } from './exercise-5'
+import { onTime } from './exercise-7'
+import { tripleEven } from './exercise-6'
 
 const render = (tag: string) =>
   tap(x => {
@@ -16,3 +18,5 @@ even([1, 2, 3, 4, 5]).pipe(render('#exercise-2')).subscribe()
 onClickCount().pipe(render('#exercise-3')).subscribe()
 onClick().pipe(render('#exercise-4')).subscribe()
 onScroll().pipe(render('#exercise-5')).subscribe()
+tripleEven([1, 2, 3, 4, 5]).pipe(render('#exercise-6')).subscribe()
+onTime().pipe(render('#exercise-7')).subscribe()
