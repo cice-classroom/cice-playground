@@ -8,6 +8,7 @@ import { onTime } from './exercise-7'
 import { tripleEven } from './exercise-6'
 import { scrollClick } from './exercise-8'
 import { yesNo } from './exercise-9'
+import { counter, play, watch } from './exercise-12'
 
 const render = (tag: string) =>
   tap(x => {
@@ -24,3 +25,6 @@ tripleEven([1, 2, 3, 4, 5]).pipe(render('#exercise-6')).subscribe()
 onTime().pipe(render('#exercise-7')).subscribe()
 scrollClick().pipe(render('#exercise-8')).subscribe()
 yesNo().pipe(render('#exercise-9')).subscribe()
+counter().pipe(render('#exercise-12')).subscribe()
+watch().subscribe()
+play().subscribe()
