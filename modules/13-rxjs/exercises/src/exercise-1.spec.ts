@@ -14,12 +14,12 @@ describe('exercise1', () => {
         y: 4,
         z: 6
       }
-      const given = '   a|'
-      const expected = '(x-y-z|)'
+      const source = '   (a|)'
+      const result = '(x-y-z|)'
 
-      const actual = cold(given, values).pipe(mergeMapTo(double([1, 2, 3])))
+      const actual = cold(source, values).pipe(mergeMapTo(double([1, 2, 3])))
 
-      expectObservable(actual).toBe(expected, values)
+      expectObservable(actual).toBe(result, values)
     })
   })
 })
