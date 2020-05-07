@@ -4,4 +4,5 @@ export const TYPES = {
   PLAY_CMD: Symbol('PLAY_CMD'),
   WINNER_QRY: Symbol('WINNER_QRY'),
   TIE_QRY: Symbol('TIE_QRY'),
+  REPLAY_CMD: Symbol('REPLAY_QRY'),
 }

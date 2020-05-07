@@ -6,6 +6,7 @@ import { GetBoardQry } from './features/game/application/get-board-qry'
 import { PlayCmd } from './features/game/application/play-cmd'
 import { WinnerQry } from './features/game/application/winner-qry'
 import { TieQry } from './features/game/application/tie-qry'
+import {ReplayCmd} from "./features/game/application/replay-cmd";
 
 const container = new Container({ skipBaseClassChecks: true })
 
@@ -14,5 +15,6 @@ container.bind(TYPES.GET_BOARD_QRY).to(GetBoardQry).inSingletonScope()
 container.bind(TYPES.PLAY_CMD).to(PlayCmd).inSingletonScope()
 container.bind(TYPES.WINNER_QRY).to(WinnerQry).inSingletonScope()
 container.bind(TYPES.TIE_QRY).to(TieQry).inSingletonScope()
+container.bind(TYPES.REPLAY_CMD).to(ReplayCmd).inSingletonScope()
 
 export { container }

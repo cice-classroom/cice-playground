@@ -5,7 +5,9 @@ import { Player } from '../domain/player'
 
 @injectable()
 export class BoardStore extends Store<{ board: Board; currentPlayer: Player }> {
+  static INITIAL_BOARD = [null, null, null, null, null, null, null, null, null]
+
   constructor() {
-    super({ board: [null, null, null, null, null, null, null, null, null], currentPlayer: 'X' })
+    super({ board: BoardStore.INITIAL_BOARD, currentPlayer: 'X' })
   }
 }

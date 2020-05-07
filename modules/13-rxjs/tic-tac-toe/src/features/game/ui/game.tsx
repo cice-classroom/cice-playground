@@ -9,6 +9,7 @@ import { PlayCmd } from '../application/play-cmd'
 import { WinnerQry } from '../application/winner-qry'
 import { Player } from '../domain/player'
 import { TieQry } from '../application/tie-qry'
+import { ReplayCmd } from '../application/replay-cmd'
 
 export const Game: React.FC = () => {
   const [board, setBoard] = useState<Board>([])
@@ -17,6 +18,7 @@ export const Game: React.FC = () => {
 
   const getBoardQry = useInject<GetBoardQry>(TYPES.GET_BOARD_QRY)
   const playCmd = useInject<PlayCmd>(TYPES.PLAY_CMD)
+  const replayCmd = useInject<ReplayCmd>(TYPES.REPLAY_CMD)
   const winnerQry = useInject<WinnerQry>(TYPES.WINNER_QRY)
   const tieQry = useInject<TieQry>(TYPES.TIE_QRY)
 
@@ -38,9 +40,14 @@ export const Game: React.FC = () => {
     return () => subscription.unsubscribe()
   }, [])
 
+  const isThereAWinner = winner !== null
+
   return (
     <main className={styles.wrapper}>
-      {winner !== null && <h1>Player {winner} won!</h1>}
+      {(isThereAWinner || tie) && (
+        <button onClick={() => replayCmd.execute().toPromise()}>Replay</button>
+      )}
+      {isThereAWinner && <h1>Player {winner} won!</h1>}
       {tie && <h1>There has been a tie!</h1>}
       <section className={styles.game}>
         {board.map((cell, index) => (
