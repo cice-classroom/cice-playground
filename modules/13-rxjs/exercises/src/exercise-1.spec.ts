@@ -3,7 +3,7 @@ import { mergeMapTo } from 'rxjs/operators'
 import { double } from './exercise-1'
 
 describe('exercise1', () => {
-  it('should double a given array', async () => {
+  it('should double a given array', () => {
     const testScheduler = new TestScheduler((actual, expected) => {
       expect(actual).toEqual(expected)
     })
