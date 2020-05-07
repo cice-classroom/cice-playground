@@ -13,7 +13,7 @@ export class WinnerQry implements Query<Player | null> {
   execute(): Observable<Player | null> {
     return this.getBoardQry.execute().pipe(
       map((board) => {
-        if (board[0] !== null && board[0] === board[1] && board[1] === board[2]) {
+        if (board[0] === board[1] && board[1] === board[2]) {
           return board[0]
         }
 
