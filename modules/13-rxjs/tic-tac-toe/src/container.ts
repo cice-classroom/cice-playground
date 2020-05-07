@@ -7,8 +7,8 @@ import { PlayCmd } from './features/game/application/play-cmd'
 
 const container = new Container({ skipBaseClassChecks: true })
 
-container.bind(TYPES.BOARD_STORE).to(BoardStore)
-container.bind(TYPES.GET_BOARD_QRY).to(GetBoardQry)
-container.bind(TYPES.PLAY_CMD).to(PlayCmd)
+container.bind(TYPES.BOARD_STORE).to(BoardStore).inSingletonScope()
+container.bind(TYPES.GET_BOARD_QRY).to(GetBoardQry).inSingletonScope()
+container.bind(TYPES.PLAY_CMD).to(PlayCmd).inSingletonScope()
 
 export { container }
