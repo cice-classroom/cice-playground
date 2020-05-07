@@ -16,8 +16,11 @@ export class PlayCmd implements Command<IndexPosition> {
       take(1),
       tap((x) => {
         const copyBoard = x.board.slice()
-        copyBoard[indexPosition] = 'X'
+        copyBoard[indexPosition] = x.currentPlayer
         this.boardStore.patch({ board: copyBoard })
+      }),
+      tap((x) => {
+        this.boardStore.patch({ currentPlayer: x.currentPlayer === 'X' ? 'O' : 'X' })
       }),
       switchMapTo(NEVER)
     )
