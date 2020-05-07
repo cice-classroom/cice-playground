@@ -9,7 +9,6 @@ describe('exercise1', () => {
     })
     testScheduler.run(({ expectObservable, cold }) => {
       const values = {
-        a: 1,
         x: 2,
         y: 4,
         z: 6
@@ -17,7 +16,7 @@ describe('exercise1', () => {
       const source = '   (a|)'
       const result = '(x-y-z|)'
 
-      const actual = cold(source, values).pipe(mergeMapTo(double([1, 2, 3])))
+      const actual = cold(source).pipe(mergeMapTo(double([1, 2, 3])))
 
       expectObservable(actual).toBe(result, values)
     })

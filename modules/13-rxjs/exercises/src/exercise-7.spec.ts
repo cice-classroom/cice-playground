@@ -13,8 +13,8 @@ describe('exercise7', () => {
         y: 6,
         z: 9
       }
-      const given = '1s-1s-1s-1s-1s-1s-1s-1s-1s|'
-      const expected = '(x-y-z|)'
+      const given = '(a|)'
+      const expected = '3s x 3s y 3s z|'
 
       const actual = cold(given).pipe(mergeMapTo(onTime()))
 
