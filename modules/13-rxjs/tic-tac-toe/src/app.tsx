@@ -1,5 +1,6 @@
 import React from 'react'
+import { Game } from './features/game/ui/game'
 
 export const App: React.FC = () => {
-  return <main>Hello</main>
+  return <Game />
 }
