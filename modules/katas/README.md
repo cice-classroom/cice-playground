@@ -5,3 +5,4 @@
 3. Primer numbers
 4. Word wrap
 5. Change calculator
+6. Ceaser's cypher
