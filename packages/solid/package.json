@@ -1,8 +1,7 @@
 {
-  "name": "katas",
+  "name": "solid",
   "version": "1.0.0",
-  "description": "1. Fizz buzz 2. Calculator 3. Primer numbers 4. Word wrap 5. Change calculator",
-  "main": "babel.config.js",
+  "description": "SOLID principles",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -28,8 +28,7 @@
 3.  Eliminar `yarn.lock` si existe y si decidimos usar `npm` para la gestión de dependencias.
 4.  Instalar dependencias de nuevo `npm i`
 5.  Actualizar dependencias con `npx npm-check -u -E`
-6.  Crear fichero `.env` con el siguiente contenido dentro: `SKIP_PREFLIGHT_CHECK=true`
-7.  Crear fichero `.editorconfig` con lo siguiente:
+6.  Crear fichero `.editorconfig` con lo siguiente:
 
     ```
     root = true
@@ -47,7 +46,7 @@
 
     ```
 
-8.  Crear fichero `.prettierrc` con lo siguiente:
+7.  Crear fichero `.prettierrc` con lo siguiente:
 
     ```
     {
@@ -60,7 +59,7 @@
 
     ```
 
-9.  Endurecer la configuración del `tsconfig.json` con las siguientes opciones:
+8.  Endurecer la configuración del `tsconfig.json` con las siguientes opciones:
 
     ```json
     {
@@ -75,17 +74,17 @@
     }
     ```
 
-10. Instalar prettier: `npm i prettier -DE`
-11. Añadir script de formateo al `package.json`:
+9.  Instalar prettier: `npm i prettier -DE`
+10. Añadir script de formateo al `package.json`:
     ```json
     {
         "scripts": {
-            "format": "prettier --write \"modules/**/*.{js,jsx,ts,tsx,json,css,md}\""
+            "format": "prettier --write ."
         }
     }
     ```
-12. Añadir git hook con husky + lint-staged ejecutando el siguiente comando: `npx mrm lint-staged`
-13. Añadir un hook de pre-push en el `package.json` que ejecute los test automáticamente cuando se haga push:
+11. Añadir git hook con husky + lint-staged ejecutando el siguiente comando: `npx mrm lint-staged`
+12. Añadir un hook de pre-push en el `package.json` que ejecute los test automáticamente cuando se haga push:
     ```json
     {
         "husky": {
