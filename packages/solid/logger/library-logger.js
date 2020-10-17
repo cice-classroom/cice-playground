@@ -1,4 +1,4 @@
-import logger from 'modules/solid/logger/library-logger'
+import logger from 'packages/solid/logger/library-logger'
 
 export class LibraryLogger {
   log(message) {
