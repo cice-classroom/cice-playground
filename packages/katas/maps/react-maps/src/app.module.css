@@ -1,9 +1,0 @@
-.app {
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-}
-
-.map {
-  height: var(--map-height, 800px);
-}

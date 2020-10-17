@@ -1,5 +1,6 @@
 {
   "name": "typescript-basics",
+  "private": true,
   "version": "1.0.0",
   "description": "TypeScript features",
   "scripts": {

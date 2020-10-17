@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint --fix .",
     "format": "prettier --write .",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "lerna": "lerna"
   },
   "repository": "https://github.com/cice-classroom/cice-playground",
