@@ -1,5 +1,4 @@
-import './styles.css'
-import { Carousel } from './carousel'
+import { Carousel } from './carousel.js'
 
 async function getComicUrl(id) {
   const response = await fetch(
