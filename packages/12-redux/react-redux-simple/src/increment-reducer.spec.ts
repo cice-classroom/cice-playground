@@ -1,5 +1,4 @@
 import { incrementReducer } from './increment-reducer'
-import { increment } from './action-creators'
 import { State } from './state'
 
 describe('reducer', () => {

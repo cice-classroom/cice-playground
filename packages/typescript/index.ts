@@ -4,11 +4,11 @@ const baz: boolean = true
 const qux: string[] = ['bar', 'baz', 'qux']
 
 // Null
-let n: null = null
+const n: null = null
 
-let a: string = 'bar'
+const a: string = 'bar'
 // KO: a = null
-let b: string | null = 'bar'
+const b: string | null = 'bar'
 // OK: b = null
 
 if (b !== null) {

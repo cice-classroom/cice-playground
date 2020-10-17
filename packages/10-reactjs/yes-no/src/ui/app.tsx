@@ -21,7 +21,7 @@ export function App() {
 
   return (
     <div className="App">
-      <img className={cx('image')} src={image} onClick={() => setCounter(counter + 1)} />
+      <img alt="" className={cx('image')} src={image} onClick={() => setCounter(counter + 1)} />
     </div>
   )
 }

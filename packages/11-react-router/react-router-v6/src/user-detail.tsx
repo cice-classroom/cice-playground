@@ -5,7 +5,7 @@ import { UserDetailTasks } from './user-detail-tasks'
 export const UserDetail: React.FC = () => {
   const { name } = useParams()
   const history = useHistory()
-  const { url, path } = useRouteMatch()
+  const { path } = useRouteMatch()
   return (
     <>
       <h1>User {name}</h1>

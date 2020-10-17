@@ -16,7 +16,7 @@ const useInterval = (callback: () => void, interval = 1_000) => {
 
     let id = setInterval(tick, interval)
     return () => clearInterval(id)
-  }, [])
+  }, [interval])
 }
 
 const useTimer = () => {
@@ -60,7 +60,7 @@ export const ExerciseEleven: React.FC = () => {
 
   useEffect(() => {
     start(fromSeconds)
-  }, [fromSeconds])
+  }, [fromSeconds, start])
 
   return (
     <div>

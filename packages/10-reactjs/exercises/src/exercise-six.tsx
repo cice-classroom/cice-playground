@@ -9,7 +9,7 @@ export const ExerciseSix: React.FC<Props> = ({ storage }) => {
 
   useEffect(() => {
     storage.setItem('input', value)
-  }, [value])
+  }, [storage, value])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)

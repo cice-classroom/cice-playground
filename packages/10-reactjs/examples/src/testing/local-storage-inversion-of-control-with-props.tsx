@@ -9,7 +9,7 @@ export const LocalStorageInversionOfControlWithProps: React.FC<Props> = ({ stora
 
   useEffect(() => {
     storage.setItem('input', value)
-  }, [value])
+  }, [storage, value])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { TodoList } from './features/todo/ui/todo-list/todo-list'
 import { Todo } from './features/todo/domain/todo'
 import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
-import { Page } from './core/components/page/page'
 import { TodoRepositoryFactory } from './features/todo/infrastructure/todo-repository-factory'
 
 export const App: React.FC = () => {
@@ -10,7 +9,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     fetchTodos()
-  }, [])
+  }, [fetchTodos])
 
   const todoRepository = TodoRepositoryFactory.build()
 

@@ -21,7 +21,7 @@ describe('app', () => {
   })
 
   it('should complete a todo', () => {
-    const { createTodo, getInput, getByText } = setup()
+    const { createTodo, getByText } = setup()
     createTodo('Old todo')
     createTodo('New todo')
 
