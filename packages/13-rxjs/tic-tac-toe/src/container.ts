@@ -6,7 +6,7 @@ import { GetBoardQry } from './features/game/application/get-board-qry'
 import { PlayCmd } from './features/game/application/play-cmd'
 import { WinnerQry } from './features/game/application/winner-qry'
 import { TieQry } from './features/game/application/tie-qry'
-import {ReplayCmd} from "./features/game/application/replay-cmd";
+import { ReplayCmd } from './features/game/application/replay-cmd'
 
 const container = new Container({ skipBaseClassChecks: true })
 

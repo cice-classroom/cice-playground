@@ -1,0 +1,14 @@
+{
+  "name": "typescript-basics",
+  "version": "1.0.0",
+  "description": "TypeScript features",
+  "scripts": {
+    "compile": "tsc"
+  },
+  "keywords": [],
+  "author": "César Alberca <cesalberca@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "4.0.3"
+  }
+}
