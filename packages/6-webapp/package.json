@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "webapp",
   "scripts": {
-    "serve": "serve"
+    "start": "serve"
   },
   "keywords": [],
   "author": "César Alberca <cesalberca@gmail.com>",
