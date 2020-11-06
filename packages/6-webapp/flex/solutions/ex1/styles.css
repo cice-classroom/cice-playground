@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  flex: 1;
+}
+
+.span-column-2 {
+  flex: 2;
+}
