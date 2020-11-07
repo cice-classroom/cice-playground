@@ -2,23 +2,24 @@
   display: flex;
 }
 
-.row {
+.aside,
+.content {
   display: flex;
-  flex-direction: colum;
+  flex-direction: column;
 }
 
-.span-column-1 {
+.box {
   flex: 1;
 }
 
-.span-column-4 {
+.aside {
+  flex: 1;
+}
+
+.content {
   flex: 4;
 }
 
-.span-row-1 {
-  flex: 1;
-}
-
-.span-row-4 {
+.main-content {
   flex: 4;
 }
