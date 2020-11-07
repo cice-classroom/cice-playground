@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper > * {
+  flex: 1;
+  display: flex;
+}
+
+.box {
+  flex: 1;
+}
+
+.content {
+  flex: 3;
+}
+
+.links {
+  flex: 4;
+}
+
+.main-content {
+  flex: 4;
+}
