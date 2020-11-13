@@ -2,7 +2,8 @@
   display: flex;
 }
 
-.aside, .main {
+.aside,
+.main {
   display: flex;
   flex-direction: column;
 }
