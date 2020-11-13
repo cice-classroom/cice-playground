@@ -1,0 +1,13 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.box:nth-child(1), .box:nth-child(4) {
+  grid-row: span 2;
+}
+
+.box:nth-child(3) {
+  grid-row: span 3;
+}
