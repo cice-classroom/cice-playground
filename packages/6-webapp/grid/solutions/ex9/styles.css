@@ -1,0 +1,29 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    'l . m'
+    'a c c'
+    'a . f';
+}
+
+.logo {
+  grid-area: l;
+}
+
+.menu {
+  grid-area: m;
+}
+
+.aside {
+  grid-area: a;
+}
+
+.content {
+  grid-area: c;
+}
+
+.footer {
+  grid-area: f;
+}
