@@ -1,0 +1,29 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas:
+    'h h h'
+    'l s r'
+    'f f f';
+}
+
+header {
+  grid-area: h;
+}
+
+footer {
+  grid-area: f;
+}
+
+.left-aside {
+  grid-area: l;
+}
+
+.right-aside {
+  grid-area: r;
+}
+
+section {
+  grid-area: s;
+}
