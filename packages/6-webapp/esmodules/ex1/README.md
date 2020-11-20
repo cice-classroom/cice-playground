@@ -1,6 +1,6 @@
 # ESModules Exercise 1
 
-Create an `index.html` files that loads a `main.js` using `type="module"`. This `main.js` imports and invokes the following:
+Create an `index.html` files that loads a `main.js` using `type="module"`. This `main.js` imports and invokes the following functions which should be store in their own files:
 
 * A function that shows the current date in the console. This function has to be named getTime.
 * A function that shows the number of seconds since the epoch time in the console. This function has to be named getTime.
