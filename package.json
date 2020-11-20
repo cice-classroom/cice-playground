@@ -33,7 +33,7 @@
   },
   "lint-staged": {
     "*.{js,ts,html,json,css,scss,md,yaml}": [
-      "npm run format"
+      "prettier --write"
     ]
   }
 }
