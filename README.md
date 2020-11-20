@@ -27,3 +27,5 @@ This repository holds the contents of the [Master in Fullstack Web](https://www.
 ## Development
 
 You can format the code: with `npm run format` and lint with `npm run lint`.
+
+Whenever you have to solve an exercise you should create a folder `my-solutions` in order to keep your solutions and the solutions reached in class.
