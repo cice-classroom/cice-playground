@@ -8,7 +8,7 @@ describe('map', () => {
   })
 
   it('should set some value and get it', () => {
-    const map = new Map<string, string>()
+    const map = new Map()
 
     map.set('foo', 'bar')
     const actual = map.get('foo')
@@ -65,7 +65,7 @@ describe('map', () => {
 
   it('should execute a callback for each value', () => {
     const map = new Map()
-    const calls: Record<string, string>[] = []
+    const calls = []
 
     map.set('foo', 'bar')
     map.set('bar', 'baz')

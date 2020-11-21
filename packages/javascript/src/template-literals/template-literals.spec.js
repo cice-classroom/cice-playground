@@ -26,7 +26,7 @@ dolor
   })
 
   it('should handle being executed as a function', () => {
-    const taggedTemplates = (strings: TemplateStringsArray, ...values: string[]) => {
+    const taggedTemplates = (strings, ...values) => {
       let str = ''
       strings.forEach((string, i) => {
         str += string + (values[i] ?? '').toUpperCase()

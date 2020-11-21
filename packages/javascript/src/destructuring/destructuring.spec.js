@@ -2,7 +2,7 @@ describe('destructuring', () => {
   it('should destructure keys of an object', () => {
     const obj = { a: 1, b: 2, c: 3 }
 
-    function foo({ a, b }: Record<string, number>) {
+    function foo({ a, b }) {
       return a + b
     }
 
@@ -14,7 +14,7 @@ describe('destructuring', () => {
   it('should destructure keys of an array', () => {
     const array = [1, 2, 3, 4]
 
-    function foo([a, b, , c]: number[]) {
+    function foo([a, b, , c]) {
       return a + b + c
     }
 
@@ -33,9 +33,9 @@ describe('destructuring', () => {
   })
 
   it('should rename to given value', () => {
-    const { a: pepe, ...rest }: Record<string, number> = { a: 1, b: 2, c: 3 }
+    const { a: foo, ...rest } = { a: 1, b: 2, c: 3 }
 
-    expect(pepe).toBe(1)
+    expect(foo).toBe(1)
     expect(rest).toEqual({ b: 2, c: 3 })
   })
 

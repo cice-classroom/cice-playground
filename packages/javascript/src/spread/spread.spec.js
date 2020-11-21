@@ -24,7 +24,7 @@ describe('spread', () => {
   })
 
   it('should group all arguments in a function', () => {
-    function foo(...args: number[]) {
+    function foo(...args) {
       return args.map(arg => arg ** 2)
     }
 

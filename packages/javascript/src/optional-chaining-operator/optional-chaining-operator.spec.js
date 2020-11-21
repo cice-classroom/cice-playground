@@ -6,7 +6,7 @@ describe('optional chaining operator', () => {
           baz: 1
         }
       }
-    } as any
+    }
 
     expect(() => {
       actual.foo.baz.bar
@@ -20,7 +20,7 @@ describe('optional chaining operator', () => {
           baz: 1
         }
       }
-    } as any
+    }
 
     expect(() => {
       actual.foo?.baz?.bar
@@ -34,7 +34,7 @@ describe('optional chaining operator', () => {
           baz: 1
         }
       }
-    } as any
+    }
 
     const actual = given.foo?.baz?.bar
 
