@@ -9,7 +9,6 @@ describe('let', () => {
 
   it('should create a scoped this', () => {
     {
-      // @ts-ignore
       let a = 1
     }
 
