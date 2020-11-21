@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web components</title>
+  </head>
+  <body>
+    <web-component></web-component>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+    <script type="module">
+      import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module'
+      import { styleMap } from 'https://unpkg.com/lit-html/directives/style-map.js?module'
+
+      export class WebComponent extends LitElement {
+        static get properties() {
+          return {
+            color: { type: String }
+          }
+        }
+
+        static get styles() {
+          return css`
+            h1 {
+              font-weight: bold;
+              font-family: sans-serif;
+            }
+          `
+        }
+
+        constructor() {
+          super()
+          this.color = 'red'
+        }
+
+        handleColorChange() {
+          if (this.color === 'red') {
+            this.color = 'blue'
+          } else {
+            this.color = 'red'
+          }
+        }
+
+        render() {
+          return html`<h1 style="${styleMap({ color: this.color })}" @click="${this.handleColorChange}">
+            Hello world
+          </h1>`
+        }
+      }
+
+      customElements.define('web-component', WebComponent)
+    </script>
+  </body>
+</html>

@@ -1,42 +1,9 @@
 describe('destructuring', () => {
-  it('should spread properties in arrays', () => {
-    const parts = [1, 2]
-    const parts2 = [3, 4]
-
-    const complete = [...parts, ...parts2]
-
-    expect(complete).toEqual([1, 2, 3, 4])
-  })
-
-  it('should spread properties in object', () => {
-    const parts = {
-      a: 1,
-      b: 2
-    }
-    const complete = { ...parts, c: 3 }
-
-    expect(complete).toEqual({
-      a: 1,
-      b: 2,
-      c: 3
-    })
-  })
-
-  it('should group all arguments in a function', () => {
-    function foo(...args) {
-      return args.map(arg => arg ** 2)
-    }
-
-    const actual = foo(1, 2, 3)
-
-    expect(actual).toEqual([1, 4, 9])
-  })
-
   it('should destructure keys of an object', () => {
     const obj = { a: 1, b: 2, c: 3 }
 
-    function foo({ c }) {
-      return c
+    function foo({ a, b }: Record<string, number>) {
+      return a + b
     }
 
     const actual = foo(obj)
@@ -47,7 +14,7 @@ describe('destructuring', () => {
   it('should destructure keys of an array', () => {
     const array = [1, 2, 3, 4]
 
-    function foo([a, b, , c]) {
+    function foo([a, b, , c]: number[]) {
       return a + b + c
     }
 
@@ -66,9 +33,10 @@ describe('destructuring', () => {
   })
 
   it('should rename to given value', () => {
-    const { a: pepe, ...rest } = { a: 1, b: 2, c: 3 }
+    const { a: pepe, ...rest }: Record<string, number> = { a: 1, b: 2, c: 3 }
 
     expect(pepe).toBe(1)
+    expect(rest).toEqual({ b: 2, c: 3 })
   })
 
   it('should swap values', () => {
