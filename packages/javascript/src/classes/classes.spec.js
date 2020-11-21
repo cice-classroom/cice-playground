@@ -1,11 +1,9 @@
 class Class {
-  value: number
-
   static hello() {
     return 'hi'
   }
 
-  constructor(value: number) {
+  constructor(value) {
     this.value = value
   }
 
@@ -15,7 +13,7 @@ class Class {
 }
 
 class ChildClass extends Class {
-  constructor(value: number) {
+  constructor(value) {
     super(value)
   }
 

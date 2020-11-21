@@ -8,11 +8,10 @@ const arrowFunction = () => {
 
 const arrowFunctionWithImplicitReturn = () => 42
 
-const arrowFunctionWithParameters = (a: number, b: number) => a + b
-const arrowFunctionWithSingleParameter = (a: number) => a
-const arrowFunctionWithSingleParameterAlternative: ArrowFunction = a => a
-
-type ArrowFunction = (a: number) => number
+const arrowFunctionWithParameters = (a, b) => a + b
+// prettier-ignore
+const arrowFunctionWithSingleParameter = (a) => a
+const arrowFunctionWithSingleParameterAlternative = a => a
 
 describe('arrow-function', () => {
   it('should execute properly', () => {

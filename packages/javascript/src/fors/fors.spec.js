@@ -14,8 +14,8 @@ describe('fors', () => {
     const array = [1, 2, 3]
     const actual = []
 
-    for (let i = 0; i < array.length; i++) {
-      actual.push(i)
+    for (let i = 0; i < array.length; i += 2) {
+      actual.push(array[i])
     }
 
     expect(actual).toEqual([1, 3])

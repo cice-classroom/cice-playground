@@ -7,7 +7,7 @@ describe('conditionals', () => {
     expect(actual).toBe('foo')
   })
 
-  it('ternary', () => {
+  it('if else', () => {
     const value = true
 
     let actual
@@ -20,7 +20,7 @@ describe('conditionals', () => {
     expect(actual).toBe('foo')
   })
 
-  it('&&', () => {
+  it('&& with true', () => {
     const value = true
 
     const actual = value && 'foo'
@@ -28,7 +28,7 @@ describe('conditionals', () => {
     expect(actual).toBe('foo')
   })
 
-  it('&&', () => {
+  it('&& with false', () => {
     const value = false
 
     const actual = value && 'foo'
@@ -36,7 +36,7 @@ describe('conditionals', () => {
     expect(actual).toBe(false)
   })
 
-  it('&&', () => {
+  it('if without comparison', () => {
     const value = false
 
     let actual = false
@@ -48,15 +48,7 @@ describe('conditionals', () => {
     expect(actual).toBe(false)
   })
 
-  it('&&', () => {
-    const value = undefined
-
-    const actual = value === undefined
-
-    expect(actual).toBe(true)
-  })
-
-  it('&&', () => {
+  it('if with comparison and assignment', () => {
     const value = undefined
 
     let actual
@@ -69,11 +61,19 @@ describe('conditionals', () => {
     expect(actual).toBe(true)
   })
 
-  it('&&', () => {
+  it('simplified', () => {
     const value = undefined
 
-    const actual = { pepito: value === undefined }
+    const actual = value === undefined
 
-    expect(actual).toEqual({ pepito: true })
+    expect(actual).toBe(true)
+  })
+
+  it('assign value to object', () => {
+    const value = undefined
+
+    const actual = { foo: value === undefined }
+
+    expect(actual).toEqual({ foo: true })
   })
 })
