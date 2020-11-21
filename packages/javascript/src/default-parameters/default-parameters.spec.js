@@ -2,9 +2,7 @@ function add(a = 1, b = 1) {
   return a + b
 }
 
-function defaultParametersWithObject(
-  { foo = 2, bar = 'qux' }: { foo?: number; bar?: string } = { foo: 1, bar: 'baz' }
-) {
+function defaultParametersWithObject({ foo = 2, bar = 'qux' }) {
   return { foo, bar }
 }
 
