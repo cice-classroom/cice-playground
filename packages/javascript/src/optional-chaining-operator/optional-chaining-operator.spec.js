@@ -86,10 +86,10 @@ describe('optional chaining operator', () => {
   })
 
   it('can be used with arrays', () => {
-    const given = [1]
+    let given
 
-    const actual = given?.[1000].toString()
+    const actual = given?.[1000]
 
-    expect(actual).toBe(undefined)
+    expect(actual).toBeUndefined()
   })
 })

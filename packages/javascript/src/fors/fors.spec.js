@@ -4,7 +4,7 @@ describe('fors', () => {
     const actual = []
 
     for (let i = 0; i < array.length; i++) {
-      actual.push(i)
+      actual.push(array[i])
     }
 
     expect(actual).toEqual([1, 2, 3])

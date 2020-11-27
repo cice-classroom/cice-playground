@@ -6,12 +6,14 @@ function defaultParametersWithObject(obj = { foo: 1, bar: 2 }) {
   return obj.foo + obj.bar
 }
 
-function defaultParametersWithDestructuredObject({ foo = 2, bar = 'qux' }) {
+function defaultParametersWithDestructuredObject(
+  { foo = 2, bar = 'qux' } = { foo: 1, bar: 'baz' }
+) {
   return { foo, bar }
 }
 
-describe('add', () => {
-  it('should add', () => {
+describe('default parameters', () => {
+  it('should be able to use regular parameters', () => {
     const actual = add(1, 2)
 
     expect(actual).toBe(3)

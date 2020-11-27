@@ -31,15 +31,33 @@ describe('arrow-function', () => {
     expect(actual).toEqual([1, 4, 9])
   })
 
-  it('should have a lexical this', () => {
-    window.age = 10
+  it('should not have a lexical this with a name funtion', () => {
     function Person() {
       this.age = 42
-      setTimeout(function () {
-        console.log('this.age', this.age)
-      }, 100)
+      return {
+        getAge: function () {
+          return this.age
+        }
+      }
     }
-
     const person = new Person()
+    const actual = person.getAge()
+
+    expect(actual).toBeUndefined()
+  })
+
+  it('should have a lexical this with an arrow', () => {
+    function Person() {
+      this.age = 42
+      return {
+        getAge: () => {
+          return this.age
+        }
+      }
+    }
+    const person = new Person()
+    const actual = person.getAge()
+
+    expect(actual).toBe(42)
   })
 })
