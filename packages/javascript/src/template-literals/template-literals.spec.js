@@ -1,4 +1,11 @@
 describe('template literals', () => {
+  it('should interpolate values with plus', () => {
+    const given = 'bar'
+    const actual = 'foo' + given + '\n' + given + 'baz'
+
+    expect(actual).toBe('foobar\nbarbaz')
+  })
+
   it('should handle multiline', () => {
     const actual = `lorem
 ipsum

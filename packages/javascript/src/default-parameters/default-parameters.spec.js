@@ -2,7 +2,11 @@ function add(a = 1, b = 1) {
   return a + b
 }
 
-function defaultParametersWithObject({ foo = 2, bar = 'qux' }) {
+function defaultParametersWithObject(obj = { foo: 1, bar: 2 }) {
+  return obj.foo + obj.bar
+}
+
+function defaultParametersWithDestructuredObject({ foo = 2, bar = 'qux' }) {
   return { foo, bar }
 }
 
@@ -25,20 +29,26 @@ describe('add', () => {
     expect(actual).toBe(3)
   })
 
-  it('should work with default value for whole object', () => {
+  it('should work with default non destructured values for whole object', () => {
     const actual = defaultParametersWithObject()
+
+    expect(actual).toBe(3)
+  })
+
+  it('should work with default value for whole object', () => {
+    const actual = defaultParametersWithDestructuredObject()
 
     expect(actual).toEqual({ foo: 1, bar: 'baz' })
   })
 
   it('should work with default value for single property of object', () => {
-    const actual = defaultParametersWithObject({ foo: 2 })
+    const actual = defaultParametersWithDestructuredObject({ foo: 2 })
 
     expect(actual).toEqual({ foo: 2, bar: 'qux' })
   })
 
   it('should work without default values', () => {
-    const actual = defaultParametersWithObject({ foo: 42, bar: 'hi' })
+    const actual = defaultParametersWithDestructuredObject({ foo: 42, bar: 'hi' })
 
     expect(actual).toEqual({ foo: 42, bar: 'hi' })
   })
