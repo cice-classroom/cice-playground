@@ -14,7 +14,7 @@ describe('nullish coalescing operator', () => {
   it('should unexpectedly set value if expression is falsy', () => {
     const actual = 0 || 'foo'
 
-    expect(actual).toBe(0)
+    expect(actual).toBe('foo')
   })
 
   it('should not unexpectedly set value if expression is falsy', () => {

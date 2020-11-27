@@ -30,4 +30,16 @@ describe('arrow-function', () => {
 
     expect(actual).toEqual([1, 4, 9])
   })
+
+  it('should have a lexical this', () => {
+    window.age = 10
+    function Person() {
+      this.age = 42
+      setTimeout(function () {
+        console.log('this.age', this.age)
+      }, 100)
+    }
+
+    const person = new Person()
+  })
 })
