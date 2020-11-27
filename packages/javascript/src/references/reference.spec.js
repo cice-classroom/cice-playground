@@ -13,6 +13,19 @@ describe('reference', () => {
     expect(obj).toEqual(obj2)
   })
 
+  it('should override primitive argument', () => {
+    const string = 'foo'
+
+    function foo(value) {
+      value = 'bar'
+      return value
+    }
+
+    foo(string)
+
+    expect(string).toBe('foo')
+  })
+
   it('should return a mutated object', () => {
     const obj = { a: 1 }
 
@@ -66,7 +79,9 @@ describe('reference', () => {
     const array = [1]
 
     function foo(newArray) {
-      return [...newArray, 2]
+      const newMutatedArray = newArray.slice()
+      newMutatedArray.push(2)
+      return newMutatedArray
     }
 
     array.push(2)
