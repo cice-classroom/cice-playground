@@ -9,14 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.12.3",
+    "@babel/core": "7.12.9",
     "@babel/plugin-proposal-class-properties": "7.12.1",
     "@babel/plugin-proposal-private-methods": "7.12.1",
-    "@babel/preset-env": "7.12.1",
-    "@babel/preset-typescript": "7.12.1",
-    "@types/jest": "26.0.14",
-    "babel-jest": "26.5.2",
-    "jest": "26.5.3"
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
+    "@types/jest": "26.0.15",
+    "babel-jest": "26.6.3",
+    "jest": "26.6.3"
   },
   "dependencies": {
     "packages": "0.0.8",
