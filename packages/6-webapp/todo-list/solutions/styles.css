@@ -1,0 +1,7 @@
+input:invalid {
+  border: 2px dashed red;
+}
+
+.completed {
+  text-decoration: line-through;
+}
