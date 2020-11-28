@@ -84,6 +84,12 @@ describe('destructuring', () => {
     expect(actual).toBe(7)
   })
 
+  it('should get the first element of an array', () => {
+    const [firstElement] = [1, 2, 3]
+
+    expect(firstElement).toEqual(1)
+  })
+
   it('should destructure an object using variables', () => {
     const { a, b } = { a: 1, b: 2, c: 3 }
 
