@@ -39,4 +39,18 @@ describe('getters and setters', () => {
 
     expect(person.fullName).toBe('FOO Bar')
   })
+
+  it('should work with regular objects', () => {
+    const person = {
+      name: 'Foo',
+      lastName: 'Bar',
+      get fullName() {
+        return `${this.name} ${this.lastName}`
+      }
+    }
+
+    const actual = person.fullName
+
+    expect(actual).toBe('Foo Bar')
+  })
 })
