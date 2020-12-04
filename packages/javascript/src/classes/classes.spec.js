@@ -17,16 +17,47 @@ class ChildClass extends Class {
     super(value)
   }
 
+  childMethod() {
+    return super.method()
+  }
+
   method() {
     return this.value + 1
   }
 }
 
-class NewClasses {
-  #privateValue = 42
-  value = 42
+class GrandChild extends ChildClass {}
 
+class Person {
+  constructor() {
+    this._firstName = ''
+    this.lastName = ''
+  }
+
+  get firstName() {
+    return this._firstName.toUpperCase()
+  }
+
+  set firstName(newValue) {
+    this._firstName = newValue
+  }
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+
+  set fullName(value) {
+    const [firstName, lastName] = value.split(' ')
+    this.firstName = firstName
+    this.lastName = lastName
+  }
+}
+
+class NewClasses {
   static property = 'hi'
+
+  value = 42
+  #privateValue = 42
 
   getPrivateValue() {
     return this.#privateValue
@@ -34,6 +65,10 @@ class NewClasses {
 
   boundFunction = () => {
     return this.#privateValue
+  }
+
+  #privateMethod() {
+    return 42
   }
 }
 
