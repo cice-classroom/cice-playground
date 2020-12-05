@@ -15,7 +15,7 @@ describe('shorthand properties', () => {
 
   it('should have a shorthand notation for methods', () => {
     const obj = {
-      foo: function foo() {
+      foo: function () {
         return 42
       },
       bar() {

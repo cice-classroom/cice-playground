@@ -1,4 +1,12 @@
 describe('map', () => {
+  it('should store values in key and value object', () => {
+    const map = {}
+
+    map.foo = 'bar'
+
+    expect(map).toEqual({ foo: 'bar' })
+  })
+
   it('should set a value with key foo and value bar', () => {
     const map = new Map()
 
@@ -12,11 +20,6 @@ describe('map', () => {
 
     map.set('foo', 'bar')
     const actual = map.get('foo')
-
-    actual?.anchor('s')
-    if (actual !== undefined) {
-      actual.anchor('s')
-    }
 
     expect(actual).toBe('bar')
   })
@@ -96,7 +99,7 @@ describe('map', () => {
     map.set('bar', 'baz')
     const actual = []
 
-    for (let item of map) {
+    for (const item of map) {
       actual.push(item)
     }
 
