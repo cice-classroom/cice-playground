@@ -1,4 +1,4 @@
-# CICE 6 Webapp Grid
+# 6 Webapp Grid
 
 ![](./resources/I.png)
 ![](./resources/II.png)
