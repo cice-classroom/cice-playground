@@ -1,4 +1,89 @@
 describe('promises', () => {
+  it('should handle asynchronous code with callback hell', () => {
+    function timer(seconds, cb) {
+      setTimeout(() => {
+        console.log(1)
+        cb()
+      }, seconds * 1_000)
+    }
+
+    // Callback hell
+    timer(1, () => {
+      console.log(2)
+      timer(1, () => {
+        console.log(3)
+        timer(1, () => {
+          console.log(4)
+          timer(1, () => {
+            console.log(5)
+            timer(1, () => {
+              console.log(6)
+            })
+          })
+        })
+      })
+    })
+  })
+
+  it('should handle asynchronous code with promises hell', () => {
+    function timer(seconds) {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          console.log(1)
+          resolve()
+        }, seconds * 1_000)
+      })
+      return promise
+    }
+
+    // Promise hell
+    timer(1).then(() => {
+      console.log(2)
+      timer(1).then(() => {
+        console.log(3)
+        timer(1).then(() => {
+          console.log(4)
+        })
+      })
+    })
+
+    timer(1).then(() => {
+      console.log(2)
+      return timer(1).then(() => {
+        console.log(3)
+        return timer(1).then(() => {
+          console.log(4)
+        })
+      })
+    })
+  })
+
+  it('should handle asynchronous code with chaining promises', () => {
+    function timer(seconds) {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          console.log(1)
+          resolve()
+        }, seconds * 1_000)
+      })
+      return promise
+    }
+
+    // Chaining promises
+    timer(1)
+      .then(() => {
+        console.log(2)
+        return timer(1)
+      })
+      .then(() => {
+        console.log(3)
+        return timer(1)
+      })
+      .then(() => {
+        console.log(4)
+      })
+  })
+
   it('should create a new promise and resolve a value', done => {
     expect.assertions(1)
     function given() {
@@ -13,9 +98,25 @@ describe('promises', () => {
     })
   })
 
+  it('should create a new promise and resolve a value', done => {
+    expect.assertions(1)
+    function given() {
+      return new Promise(resolve => {
+        resolve(42)
+      })
+    }
+
+    const result = given()
+
+    result.then(actual => {
+      expect(actual).toBe(42)
+      done()
+    })
+  })
+
   it('should reject a new promise', done => {
     expect.assertions(1)
-    function given(value) {
+    function given() {
       return new Promise((resolve, reject) => {
         reject(42)
       })
@@ -27,54 +128,35 @@ describe('promises', () => {
     })
   })
 
-  it('should create an implicit promise by using async keyword', done => {
-    async function given() {
-      return 42
+  it('should use finally in a promise', done => {
+    expect.assertions(1)
+    function given() {
+      return new Promise((resolve, reject) => {
+        reject(42)
+      })
     }
 
-    given().then(actual => {
-      expect(actual).toBe(42)
+    given().finally(value => {
+      expect(value).toBe(42)
       done()
     })
   })
 
-  it('should execute promises in different execution contexts', async () => {
-    const calls = []
-
-    calls.push(1)
-
-    async function async1() {
-      await async2()
-      calls.push(2)
+  it('should launch different promises in parallel and wait for all of them ', done => {
+    expect.assertions(1)
+    function timer(seconds) {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          console.log(1)
+          resolve(42)
+        }, seconds * 1_000)
+      })
+      return promise
     }
 
-    async function async2() {
-      calls.push(3)
-    }
-    async1()
-
-    setTimeout(() => {
-      calls.push(4)
-    }, 0)
-
-    new Promise(resolve => {
-      calls.push(5)
-      resolve()
+    Promise.all([timer(1), timer(2)]).then(([a, b]) => {
+      expect(a + b).toBe(84)
+      done()
     })
-      .then(() => {
-        calls.push(6)
-      })
-      .then(() => {
-        calls.push(7)
-      })
-
-    calls.push(8)
-    await flushPromises()
-
-    expect(calls).toEqual([1, 3, 5, 8, 2, 6, 7])
   })
 })
-
-function flushPromises() {
-  return new Promise(resolve => setImmediate(resolve))
-}
