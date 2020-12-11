@@ -207,17 +207,17 @@ describe('arrays', () => {
     const given = [
       {
         status: 409,
-        messageName: 'El nombre de usuario ya existe',
+        messageName: 'Foo',
         ok: false
       },
       {
         status: 409,
-        messageEmail: 'El email no es correcto',
+        messageEmail: 'Bar',
         ok: false
       },
       {
         status: 409,
-        messagePassword: 'Las contraseñas no coinciden',
+        messagePassword: 'Baz',
         ok: false
       }
     ]
@@ -229,9 +229,9 @@ describe('arrays', () => {
     )
 
     expect(actual).toEqual({
-      messageName: 'El nombre de usuario ya existe',
-      messageEmail: 'El email no es correcto',
-      messagePassword: 'Las contraseñas no coinciden'
+      messageName: 'Foo',
+      messageEmail: 'Bar',
+      messagePassword: 'Baz'
     })
   })
 })
