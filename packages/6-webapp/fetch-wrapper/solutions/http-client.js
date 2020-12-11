@@ -1,11 +1,6 @@
 export class HttpClient {
   get(url) {
-    return fetch(url)
-      .then(response => response.json())
-      .then(result => {
-        console.timeEnd('loading')
-        return result
-      })
+    return fetch(url).then(response => response.json())
   }
 
   delete(url) {
