@@ -1,18 +1,19 @@
-type NetworkLoadingState = {
+interface NetworkLoadingState {
   state: 'loading'
 }
 
-type NetworkFailedState = {
+interface NetworkFailedState {
   state: 'failed'
   code: number
 }
 
-type NetworkSuccessState = {
+interface NetworkSuccessState {
   state: 'success'
   response: string
 }
 
 type NetworkState = NetworkLoadingState | NetworkFailedState | NetworkSuccessState
+
 const networkState: NetworkState =
   Math.random() > 0.7
     ? Math.random() < 0.3
@@ -20,17 +21,25 @@ const networkState: NetworkState =
       : { response: 'foo', state: 'success' }
     : { state: 'failed', code: 404 }
 
-switch (networkState.state) {
-  case 'failed':
-    // OK
-    networkState.code
-    break
-  case 'loading':
-    // KO
-    networkState.code
-    break
-  case 'success':
-    // OK
-    networkState.response
-    break
+function getStatus() {
+  let status
+  switch (networkState.state) {
+    case 'failed':
+      // OK
+      status = 'error'
+      networkState.code
+      break
+    case 'loading':
+      // KO
+      networkState.code
+      status = 'loading'
+      break
+    case 'success':
+      status = 'success'
+      // OK
+      networkState.response
+      break
+  }
+
+  return status
 }

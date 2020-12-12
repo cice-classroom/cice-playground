@@ -3,6 +3,7 @@
     "target": "ES2015",
     "module": "commonjs",
     "strict": true,
+    "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
