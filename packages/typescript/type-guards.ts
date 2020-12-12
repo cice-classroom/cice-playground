@@ -35,12 +35,38 @@ if (isFish(pet2)) {
   pet2.fly()
 }
 
+// InstanceOf
+class Car {
+  wheels = 4
+  drive() {
+    return 'driving'
+  }
+}
+class Plane {
+  wheels = 6
+  fly() {
+    return 'flying'
+  }
+}
+
+function getVehicle() {
+  return Math.random() > 0.5 ? new Car() : new Plane()
+}
+
+const vehicle = getVehicle()
+
+if (vehicle instanceof Car) {
+  vehicle.drive()
+} else {
+  vehicle.fly()
+}
+
 // Typeof type guards
-function isNumber(x: any): x is number {
+function isNumber(x: unknown): x is number {
   return typeof x === 'number'
 }
 
-function isString(x: any): x is string {
+function isString(x: unknown): x is string {
   return typeof x === 'string'
 }
 
