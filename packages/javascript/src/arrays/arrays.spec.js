@@ -130,7 +130,7 @@ describe('arrays', () => {
       }
     ]
 
-    const actual = Array.from(new Set(given.reduce((acc, person) => [...acc, ...person.books], [])))
+    const actual = Array.from(new Set(given.map(x => x.books).flat()))
 
     expect(actual).toEqual([
       'Dune',
