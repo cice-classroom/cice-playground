@@ -1,4 +1,5 @@
 {
+  "name": "template",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
