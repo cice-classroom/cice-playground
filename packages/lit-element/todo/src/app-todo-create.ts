@@ -21,7 +21,9 @@ export class AppTodoCreate extends LitElement {
       bubbles: true,
       composed: true,
       detail: {
+        id: Math.floor(Math.random() * 10_000),
         text: this.todoText,
+        completed: false,
       },
     })
     this.dispatchEvent(customEvent)
@@ -34,7 +36,7 @@ export class AppTodoCreate extends LitElement {
         <label
           >Todo text<input .value="${this.todoText}" @keyup="${this.onChange}" autofocus
         /></label>
-        <app-button>Create todo</app-button>
+        <app-button submit="${true}">Create todo</app-button>
       </form>
     </header>`
   }

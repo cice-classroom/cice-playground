@@ -8,6 +8,6 @@ export class AppButton extends LitElement {
   }
 
   render() {
-    return html`<button><slot></slot></button>`
+    return html`<button type="${this.submit ? 'submit' : 'button'}"><slot></slot></button>`
   }
 }
