@@ -3,22 +3,7 @@ import { css, customElement, html, LitElement, property } from 'lit-element'
 @customElement('app-todo-list')
 export class TodoList extends LitElement {
   @property({ type: Array })
-  todos: { text: string }[] = [
-    {
-      text: 'foo',
-    },
-    {
-      text: 'bar',
-    },
-  ]
-
-  connectedCallback() {
-    super.connectedCallback()
-
-    setTimeout(() => {
-      this.todos = [...this.todos, { text: 'qux' }]
-    }, 1000)
-  }
+  todos: { text: string }[] = []
 
   static get styles() {
     return [css``]
