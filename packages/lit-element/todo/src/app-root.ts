@@ -4,14 +4,7 @@ import type { Todo } from './todo'
 @customElement('app-root')
 export class AppRoot extends LitElement {
   @property({ type: Array })
-  todos: Todo[] = [
-    {
-      text: 'foo',
-    },
-    {
-      text: 'bar',
-    },
-  ]
+  todos: Todo[] = []
 
   static get styles() {
     return css``

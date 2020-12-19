@@ -5,7 +5,7 @@
     "build": "snowpack build",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "format": "prettier --write .",
+    "format": "prettier --write --ignore-path .gitignore .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
