@@ -1,13 +1,13 @@
 import { css, customElement, html, LitElement } from 'lit-element'
 import { general } from './general'
 
-@customElement('app-button')
-export class Button extends LitElement {
+@customElement('app-todo')
+export class AppTodo extends LitElement {
   static get styles() {
     return [general, css``]
   }
 
   render() {
-    return html`<button><slot></slot></button>`
+    return html`<li><slot></slot></li>`
   }
 }

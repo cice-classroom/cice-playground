@@ -2,7 +2,7 @@ import { css, customElement, html, LitElement, property } from 'lit-element'
 import { general } from './general'
 
 @customElement('app-input')
-export class Input extends LitElement {
+export class AppInput extends LitElement {
   @property()
   label!: string
 

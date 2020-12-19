@@ -1,9 +1,10 @@
 import { css, customElement, html, LitElement, property } from 'lit-element'
+import type { Todo } from './todo'
 
 @customElement('app-todo-list')
-export class TodoList extends LitElement {
+export class AppTodoList extends LitElement {
   @property({ type: Array })
-  todos: { text: string }[] = []
+  todos: Todo[] = []
 
   static get styles() {
     return [css``]
