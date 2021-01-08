@@ -1,11 +1,11 @@
 import { CSSProperties, FC } from 'react'
-import styles from './exercise-eight.module.css'
+import styles from './exercise-8.module.css'
 
 interface Props {
   percentage: number
 }
 
-export const ExerciseEight: FC<Props> = ({ percentage }) => {
+export const Exercise8: FC<Props> = ({ percentage }) => {
   const degrees = (360 * percentage) / 100
   return (
     <div

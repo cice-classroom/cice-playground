@@ -21,7 +21,7 @@ const useDimensions = () => {
   }
 }
 
-export const ExerciseNine: FC = () => {
+export const Exercise9: FC = () => {
   const { height, width } = useDimensions()
   return (
     <h1>

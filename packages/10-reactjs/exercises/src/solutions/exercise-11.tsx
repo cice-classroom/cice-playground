@@ -48,7 +48,7 @@ const useTimer = () => {
   return { seconds, start, reset, pauseOrResume, isPaused, hasEnded }
 }
 
-export const ExerciseEleven: FC = () => {
+export const Exercise11: FC = () => {
   const [fromSeconds, setFromSeconds] = useState(5)
   const { seconds, start, reset, pauseOrResume, isPaused, hasEnded } = useTimer()
 

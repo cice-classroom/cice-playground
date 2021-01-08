@@ -4,7 +4,7 @@ interface Props {
   storage: Storage
 }
 
-export const ExerciseSix: FC<Props> = ({ storage }) => {
+export const Exercise6: FC<Props> = ({ storage }) => {
   const [value, setValue] = useState(storage.getItem('input') ?? '')
 
   useEffect(() => {

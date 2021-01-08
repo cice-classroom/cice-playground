@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 
-export const ExerciseThree: FC = () => {
+export const Exercise3: FC = () => {
   const [value, setValue] = useState('')
 
   const handleChange = (characters: string) => {

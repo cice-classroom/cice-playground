@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-export const ExerciseOneFor: FC = () => {
+export const Exercise1For: FC = () => {
   const lis: JSX.Element[] = []
 
   for (let i = 1; i <= 50; i++) {
@@ -10,7 +10,7 @@ export const ExerciseOneFor: FC = () => {
   return <ul>{lis}</ul>
 }
 
-export const ExerciseOne: FC = () => {
+export const Exercise1: FC = () => {
   const range = Array.from({ length: 50 }, (key, value) => value)
 
   return (

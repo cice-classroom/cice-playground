@@ -7,7 +7,7 @@ interface PokemonDto {
   results: { name: string; url: string }[]
 }
 
-export const ExerciseSeven: FC = () => {
+export const Exercise7: FC = () => {
   const [pokemons, setPokemons] = useState<string[]>([])
 
   const fetchPokemons = async () => {

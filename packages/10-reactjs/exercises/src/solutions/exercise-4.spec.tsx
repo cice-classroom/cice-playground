@@ -1,4 +1,4 @@
-import { ExerciseFour } from './exercise-four'
+import { Exercise4 } from './exercise-4'
 import { render, fireEvent } from '@testing-library/react'
 
 const RealDate = Date
@@ -19,7 +19,7 @@ export function resetDate() {
 describe('ExerciseFour', () => {
   it('should change the title', () => {
     mockDate('2020-04-01')
-    const { getByRole } = render(<ExerciseFour />)
+    const { getByRole } = render(<Exercise4 />)
     const button = getByRole('button')
 
     fireEvent.click(button)

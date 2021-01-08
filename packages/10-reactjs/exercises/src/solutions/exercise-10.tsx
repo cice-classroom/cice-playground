@@ -15,7 +15,7 @@ const useKeyHistory = () => {
   return keys
 }
 
-export const ExerciseTen: FC = () => {
+export const Exercise10: FC = () => {
   const keys = useKeyHistory()
   return (
     <ul>

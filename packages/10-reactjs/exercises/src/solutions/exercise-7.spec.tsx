@@ -1,4 +1,4 @@
-import { ExerciseSeven } from './exercise-seven'
+import { Exercise7 } from './exercise-7'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
 
@@ -11,7 +11,7 @@ describe('ExerciseSeven', () => {
           json: () => Promise.resolve({ results: [{ name: 'Pikachu' }] })
         }) as Promise<Response>
       )
-    const { queryByRole } = render(<ExerciseSeven />)
+    const { queryByRole } = render(<Exercise7 />)
 
     await waitFor(() => queryByRole('listitem'))
 

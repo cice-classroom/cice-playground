@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
-import { ExerciseSix } from './exercise-six'
+import { Exercise6 } from './exercise-6'
 
 describe('ExerciseSix', () => {
   it('should have a default value', () => {
@@ -37,7 +37,7 @@ export function setup({ getItemReturnValue }: { getItemReturnValue?: string } = 
     key: jest.fn(),
     length: 10
   }
-  const component = render(<ExerciseSix storage={storageMock} />)
+  const component = render(<Exercise6 storage={storageMock} />)
 
   return {
     ...component,
