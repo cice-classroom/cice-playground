@@ -1,4 +1,3 @@
-import React from 'react'
 import { ExerciseOne } from './exercise-one'
 import { render } from '@testing-library/react'
 

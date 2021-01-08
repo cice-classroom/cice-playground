@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 const useKeyHistory = () => {
   const [keys, setKeys] = useState<string[]>([])
@@ -15,7 +15,7 @@ const useKeyHistory = () => {
   return keys
 }
 
-export const ExerciseTen: React.FC = () => {
+export const ExerciseTen: FC = () => {
   const keys = useKeyHistory()
   return (
     <ul>

@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 
 interface Props {
   storage: Storage
 }
 
-export const ExerciseSix: React.FC<Props> = ({ storage }) => {
+export const ExerciseSix: FC<Props> = ({ storage }) => {
   const [value, setValue] = useState(storage.getItem('input') ?? '')
 
   useEffect(() => {
     storage.setItem('input', value)
   }, [storage, value])
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 
@@ -39,10 +39,10 @@ export const useLocalStorage = (initialState: string) => {
   return { value, setValue }
 }
 
-export const ExerciseSixCustomHook: React.FC = () => {
+export const ExerciseSixCustomHook: FC = () => {
   const { value, setValue } = useLocalStorage('')
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value)
   }
 

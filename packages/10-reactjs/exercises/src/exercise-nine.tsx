@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 const useDimensions = () => {
   const [height, setHeight] = useState(window.innerHeight)
@@ -21,7 +21,7 @@ const useDimensions = () => {
   }
 }
 
-export const ExerciseNine: React.FC = () => {
+export const ExerciseNine: FC = () => {
   const { height, width } = useDimensions()
   return (
     <h1>

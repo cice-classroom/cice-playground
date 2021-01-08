@@ -1,6 +1,5 @@
 import { ExerciseFour } from './exercise-four'
 import { render, fireEvent } from '@testing-library/react'
-import React from 'react'
 
 const RealDate = Date
 

@@ -10,3 +10,4 @@ dist
 .pnp.*
 .DS_Store
 .parcel-cache
+.eslintcache

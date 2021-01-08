@@ -4,9 +4,13 @@ import React from 'react'
 
 describe('ExerciseSeven', () => {
   it('should make a request to the pokemon API', async () => {
-    spyOn(window, 'fetch').and.returnValue(
-      Promise.resolve({ json: () => Promise.resolve({ results: [{ name: 'Pikachu' }] }) })
-    )
+    jest
+      .spyOn(window, 'fetch')
+      .mockReturnValue(
+        Promise.resolve({
+          json: () => Promise.resolve({ results: [{ name: 'Pikachu' }] })
+        }) as Promise<Response>
+      )
     const { queryByRole } = render(<ExerciseSeven />)
 
     await waitFor(() => queryByRole('listitem'))

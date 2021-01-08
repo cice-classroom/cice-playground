@@ -1,6 +1,5 @@
 import { ExerciseThree } from './exercise-three'
 import { render, fireEvent } from '@testing-library/react'
-import React from 'react'
 
 describe('ExerciseThree', () => {
   it('should not include a vowel when typing in the input', () => {

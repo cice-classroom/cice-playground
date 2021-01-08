@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import { ExerciseOne } from './exercise-one'
 import { ExerciseTwo } from './exercise-two'
@@ -12,7 +12,7 @@ import { ExerciseNine } from './exercise-nine'
 import { ExerciseTen } from './exercise-ten'
 import { ExerciseEleven } from './exercise-eleven'
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   return (
     <BrowserRouter>
       <Link to="/exercise-one">Exercise one</Link>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 interface PokemonDto {
   count: number
@@ -7,7 +7,7 @@ interface PokemonDto {
   results: { name: string; url: string }[]
 }
 
-export const ExerciseSeven: React.FC = () => {
+export const ExerciseSeven: FC = () => {
   const [pokemons, setPokemons] = useState<string[]>([])
 
   const fetchPokemons = async () => {

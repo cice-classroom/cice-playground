@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 
 const useInterval = (callback: () => void, interval = 1_000) => {
   const savedCallback = useRef<() => void>()
@@ -48,7 +48,7 @@ const useTimer = () => {
   return { seconds, start, reset, pauseOrResume, isPaused, hasEnded }
 }
 
-export const ExerciseEleven: React.FC = () => {
+export const ExerciseEleven: FC = () => {
   const [fromSeconds, setFromSeconds] = useState(5)
   const { seconds, start, reset, pauseOrResume, isPaused, hasEnded } = useTimer()
 

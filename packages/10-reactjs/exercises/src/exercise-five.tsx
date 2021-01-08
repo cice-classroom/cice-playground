@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 
-export const ExerciseFive: React.FC = () => {
+export const ExerciseFive: FC = () => {
   const initialCount = 10
   const [counter, setCounter] = useState(initialCount)
 

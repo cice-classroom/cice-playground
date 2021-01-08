@@ -1,4 +1,3 @@
-import React from 'react'
 import { ExerciseTwo } from './exercise-two'
 import { render, fireEvent } from '@testing-library/react'
 
