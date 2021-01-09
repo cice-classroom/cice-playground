@@ -44,16 +44,6 @@
   },
   "devDependencies": {
     "@types/react-redux": "7.1.15",
-    "husky": "4.3.7",
-    "lint-staged": "10.5.3",
     "prettier": "2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write"
   }
 }

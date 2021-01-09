@@ -24,15 +24,5 @@
     "lerna": "3.22.1",
     "prettier": "2.2.0",
     "typescript": "4.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,html,json,css,scss,md,yaml}": [
-      "prettier --write"
-    ]
   }
 }
