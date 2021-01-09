@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom'
-import './solutions/styles/reset.css'
 import './solutions/styles/theme.css'
 import './solutions/styles/typography.css'
 import './solutions/styles/index.css'
