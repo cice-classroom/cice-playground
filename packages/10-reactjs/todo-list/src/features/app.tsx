@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
 
 const cx = bind(styles)
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   function createTodo(todoText: string) {
