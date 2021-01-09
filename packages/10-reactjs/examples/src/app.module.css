@@ -5,3 +5,9 @@
   place-items: center;
   flex-direction: column;
 }
+
+.header {
+  display: flex;
+  gap: 0.25rem;
+
+}

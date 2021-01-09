@@ -11,21 +11,24 @@ import { Exercise8 } from './exercise-8'
 import { Exercise9 } from './exercise-9'
 import { Exercise10 } from './exercise-10'
 import { Exercise11 } from './exercise-11'
+import styles from './app.module.css'
 
 export const App: FC = () => {
   return (
     <BrowserRouter>
-      <Link to="/exercise-one">Exercise one</Link>
-      <Link to="/exercise-two">Exercise two</Link>
-      <Link to="/exercise-three">Exercise three</Link>
-      <Link to="/exercise-four">Exercise four</Link>
-      <Link to="/exercise-five">Exercise five</Link>
-      <Link to="/exercise-six">Exercise six</Link>
-      <Link to="/exercise-seven">Exercise seven</Link>
-      <Link to="/exercise-eight">Exercise eight</Link>
-      <Link to="/exercise-nine">Exercise nine</Link>
-      <Link to="/exercise-ten">Exercise ten</Link>
-      <Link to="/exercise-eleven">Exercise eleven</Link>
+      <header className={styles.header}>
+        <Link to="/exercise-one">Exercise one</Link>
+        <Link to="/exercise-two">Exercise two</Link>
+        <Link to="/exercise-three">Exercise three</Link>
+        <Link to="/exercise-four">Exercise four</Link>
+        <Link to="/exercise-five">Exercise five</Link>
+        <Link to="/exercise-six">Exercise six</Link>
+        <Link to="/exercise-seven">Exercise seven</Link>
+        <Link to="/exercise-eight">Exercise eight</Link>
+        <Link to="/exercise-nine">Exercise nine</Link>
+        <Link to="/exercise-ten">Exercise ten</Link>
+        <Link to="/exercise-eleven">Exercise eleven</Link>
+      </header>
 
       <Route path="/exercise-one">
         <Exercise1 />
