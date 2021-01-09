@@ -13,6 +13,7 @@ import { UseReducerRefactor3 } from './reducer/use-reducer-refactor-3'
 import { NumericInput } from './numeric-input'
 import { BindStyleCustomProperty } from './bind-style-custom-property'
 import styles from './app.module.css'
+import { Styling } from './styling'
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
         <main className={styles.wrapper}>
           <header className={styles.header}>
             <Link to="/numeric-input">Numeric Input</Link>
+            <Link to="/styling">Styling</Link>
             <Link to="/context">Context</Link>
             <Link to="/custom-hooks">Custom Hooks</Link>
             <Link to="/use-effect">Use Effect</Link>
@@ -33,6 +35,9 @@ export function App() {
             <Link to="/bind-style-custom-property">Bind Style Custom Property</Link>
           </header>
         </main>
+      </Route>
+      <Route path="/styling">
+        <Styling />
       </Route>
       <Route path="/numeric-input">
         <NumericInput />

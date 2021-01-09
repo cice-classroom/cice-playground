@@ -47,6 +47,7 @@ export const App: FC = () => {
       </Route>
       <Route path="/exercise-six">
         <Exercise6 storage={sessionStorage} />
+        <Exercise6 storage={localStorage} />
       </Route>
       <Route path="/exercise-seven">
         <Exercise7 />
