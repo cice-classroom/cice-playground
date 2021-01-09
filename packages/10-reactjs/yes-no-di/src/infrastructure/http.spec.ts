@@ -18,7 +18,7 @@ describe('Http', () => {
 
     expect(fetcher).toHaveBeenCalledWith('/foo/bar', {
       method: 'POST',
-      body: '{"foo":"bar"}',
+      body: '{"foo":"bar"}'
     })
   })
 
@@ -30,7 +30,7 @@ describe('Http', () => {
 
     expect(fetcher).toHaveBeenCalledWith('/foo/bar', {
       method: 'PUT',
-      body: '{"foo":"bar"}',
+      body: '{"foo":"bar"}'
     })
   })
 
@@ -41,7 +41,7 @@ describe('Http', () => {
     await http.delete('/foo/bar')
 
     expect(fetcher).toHaveBeenCalledWith('/foo/bar', {
-      method: 'DELETE',
+      method: 'DELETE'
     })
   })
 })
@@ -52,6 +52,6 @@ function setup() {
 
   return {
     fetcher,
-    http,
+    http
   }
 }

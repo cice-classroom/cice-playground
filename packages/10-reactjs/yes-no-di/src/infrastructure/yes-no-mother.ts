@@ -6,14 +6,14 @@ export class YesNoMother {
     return {
       forced: false,
       answer: 'yes',
-      image: 'irrelevant',
+      image: 'irrelevant'
     }
   }
 
   static yes(): YesNo {
     return {
       answer: 'yes',
-      image: 'irrelevant',
+      image: 'irrelevant'
     }
   }
 }

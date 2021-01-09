@@ -44,6 +44,6 @@ function setup() {
   return {
     http,
     yesNoDtoToYesNoMapper,
-    yesNoHttpRepository,
+    yesNoHttpRepository
   }
 }

@@ -41,7 +41,10 @@
         }
 
         render() {
-          return html`<h1 style="${styleMap({ color: this.color })}" @click="${this.handleColorChange}">
+          return html`<h1
+            style="${styleMap({ color: this.color })}"
+            @click="${this.handleColorChange}"
+          >
             Hello world
           </h1>`
         }

@@ -17,7 +17,7 @@ describe('PersonalAssistant', () => {
     const mock = jest.fn()
     mock.mockReturnValue('Hello')
     const greeter: Partial<Greeter> = {
-      hello: mock,
+      hello: mock
     }
     const personalAssistant = new PersonalAssistant((greeter as unknown) as Greeter)
 

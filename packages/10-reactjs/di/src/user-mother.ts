@@ -13,7 +13,7 @@ export class UserMother {
       birth: new Date(1990, 1, 14),
       id: '42235145L',
       surname: 'Fowler',
-      payments: ['ada2132121', 'addsa2134'],
+      payments: ['ada2132121', 'addsa2134']
     }
   }
 
@@ -26,7 +26,7 @@ export class UserMother {
       birth: new Date(1989, 1, 14),
       id: '42235145L',
       surname: 'Fowler',
-      payments: [],
+      payments: []
     }
   }
 }
