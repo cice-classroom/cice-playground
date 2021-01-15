@@ -20,7 +20,7 @@
     "web-vitals": "1.0.1"
   },
   "scripts": {
-    "s1tart": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"

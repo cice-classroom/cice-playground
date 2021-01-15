@@ -14,6 +14,7 @@ import { NumericInput } from './numeric-input'
 import { BindStyleCustomProperty } from './bind-style-custom-property'
 import styles from './app.module.css'
 import { Styling } from './styling'
+import { ThemeContextComponent } from './theme-context'
 
 export function App() {
   return (
@@ -24,6 +25,7 @@ export function App() {
             <Link to="/numeric-input">Numeric Input</Link>
             <Link to="/styling">Styling</Link>
             <Link to="/context">Context</Link>
+            <Link to="/theme-context">Theme context</Link>
             <Link to="/custom-hooks">Custom Hooks</Link>
             <Link to="/use-effect">Use Effect</Link>
             <Link to="/use-reducer">Use Reducer</Link>
@@ -47,6 +49,9 @@ export function App() {
       </Route>
       <Route path="/context">
         <Context />
+      </Route>
+      <Route path="/theme-context">
+        <ThemeContextComponent />
       </Route>
       <Route path="/custom-hooks">
         <CustomHooks />

@@ -1,31 +1,57 @@
 import { FC, useEffect, useState } from 'react'
 
-interface PokemonDto {
+interface Pokemon {
+  name: string
+  url: string
+}
+
+interface Result {
   count: number
-  next: string
-  previous: null | string
-  results: { name: string; url: string }[]
+  next: string | null
+  previous: string | null
+  results: Pokemon[]
+}
+
+class PokemonRepository {
+  async findAll(): Promise<Pokemon[]> {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+    const result: Result = await response.json()
+    return result.results
+  }
+}
+
+class PokemonRepositoryFactory {
+  static build() {
+    return new PokemonRepository()
+  }
 }
 
 export const Exercise7: FC = () => {
-  const [pokemons, setPokemons] = useState<string[]>([])
+  const [pokemons, setPokemons] = useState<Pokemon[]>([])
+  const [loading, setLoading] = useState(false)
 
-  const fetchPokemons = async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon')
-    const result: PokemonDto = await response.json()
-    const names = result.results.map(result => result.name)
-    setPokemons(names)
+  async function fetchPokemons() {
+    setLoading(true)
+    setTimeout(async () => {
+      const pokemons = await PokemonRepositoryFactory.build().findAll()
+      setPokemons(pokemons)
+      setLoading(false)
+    }, 1_000)
   }
 
   useEffect(() => {
     fetchPokemons()
   }, [])
 
+  if (loading) {
+    return <p>Cargando...</p>
+  }
+
   return (
     <div>
       <ul>
         {pokemons.map(pokemon => (
-          <li key={pokemon}>{pokemon}</li>
+          <li key={pokemon.name}>{pokemon.name}</li>
         ))}
       </ul>
     </div>
