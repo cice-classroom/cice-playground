@@ -17,6 +17,8 @@ import { Styling } from './styling'
 import { ThemeContextComponent } from './theme-context'
 import { ClassComponent } from './class-component'
 import { AppErrorBoundary } from './error-boundaries'
+import { Timer } from './timer'
+import { UseRef } from './use-ref'
 
 export function App() {
   return (
@@ -39,6 +41,8 @@ export function App() {
             <Link to="/bind-style-custom-property">Bind Style Custom Property</Link>
             <Link to="/class-component">Class component</Link>
             <Link to="/error-boundary">Error boundary</Link>
+            <Link to="/timer">Timer</Link>
+            <Link to="/use-ref">Use ref</Link>
           </header>
         </main>
       </Route>
@@ -92,6 +96,12 @@ export function App() {
       </Route>
       <Route path="/error-boundary">
         <AppErrorBoundary />
+      </Route>
+      <Route path="/timer">
+        <Timer />
+      </Route>
+      <Route path="/use-ref">
+        <UseRef />
       </Route>
     </BrowserRouter>
   )
