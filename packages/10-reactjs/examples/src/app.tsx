@@ -15,6 +15,7 @@ import { BindStyleCustomProperty } from './bind-style-custom-property'
 import styles from './app.module.css'
 import { Styling } from './styling'
 import { ThemeContextComponent } from './theme-context'
+import { ClassComponent } from './class-component'
 
 export function App() {
   return (
@@ -35,6 +36,7 @@ export function App() {
             <Link to="/use-reducer-refactor-2">Use Reducer Refactor 2</Link>
             <Link to="/use-state-immutable">Use State Immutable</Link>
             <Link to="/bind-style-custom-property">Bind Style Custom Property</Link>
+            <Link to="/class-component">Class component</Link>
           </header>
         </main>
       </Route>
@@ -80,9 +82,11 @@ export function App() {
       <Route path="/use-state-immutable">
         <UseStateImmutable />
       </Route>
-
       <Route path="/bind-style-custom-property">
         <BindStyleCustomProperty />
+      </Route>
+      <Route path="/class-component">
+        <ClassComponent />
       </Route>
     </BrowserRouter>
   )
