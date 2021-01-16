@@ -28,7 +28,7 @@ export const App: React.FC = () => {
 
   return (
     <main>
-      <TodoList todos={todos} onCompleteTodo={completeTodo}></TodoList>
+      <TodoList todos={todos} onCompleteTodo={completeTodo} />
       <TodoCreate onCreate={createTodo} todos={todos} />
     </main>
   )
