@@ -16,6 +16,7 @@ import styles from './app.module.css'
 import { Styling } from './styling'
 import { ThemeContextComponent } from './theme-context'
 import { ClassComponent } from './class-component'
+import { AppErrorBoundary } from './error-boundaries'
 
 export function App() {
   return (
@@ -37,6 +38,7 @@ export function App() {
             <Link to="/use-state-immutable">Use State Immutable</Link>
             <Link to="/bind-style-custom-property">Bind Style Custom Property</Link>
             <Link to="/class-component">Class component</Link>
+            <Link to="/error-boundary">Error boundary</Link>
           </header>
         </main>
       </Route>
@@ -87,6 +89,9 @@ export function App() {
       </Route>
       <Route path="/class-component">
         <ClassComponent />
+      </Route>
+      <Route path="/error-boundary">
+        <AppErrorBoundary />
       </Route>
     </BrowserRouter>
   )
