@@ -3,7 +3,7 @@ import { Route, Switch, useHistory, useParams, useRouteMatch } from 'react-route
 import { UserDetailTasks } from './user-detail-tasks'
 
 export const UserDetail: React.FC = () => {
-  const { name } = useParams()
+  const { name } = useParams<{ name: string }>()
   const history = useHistory()
   const { url, path } = useRouteMatch()
   return (

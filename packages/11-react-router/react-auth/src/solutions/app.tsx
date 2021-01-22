@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router
 import { Header } from './header'
 import { routes } from './routes'
 import { PrivateRoute } from './private-route'
-import { useCan } from './features/permissions/use-can'
-import { Permission } from './features/permissions/permission'
-import { RoleContext } from './features/role-context'
-import { Role } from './features/permissions/role'
+import { useCan } from '../features/permissions/use-can'
+import { Permission } from '../features/permissions/permission'
+import { RoleContext } from '../features/role-context'
+import { Role } from '../features/permissions/role'
 
 const Login: React.FC = () => {
   const history = useHistory()
