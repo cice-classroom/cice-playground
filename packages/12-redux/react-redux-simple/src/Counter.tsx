@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './Counter.module.css'
 import { decrement, increment } from './action-creators'
 import { AppDispatch, RootState } from './store'
 
-const countSelector = (state: RootState) => state.incrementReducer.count
+const countSelector = (state: RootState) => state.increment.count
 
-export function Counter() {
+export const Counter: FC = () => {
   const count = useSelector(countSelector)
   const dispatch: AppDispatch = useDispatch()
 
