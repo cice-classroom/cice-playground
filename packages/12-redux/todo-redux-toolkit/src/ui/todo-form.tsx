@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { useAppDispatch } from '../application/store/store'
 import { createTodo } from '../application/todo/todo-action'
 
-export const TodoForm: React.FC = () => {
+export const TodoForm: FC = () => {
   const [text, setText] = useState('')
   const dispatch = useAppDispatch()
   return (

@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 import { Provider } from 'react-redux'
 import { store } from './application/store/store'
 import { TodoList } from './ui/todo-list'
 import { TodoForm } from './ui/todo-form'
 import { TodoFilters } from './ui/todo-filters'
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   return (
     <Provider store={store}>
       <TodoList />
