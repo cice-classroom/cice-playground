@@ -19,6 +19,13 @@ export const fetchStartAction = (): Action => {
   }
 }
 
+export const fetchSuccessAction = (result: number): Action => {
+  return {
+    type: 'FETCH_SUCCESS',
+    result
+  }
+}
+
 export type Thunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
@@ -27,18 +34,12 @@ export type Thunk<ReturnType = void> = ThunkAction<
 >
 
 export function fetchResolve(): Thunk {
-  return (dispatch: AppDispatch) => {
+  return (dispatch: AppDispatch, getState) => {
+    const state = getState()
     dispatch(fetchStartAction())
     setTimeout(() => {
-      dispatch(fetchSuccessAction(42))
+      dispatch(fetchSuccessAction((state.counter.result ?? 0) + 1))
     }, 1_000)
-  }
-}
-
-export const fetchSuccessAction = (result: number): Action => {
-  return {
-    type: 'FETCH_SUCCESS',
-    result
   }
 }
 
