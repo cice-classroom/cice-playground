@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { FC, useReducer } from 'react'
 
 type Action =
   | { type: 'started' }
@@ -39,7 +39,7 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-export const UseReducerRefactor1: React.FC = () => {
+export const UseReducerRefactor1: FC = () => {
   const [state, dispatch] = useReducer(reducer, { number: 0, error: null, isLoading: false })
 
   const getNumber = async () => {

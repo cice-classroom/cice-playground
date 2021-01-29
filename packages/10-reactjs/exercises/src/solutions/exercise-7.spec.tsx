@@ -1,6 +1,5 @@
 import { Exercise7 } from './exercise-7'
 import { render, waitFor } from '@testing-library/react'
-import React from 'react'
 
 describe('ExerciseSeven', () => {
   it('should make a request to the pokemon API', async () => {

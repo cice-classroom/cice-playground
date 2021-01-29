@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react'
+import { FC, useReducer } from 'react'
 import { stateReducer } from './state-reducer'
 
-export const UseReducerRefactor3: React.FC = () => {
+export const UseReducerRefactor3: FC = () => {
   const [state, dispatch] = useReducer(stateReducer, { number: 0, error: null, status: 'idle' })
 
   const getNumber = async () => {

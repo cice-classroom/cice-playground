@@ -1,6 +1,6 @@
-import React from 'react'
 import styles from './base-input.module.css'
 import { bind } from '../../../../utils/bind'
+import { FC } from 'react'
 
 const cx = bind(styles)
 
@@ -13,14 +13,7 @@ interface Props {
   onChange(value: string): void
 }
 
-export const BaseInput: React.FunctionComponent<Props> = ({
-  label,
-  value,
-  onChange,
-  required,
-  type,
-  endSlot
-}) => {
+export const BaseInput: FC<Props> = ({ label, value, onChange, required, type, endSlot }) => {
   const isRequired = required && value === ''
   return (
     <label>

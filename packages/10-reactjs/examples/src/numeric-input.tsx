@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 
 interface Props {
   label: string
@@ -6,13 +6,13 @@ interface Props {
   onChange(newValue: number): void
 }
 
-export const NumericInput: React.FC = () => {
+export const NumericInput: FC = () => {
   const [number, setNumber] = useState(0)
 
   return <MyNumericInput onChange={setNumber} value={number} label="Enter a number" />
 }
 
-export const MyNumericInput: React.FC<Props> = ({ value, onChange, label }) => {
+export const MyNumericInput: FC<Props> = ({ value, onChange, label }) => {
   return (
     <label>
       {label}

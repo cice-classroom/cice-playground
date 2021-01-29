@@ -1,12 +1,12 @@
-import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 import { Page } from '../components/page'
 import { GetStaticProps } from 'next'
 import { getPosts } from '../lib/posts'
 import { Post } from '../models/post'
+import { FC } from 'react'
 
-const Home: React.FC<{ posts: Post[] }> = ({ posts }) => {
+const Home: FC<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <Head>

@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-export const UserDetailTasks: React.FC = () => {
+export const UserDetailTasks: FC = () => {
   return (
     <ul>
       {['cuarentena', 'dar un paseo por la cocina', 'salir a comprar'].map(task => (

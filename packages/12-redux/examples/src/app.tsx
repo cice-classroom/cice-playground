@@ -1,10 +1,10 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchResolve } from './async-action-thunk'
 import { RootState } from './store'
 import { addImmer, clearImmer, replaceSecondImmer } from './immer'
+import { FC } from 'react'
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   const dispatch = useDispatch()
   const { result, isLoading } = useSelector((state: RootState) => state.counter)
   const { values } = useSelector((state: RootState) => state.immer)

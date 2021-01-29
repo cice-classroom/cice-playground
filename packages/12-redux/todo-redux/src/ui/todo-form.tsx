@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { saveTodo } from '../application/todo/todo-action'
 import { useDispatch } from 'react-redux'
 
-export const TodoForm: React.FC = () => {
+export const TodoForm: FC = () => {
   const [text, setText] = useState('')
   const dispatch = useDispatch()
   return (

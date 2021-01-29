@@ -1,6 +1,6 @@
-import React from 'react'
 import { Game } from './features/game/ui/game'
+import { FC } from 'react'
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   return <Game />
 }

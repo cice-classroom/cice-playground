@@ -1,4 +1,3 @@
-import React from 'react'
 import { GetBoardQry } from '../application/get-board-qry'
 import styles from './game.module.css'
 import { useInject } from '../../../core/use-inject'
@@ -8,8 +7,9 @@ import { WinnerQry } from '../application/winner-qry'
 import { TieQry } from '../application/tie-qry'
 import { ReplayCmd } from '../application/replay-cmd'
 import { useSubscribe } from '../../../core/use-subscribe'
+import { FC } from 'react'
 
-export const Game: React.FC = () => {
+export const Game: FC = () => {
   const getBoardQry = useInject<GetBoardQry>(TYPES.GET_BOARD_QRY)
   const playCmd = useInject<PlayCmd>(TYPES.PLAY_CMD)
   const replayCmd = useInject<ReplayCmd>(TYPES.REPLAY_CMD)

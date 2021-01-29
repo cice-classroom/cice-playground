@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { LocalStorageInversionOfControlWithProps } from './local-storage-inversion-of-control-with-props'
 

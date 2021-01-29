@@ -32,7 +32,7 @@ export class AppTodoCreate extends LitElement {
 
   render() {
     return html`<header>
-      <form @submit="${this.dispatchCreateTodo}">
+      <form name="Create todo" @submit="${this.dispatchCreateTodo}">
         <label
           >Todo text<input .value="${this.todoText}" @keyup="${this.onChange}" autofocus
         /></label>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom'
 import { Header } from './header'
 import { routes } from './routes'
@@ -8,7 +8,7 @@ import { Permission } from '../features/permissions/permission'
 import { RoleContext } from '../features/role-context'
 import { Role } from '../features/permissions/role'
 
-const Login: React.FC = () => {
+const Login: FC = () => {
   const history = useHistory()
 
   return (
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
   )
 }
 
-export const ProtectedRoute: React.FC = () => {
+export const ProtectedRoute: FC = () => {
   const canDelete = useCan([Permission.DELETE_ENTITIES])
   const canSubscribe = useCan([Permission.CAN_SUBSCRIBE])
   const canEdit = useCan([Permission.CAN_EDIT_USER])
@@ -52,7 +52,7 @@ export const ProtectedRoute: React.FC = () => {
   )
 }
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   const [role, setRole] = useState<Role>('user')
   return (
     <RoleContext.Provider value={{ role, setRole }}>

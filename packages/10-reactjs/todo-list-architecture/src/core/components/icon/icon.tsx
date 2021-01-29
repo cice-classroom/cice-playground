@@ -1,7 +1,7 @@
-import React from 'react'
 import { bind } from '../../../utils/bind'
 import styles from './icon.module.css'
 import { Size } from '../size'
+import { FC } from 'react'
 
 const cx = bind(styles)
 
@@ -20,7 +20,7 @@ const icons: Record<IconName, string> = {
   closedEye: '◉'
 }
 
-export const Icon: React.FunctionComponent<Props> = ({ name, size = 'm', onClick }) => {
+export const Icon: FC<Props> = ({ name, size = 'm', onClick }) => {
   return (
     <i onClick={onClick} className={cx('icon', `icon-size-${size}`)}>
       {icons[name]}

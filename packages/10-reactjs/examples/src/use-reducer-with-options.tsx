@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import { FC, useReducer, useState } from 'react'
 
 type Action =
   | { type: 'increment' }
@@ -27,7 +27,7 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
-export const UseReducerWithOptions: React.FC = () => {
+export const UseReducerWithOptions: FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [number, setNumber] = useState(0)
 

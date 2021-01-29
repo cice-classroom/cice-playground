@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 
 export function useCounter(initialValue = 0) {
   const [counter, setCounter] = useState(initialValue)
@@ -11,14 +11,12 @@ export function useCounter(initialValue = 0) {
   }
 }
 
-export function CustomHooks() {
-  return (
-    <div className="App">
-      <Header></Header>
-      <Footer></Footer>
-    </div>
-  )
-}
+export const CustomHooks: FC = () => (
+  <div className="App">
+    <Header></Header>
+    <Footer></Footer>
+  </div>
+)
 
 export function Header() {
   const { counter, incrementCounter } = useCounter(10)

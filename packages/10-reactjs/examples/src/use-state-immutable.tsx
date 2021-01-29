@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 
-export const UseStateImmutable: React.FC = () => {
+export const UseStateImmutable: FC = () => {
   const [array, setArray] = useState<number[]>([])
 
   const handleClick = () => {

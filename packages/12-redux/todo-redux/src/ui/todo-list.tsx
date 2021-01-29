@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editTodo, removeTodo } from '../application/todo/todo-action'
 import { visibleTodosSelector } from '../application/visible-todos-selector'
 
-export const TodoList: React.FC = () => {
+export const TodoList: FC = () => {
   const todos = useSelector(visibleTodosSelector)
   const [isEditing, setIsEditing] = useState(false)
   const [value, setValue] = useState('')

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import { createContext, FC, useContext, useState } from 'react'
 
 export const CounterContext = createContext<{
   counter: number
@@ -6,7 +6,7 @@ export const CounterContext = createContext<{
   incrementCounter: () => void
 }>({ counter: 0, setCounter: () => {}, incrementCounter: () => {} })
 
-const ComponentA: React.FC = () => {
+const ComponentA: FC = () => {
   const { counter, setCounter, incrementCounter } = useContext(CounterContext)
   return (
     <>
@@ -16,7 +16,7 @@ const ComponentA: React.FC = () => {
   )
 }
 
-const ComponentB: React.FC = () => {
+const ComponentB: FC = () => {
   return (
     <CounterContext.Consumer>
       {({ counter, setCounter }) => (
@@ -26,7 +26,7 @@ const ComponentB: React.FC = () => {
   )
 }
 
-export const Context: React.FC = () => {
+export const Context: FC = () => {
   const [state, setState] = useState(0)
   return (
     <CounterContext.Provider

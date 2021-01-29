@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test",
+    "test": "CI=true react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

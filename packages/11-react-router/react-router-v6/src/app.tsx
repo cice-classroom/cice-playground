@@ -1,11 +1,11 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy, FC } from 'react'
 import './app.css'
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 import { Header } from './header'
 
 const UserDetail = lazy(() => import('./user-detail-page'))
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   return (
     <Router>
       <Header />

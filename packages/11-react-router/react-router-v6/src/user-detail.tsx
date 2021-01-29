@@ -1,8 +1,8 @@
-import React from 'react'
 import { Route, Switch, useHistory, useParams, useRouteMatch } from 'react-router-dom'
 import { UserDetailTasks } from './user-detail-tasks'
+import { FC } from 'react'
 
-export const UserDetail: React.FC = () => {
+export const UserDetail: FC = () => {
   const { name } = useParams()
   const history = useHistory()
   const { path } = useRouteMatch()

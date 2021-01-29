@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styles from './yes-no-displayer.module.css'
 import { bind } from './bind'
 import { TYPES } from '../../types'
@@ -7,7 +7,7 @@ import { GetImageUseCase } from '../../application/get-image-use-case'
 
 const cx = bind(styles)
 
-export const YesNoDisplayer: React.FC = () => {
+export const YesNoDisplayer: FC = () => {
   const [image, setImage] = useState('')
   const [counter, setCounter] = useState(0)
   const getImageUseCase = useInject<GetImageUseCase>(TYPES.GET_IMAGE_USE_CASE)

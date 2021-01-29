@@ -1,6 +1,6 @@
-import React from 'react'
 import styles from './page.module.css'
+import { FC } from 'react'
 
-export const Page: React.FC = ({ children }) => {
+export const Page: FC = ({ children }) => {
   return <main className={styles.container}>{children}</main>
 }

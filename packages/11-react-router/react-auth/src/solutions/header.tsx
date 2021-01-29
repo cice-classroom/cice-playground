@@ -1,8 +1,8 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from './routes'
+import { FC } from 'react'
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   return (
     <nav>
       <Link to={routes.home}>Home</Link>

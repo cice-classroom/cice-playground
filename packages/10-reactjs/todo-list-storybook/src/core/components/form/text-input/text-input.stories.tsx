@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { TextInput } from './text-input'
 
 export default {
@@ -6,7 +6,7 @@ export default {
   component: TextInput
 }
 
-const WithState: React.FC<{ isRequired: boolean }> = ({ isRequired }) => {
+const WithState: FC<{ isRequired: boolean }> = ({ isRequired }) => {
   const [value, setValue] = useState('')
   return (
     <>

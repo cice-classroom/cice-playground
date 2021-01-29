@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
-export const UseEffect: React.FC = () => {
+export const UseEffect: FC = () => {
   const [count, setCount] = useState(0)
   const [countTwo, setCountTwo] = useState(0)
   const [keyPressed, setKeyPressed] = useState('')

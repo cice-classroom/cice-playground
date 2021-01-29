@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import { FC, useReducer } from 'react'
 
 type ActionType = 'increment' | 'decrement' | 'reset'
 
@@ -21,7 +21,7 @@ const reducer = (state: State, action: ActionType): State => {
   }
 }
 
-export const UseReducer: React.FC = () => {
+export const UseReducer: FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (

@@ -4,7 +4,7 @@ import { Todo } from './features/todo/domain/todo'
 import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
 import { TodoRepositoryFactory } from './features/todo/infrastructure/todo-repository-factory'
 
-export const App: React.FC = () => {
+export const App: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   useEffect(() => {

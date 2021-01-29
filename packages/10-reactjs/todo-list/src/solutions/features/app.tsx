@@ -37,12 +37,17 @@ export const App: FC = () => {
     <main>
       <ul>
         {todos.map(todo => (
-          <li onClick={() => completeTodo(todo.id)} className={cx({ completed: todo.completed })}>
+          <li
+            key={todo.id}
+            onClick={() => completeTodo(todo.id)}
+            className={cx({ completed: todo.completed })}
+          >
             {todo.text}
           </li>
         ))}
       </ul>
       <form
+        name="Create todo"
         onSubmit={event => {
           event.preventDefault()
           createTodo(todoText)

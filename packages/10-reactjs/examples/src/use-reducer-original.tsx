@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 
-export const UseReducerOriginal: React.FC = () => {
+export const UseReducerOriginal: FC = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
   const [number, setNumber] = useState(0)

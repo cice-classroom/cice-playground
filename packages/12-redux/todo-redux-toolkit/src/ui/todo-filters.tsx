@@ -1,12 +1,12 @@
-import React from 'react'
 import {
   setAllTodosVisible,
   setCompletedTodosVisible,
   setTodoTodosVisible
 } from '../application/todo-filters/todo-filters-action'
 import { useAppDispatch } from '../application/store/store'
+import { FC } from 'react'
 
-export const TodoFilters: React.FC = () => {
+export const TodoFilters: FC = () => {
   const dispatch = useAppDispatch()
 
   return (

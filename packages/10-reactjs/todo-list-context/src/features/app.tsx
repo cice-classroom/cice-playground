@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { Todo } from './todo'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
@@ -8,7 +8,7 @@ import { TodoClear } from './todo-clear'
 
 const cx = bind(styles)
 
-export function App() {
+export const App: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
 
   function createTodo(todoText: string) {
@@ -49,6 +49,7 @@ export function App() {
         <TodoCount />
         <TodoClear />
         <form
+          name="Create todo"
           onSubmit={event => {
             event.preventDefault()
             createTodo(todoText)

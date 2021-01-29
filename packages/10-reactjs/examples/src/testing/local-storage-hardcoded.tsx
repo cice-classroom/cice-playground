@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
-export const LocalStorageHardcoded: React.FC = () => {
+export const LocalStorageHardcoded: FC = () => {
   const [value, setValue] = useState(localStorage.getItem('input') ?? '')
 
   useEffect(() => {

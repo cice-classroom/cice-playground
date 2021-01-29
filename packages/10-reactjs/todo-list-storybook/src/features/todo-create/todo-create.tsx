@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { FC, useState } from 'react'
 import { Button } from '../../core/components/button/button'
 import { Todo } from '../todo'
 
@@ -7,7 +7,7 @@ interface Props {
   todos: Todo[]
 }
 
-export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate, todos }) => {
+export const TodoCreate: FC<Props> = ({ onCreate, todos }) => {
   const [todoText, setTodoText] = useState('')
   const isTodoDuplicated = todos.map(todo => todo.text).includes(todoText)
 
@@ -15,6 +15,7 @@ export const TodoCreate: React.FunctionComponent<Props> = ({ onCreate, todos }) 
 
   return (
     <form
+      name="Create todo"
       onSubmit={event => {
         event.preventDefault()
         onCreate(todoText)

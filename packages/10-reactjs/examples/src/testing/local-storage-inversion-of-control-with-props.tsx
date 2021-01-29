@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 interface Props {
   storage: Storage
 }
 
-export const LocalStorageInversionOfControlWithProps: React.FC<Props> = ({ storage }) => {
+export const LocalStorageInversionOfControlWithProps: FC<Props> = ({ storage }) => {
   const [value, setValue] = useState(storage.getItem('input') ?? '')
 
   useEffect(() => {

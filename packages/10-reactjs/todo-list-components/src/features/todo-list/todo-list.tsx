@@ -1,8 +1,8 @@
-import React from 'react'
 import { Todo as TodoModel } from '../todo'
 import { Todo } from '../todo/todo'
+import { FC } from 'react'
 
-export const TodoList: React.FC<{
+export const TodoList: FC<{
   todos: TodoModel[]
   onCompleteTodo(id: number): void
 }> = ({ todos, onCompleteTodo }) => {
