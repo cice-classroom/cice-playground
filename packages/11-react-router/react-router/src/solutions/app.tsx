@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy, FC } from 'react'
 import './app.css'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import { Header } from './header'

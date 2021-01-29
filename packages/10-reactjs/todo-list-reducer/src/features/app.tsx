@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import { FC, useReducer, useState } from 'react'
 import styles from './app.module.css'
 import { bind } from '../utils/bind'
 import { reducer } from './reducer'

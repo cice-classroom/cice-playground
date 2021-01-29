@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { TodoList } from './features/todo/ui/todo-list/todo-list'
 import { Todo } from './features/todo/domain/todo'
 import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
