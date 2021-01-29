@@ -8,7 +8,7 @@ import { onTime } from './solutions/exercise-7'
 import { tripleEven } from './solutions/exercise-6'
 import { scrollClick } from './solutions/exercise-8'
 import { yesNo } from './solutions/exercise-9'
-import { counter, pause, play, reset } from './solutions/exercise-12'
+import { count, counter, pause, play, reset } from './solutions/exercise-12'
 import { yesNoDebounce } from './solutions/exercise-10'
 import { yesNoSwitch } from './solutions/exercise-11'
 
@@ -39,3 +39,4 @@ counter().subscribe()
 play().subscribe()
 pause().subscribe()
 reset().subscribe()
+count.pipe(staticRender('#exercise-12')).subscribe()
