@@ -1,13 +1,14 @@
 // "many client-specific interfaces are better than one general-purpose interface."
 
 // Good 👍
-/*export interface Refiller {
+/* interface Refiller {
   refuel(): void
 }
 
-export interface Charger {
+ interface Charger {
   charge(): void
-}*/
+}
+*/
 
 export class HybridCar {
   charge() {}

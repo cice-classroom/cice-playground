@@ -1,4 +1,4 @@
-import { ElectricCar, HybridCar } from '../interface-segregation-good'
+import { ElectricCar, HybridCar } from './interface-segregation-good'
 
 describe('HybridCar', () => {
   itShouldBeARefiller(HybridCar)
