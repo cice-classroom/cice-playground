@@ -1,6 +1,6 @@
-import { Todo } from './todo'
+import { Todo } from '../domain/todo'
 
-export class TodoService {
+export class IsTodoDuplicatedUseCase {
   isTodoDuplicated(todos: Todo[], todoText: string) {
     return todos.map(todo => todo.text).includes(todoText)
   }

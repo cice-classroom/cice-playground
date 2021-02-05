@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { Button } from '../../../../core/components/button/button'
 import { Todo } from '../../domain/todo'
-import { TodoService } from '../../domain/todo-service'
+import { IsTodoDuplicatedUseCase } from '../../application/is-todo-duplicated-use-case'
 
 interface Props {
   onCreate(todoText: string): void
@@ -10,7 +10,7 @@ interface Props {
 
 export const TodoCreate: FC<Props> = ({ onCreate, todos }) => {
   const [todoText, setTodoText] = useState('')
-  const isTodoDuplicated = new TodoService().isTodoDuplicated(todos, todoText)
+  const isTodoDuplicated = new IsTodoDuplicatedUseCase().isTodoDuplicated(todos, todoText)
 
   const clearTodo = () => setTodoText('')
 

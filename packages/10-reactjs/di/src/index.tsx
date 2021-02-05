@@ -1,11 +1,11 @@
+import 'reflect-metadata'
 import ReactDOM from 'react-dom'
 import { container } from './container'
-import { TYPES } from './types'
 import { PersonalAssistant } from './personal-assistant'
 import React from 'react'
 
-const personalAssistant = container.get<PersonalAssistant>(TYPES.PERSONAL_ASSISTANT)
-const personalAssistant2 = container.get<PersonalAssistant>(TYPES.PERSONAL_ASSISTANT)
+const personalAssistant = container.resolve(PersonalAssistant)
+const personalAssistant2 = container.resolve(PersonalAssistant)
 
 ReactDOM.render(
   <React.StrictMode>

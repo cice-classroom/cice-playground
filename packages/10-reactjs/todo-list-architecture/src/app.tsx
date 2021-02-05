@@ -3,6 +3,7 @@ import { TodoList } from './features/todo/ui/todo-list/todo-list'
 import { Todo } from './features/todo/domain/todo'
 import { TodoCreate } from './features/todo/ui/todo-create/todo-create'
 import { TodoRepositoryFactory } from './features/todo/infrastructure/todo-repository-factory'
+import { GetTodosUseCase } from './features/todo/application/get-todos-use-case'
 
 export const App: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -11,10 +12,10 @@ export const App: FC = () => {
     fetchTodos()
   }, [fetchTodos])
 
-  const todoRepository = TodoRepositoryFactory.build()
-
   async function fetchTodos() {
-    const todos = await todoRepository.findAll()
+    const todoRepository = TodoRepositoryFactory.build()
+    const getTodosUseCase = new GetTodosUseCase(todoRepository)
+    const todos = await getTodosUseCase.execute()
     setTodos(todos)
   }
 

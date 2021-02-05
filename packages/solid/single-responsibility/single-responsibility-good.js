@@ -21,6 +21,9 @@ export class Brakes {
   brake() {}
 }
 
+// has relationship
+// is relationship
+
 export class Car {
   brakes = new Brakes()
   engine = new Engine()

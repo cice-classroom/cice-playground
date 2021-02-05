@@ -1,4 +1,4 @@
-import { Car, ElectricEngine, GasolineEngine } from '../dependency-inversion-good'
+import { Car, ElectricEngine, GasolineEngine } from './dependency-inversion-good'
 import { instance, mock, verify } from 'ts-mockito'
 
 describe('ElectricCar', () => {

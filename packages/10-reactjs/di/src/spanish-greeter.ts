@@ -1,4 +1,4 @@
-import { injectable } from 'inversify'
+import { injectable } from 'tsyringe'
 import { Greeter } from './greeter'
 
 @injectable()

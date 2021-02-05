@@ -1,11 +1,11 @@
 // one should "depend upon abstractions, [not] concretions."
 
 // Good 👍
-/*export interface Vehicle {
+/*interface Vehicle {
   move(): void
 }
 
-export interface Engine {
+interface Engine {
   accelerate(): void
 }*/
 
